@@ -1,0 +1,95 @@
+
+This is RAxML MPI Process Number: 1
+
+This is RAxML MPI Process Number: 2
+
+This is RAxML MPI Process Number: 4
+
+This is RAxML MPI Process Number: 5
+
+This is RAxML MPI Process Number: 6
+
+This is RAxML MPI Process Number: 8
+
+This is RAxML MPI Process Number: 9
+
+This is RAxML MPI Process Number: 10
+
+This is RAxML MPI Process Number: 11
+
+This is RAxML MPI Process Number: 12
+
+This is RAxML MPI Process Number: 14
+
+This is RAxML MPI Process Number: 15
+
+This is RAxML MPI Process Number: 0
+
+This is RAxML MPI Process Number: 3
+
+This is RAxML MPI Process Number: 13
+
+This is RAxML MPI Process Number: 7
+Model PROTGAMMAGTRGI does not exist
+
+For BINARY data use:  BINCAT[X]             or BINGAMMA[X]             or
+                      BINCATI[X]            or BINGAMMAI[X]            or
+                      ASC_BINGAMMA[X]       or ASC_BINCAT[X]
+For DNA data use:     GTRCAT[X]             or GTRGAMMA[X]             or
+                      GTRCATI[X]            or GTRGAMMAI[X]            or
+                      ASC_GTRGAMMA[X]       or ASC_GTRCAT[X]
+For Multi-state data: MULTICAT[X]          or MULTIGAMMA[X]           or
+                      MULTICATI[X]         or MULTIGAMMAI[X]          or
+                      ASC_MULTIGAMMA[X]    or ASC_MULTICAT[X]
+For AA data use:      PROTCATmatrixName[F|X]  or PROTGAMMAmatrixName[F|X]  or
+                      PROTCATImatrixName[F|X] or PROTGAMMAImatrixName[F|X] or
+                      ASC_PROTGAMMAmatrixName[X] or  ASC_PROTCATmatrixName[X]
+The AA substitution matrix can be one of the following: 
+
+DAYHOFF, DCMUT, JTT, MTREV, WAG, RTREV, CPREV, VT, 
+BLOSUM62, MTMAM, LG, MTART, MTZOA, PMB, HIVB, HIVW, 
+JTTDCMUT, FLU, STMTREV, DUMMY, DUMMY2, AUTO, LG4M, LG4X, 
+PROT_FILE, GTR_UNLINKED, GTR
+
+With the optional "F" appendix you can specify if you want to use empirical base frequencies.
+With the optional "X" appendix you can specify that you want to do a ML estimate of base frequencies.
+Please note that for mixed models you can in addition specify the per-gene model in
+the mixed model file (see manual for details).
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n032>
+Subject: Job 514130: <mpirun -np 16 raxmlHPC-MPI -s LW-OPS-no-di.phy -b 12345 -N 16 -m PROTGAMMAGTRGI -n no-di-lep-LW-OP1 -p 12345> Exited
+
+Job <mpirun -np 16 raxmlHPC-MPI -s LW-OPS-no-di.phy -b 12345 -N 16 -m PROTGAMMAGTRGI -n no-di-lep-LW-OP1 -p 12345> was submitted from host <u02> by user <ysond001> in cluster <panther>.
+Job was executed on host(s) <16*n032>, in queue <normal>, as user <ysond001> in cluster <panther>.
+</home/ysond001> was used as the home directory.
+</home/ysond001> was used as the working directory.
+Started at Sun Oct 22 12:31:24 2017
+Results reported at Sun Oct 22 12:31:26 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpirun -np 16 raxmlHPC-MPI -s LW-OPS-no-di.phy -b 12345 -N 16 -m PROTGAMMAGTRGI -n no-di-lep-LW-OP1 -p 12345
+------------------------------------------------------------
+
+Exited with exit code 255.
+
+Resource usage summary:
+
+    CPU time   :      0.14 sec.
+    Max Memory :         2 MB
+    Max Swap   :        46 MB
+
+    Max Processes  :         1
+    Max Threads    :         1
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.txt> for stderr output of this job.
+

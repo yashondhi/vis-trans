@@ -1,0 +1,455 @@
+IQ-TREE multicore version 1.5.5 for Linux 64-bit built Jun  2 2017
+Copyright (c) 2011-2017 by Bui Quang Minh, Nguyen Lam Tung,
+Olga Chernomor, Heiko Schmidt, and Arndt von Haeseler.
+
+Host:    n036 (AVX, 31 GB RAM)
+Command: iqtree -s 1-161_Opsin-gene.phy -m MFP -mset LG -bb 1000 -nt AUTO
+Seed:    719432 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Sat Dec  2 17:54:57 2017
+Kernel:  AVX - auto-detect threads (16 CPU cores detected)
+
+Reading alignment file 1-161_Opsin-gene.phy ... Phylip format detected
+Alignment most likely contains protein sequences
+Alignment has 161 sequences with 1109 columns and 824 patterns (455 informative sites, 390 constant sites)
+WARNING: Some sequence names are changed as follows:
+HYM_ZOO_tr|A0A067QNL2|A0A067QNL2_ZOONE -> HYM_ZOO_tr_A0A067QNL2_A0A067QNL2_ZOONE
+HYM_ZOO_tr|A0A067RGM0|A0A067RGM0_ZOONE -> HYM_ZOO_tr_A0A067RGM0_A0A067RGM0_ZOONE
+MeL_Camponotus_Floridanus/7-25 -> MeL_Camponotus_Floridanus_7-25
+MeL_Harpegnathos_saltator/6-24 -> MeL_Harpegnathos_saltator_6-24
+DIP_LUC_tr|A0A0L0C8J1|A0A0L0C8J1_LUCCU -> DIP_LUC_tr_A0A0L0C8J1_A0A0L0C8J1_LUCCU
+HYM_ZOO_tr|A0A067R9I6|A0A067R9I6_ZOONE -> HYM_ZOO_tr_A0A067R9I6_A0A067R9I6_ZOONE
+DIP_LUC_tr|A0A0L0C4K6|A0A0L0C4K6_LUCCU -> DIP_LUC_tr_A0A0L0C4K6_A0A0L0C4K6_LUCCU
+DIP_LUC_tr|A0A0L0CH32|A0A0L0CH32_LUCCU -> DIP_LUC_tr_A0A0L0CH32_A0A0L0CH32_LUCCU
+ODO_LAD_arhtropsin_tr|A0A0C9LGA4|A0A0C9LGA4_LADFU -> ODO_LAD_arhtropsin_tr_A0A0C9LGA4_A0A0C9LGA4_LADFU
+ODO_LAD_Pteropsin_tr|A0A0C9LI82|A0A0C9LI82_LADFU -> ODO_LAD_Pteropsin_tr_A0A0C9LI82_A0A0C9LI82_LADFU
+LEP_PLU_320859_Px005502.1/1-22 -> LEP_PLU_320859_Px005502.1_1-22
+LEP_PLU_327040_Px001281.1/1-12 -> LEP_PLU_327040_Px001281.1_1-12
+LEP_BOM_Bombyx_mori_putC/5-290 -> LEP_BOM_Bombyx_mori_putC_5-290
+DIP_LUC_tr|A0A0L0BXJ6|A0A0L0BXJ6_LUCCU -> DIP_LUC_tr_A0A0L0BXJ6_A0A0L0BXJ6_LUCCU
+DIP_MOJ_RH7_tr|B4KZ42|B4KZ42_DROMO -> DIP_MOJ_RH7_tr_B4KZ42_B4KZ42_DROMO
+DIP_MEL_RH-7-opsin_tr|Q9VTU7|Q9VTU7_DROME -> DIP_MEL_RH-7-opsin_tr_Q9VTU7_Q9VTU7_DROME
+ODO_LAD_Rh7-tr|A0A0C9LNS8|A0A0C9LNS8_LADFU -> ODO_LAD_Rh7-tr_A0A0C9LNS8_A0A0C9LNS8_LADFU
+LEP_PLU_318961_Px007857.1/19-3 -> LEP_PLU_318961_Px007857.1_19-3
+LEP_BOM_RH7_opsin_tr|H9JSM8|H9JSM8_BOMMO -> LEP_BOM_RH7_opsin_tr_H9JSM8_H9JSM8_BOMMO
+LEP_HEL_Heliconius_melpomene_putUV/27- -> LEP_HEL_Heliconius_melpomene_putUV_27-
+ARA_MIM_tr|A0A087TCD7|A0A087TCD7_9ARAC -> ARA_MIM_tr_A0A087TCD7_A0A087TCD7_9ARAC
+DIP_LUC_tr|A0A0L0CD34|A0A0L0CD34_LUCCU -> DIP_LUC_tr_A0A0L0CD34_A0A0L0CD34_LUCCU
+DIP_MOJ_LW-opsin3_tr|B4KAD0|B4KAD0_DROMO -> DIP_MOJ_LW-opsin3_tr_B4KAD0_B4KAD0_DROMO
+DIP_LUC_tr|A0A0L0CJY4|A0A0L0CJY4_LUCCU -> DIP_LUC_tr_A0A0L0CJY4_A0A0L0CJY4_LUCCU
+DIP_MOJ_LW-opsin1_tr|B4K4R8|B4K4R8_DROMO -> DIP_MOJ_LW-opsin1_tr_B4K4R8_B4K4R8_DROMO
+DIP_LUC_tr|A0A0L0CQ52|A0A0L0CQ52_LUCCU -> DIP_LUC_tr_A0A0L0CQ52_A0A0L0CQ52_LUCCU
+DIP_MOJ_LW-opsin-2_tr|B4K591|B4K591_DROMO -> DIP_MOJ_LW-opsin-2_tr_B4K591_B4K591_DROMO
+ARA_MIM_tr|A0A087UIB1|A0A087UIB1_9ARAC -> ARA_MIM_tr_A0A087UIB1_A0A087UIB1_9ARAC
+ARA_MIM_tr|A0A087UIB0|A0A087UIB0_9ARAC -> ARA_MIM_tr_A0A087UIB0_A0A087UIB0_9ARAC
+ARA_MIM_tr|A0A087UIB3|A0A087UIB3_9ARAC -> ARA_MIM_tr_A0A087UIB3_A0A087UIB3_9ARAC
+ARA_MIM_tr|A0A087UEP7|A0A087UEP7_9ARAC -> ARA_MIM_tr_A0A087UEP7_A0A087UEP7_9ARAC
+ODO_LAD_LW5-opsin_tr|A0A0C9LJJ3|A0A0C9LJJ3_LADFU -> ODO_LAD_LW5-opsin_tr_A0A0C9LJJ3_A0A0C9LJJ3_LADFU
+ODO_LAD_LW4_opsin_tr|A0A0C9LM69|A0A0C9LM69_LADFU -> ODO_LAD_LW4_opsin_tr_A0A0C9LM69_A0A0C9LM69_LADFU
+ODO_LAD_LW1-opsin_tr|A0A0C9LNT3|A0A0C9LNT3_LADFU -> ODO_LAD_LW1-opsin_tr_A0A0C9LNT3_A0A0C9LNT3_LADFU
+ODO_LAD_LW6-opsin_tr|A0A0C9LJJ4|A0A0C9LJJ4_LADFU -> ODO_LAD_LW6-opsin_tr_A0A0C9LJJ4_A0A0C9LJJ4_LADFU
+ODO_LAD_LW2-opsintr|A0A0C9LI85|A0A0C9LI85_LADFU -> ODO_LAD_LW2-opsintr_A0A0C9LI85_A0A0C9LI85_LADFU
+ODO_LAD_LW3-opsin-tr|A0A0C9LGA7|A0A0C9LGA7_LADFU -> ODO_LAD_LW3-opsin-tr_A0A0C9LGA7_A0A0C9LGA7_LADFU
+ODO_LAD_LW7-opsin_tr|A0A0C9LM70|A0A0C9LM70_LADFU -> ODO_LAD_LW7-opsin_tr_A0A0C9LM70_A0A0C9LM70_LADFU
+HYM_BIM_tr|Q6ECH8|Q6ECH8_BOMIM -> HYM_BIM_tr_Q6ECH8_Q6ECH8_BOMIM
+LEP_BOM_LW-opsin1_sp|Q95YI3|OPSCE_BOMMO -> LEP_BOM_LW-opsin1_sp_Q95YI3_OPSCE_BOMMO
+LEP_BOM_LW-opsin2_tr|H9JE40|H9JE40_BOMMO -> LEP_BOM_LW-opsin2_tr_H9JE40_H9JE40_BOMMO
+LEP_PLU_321652_Px009837.1/21-3 -> LEP_PLU_321652_Px009837.1_21-3
+HYM_BIM_tr|Q6ECI2|Q6ECI2_BOMIM -> HYM_BIM_tr_Q6ECI2_Q6ECI2_BOMIM
+HYM_BIM_tr|Q86CA8|Q86CA8_BOMIM -> HYM_BIM_tr_Q86CA8_Q86CA8_BOMIM
+HYM_ZOO_tr|A0A067RBE1|A0A067RBE1_ZOONE -> HYM_ZOO_tr_A0A067RBE1_A0A067RBE1_ZOONE
+ARA_MIM_tr|A0A087TK86|A0A087TK86_9ARAC -> ARA_MIM_tr_A0A087TK86_A0A087TK86_9ARAC
+ARA_MIM_tr|A0A087TQX0|A0A087TQX0_9ARAC -> ARA_MIM_tr_A0A087TQX0_A0A087TQX0_9ARAC
+ODO_LAD_SW4-opsin_tr|A0A0C9LM72|A0A0C9LM72_LADFU -> ODO_LAD_SW4-opsin_tr_A0A0C9LM72_A0A0C9LM72_LADFU
+ODO_LAD_SW3-opsin_tr|A0A0C9LJJ8|A0A0C9LJJ8_LADFU -> ODO_LAD_SW3-opsin_tr_A0A0C9LJJ8_A0A0C9LJJ8_LADFU
+ODO_LAD_SW1_opsin_tr|A0A0C9LNU0|A0A0C9LNU0_LADFU -> ODO_LAD_SW1_opsin_tr_A0A0C9LNU0_A0A0C9LNU0_LADFU
+ODO_LAD_SW2-opsin_tr|A0A0C9LGA8|A0A0C9LGA8_LADFU -> ODO_LAD_SW2-opsin_tr_A0A0C9LGA8_A0A0C9LGA8_LADFU
+ODO_LAD_SW5-opsintr|A0A0C9LI86|A0A0C9LI86_LADFU -> ODO_LAD_SW5-opsintr_A0A0C9LI86_A0A0C9LI86_LADFU
+LEP_HEL_UV-opsin1_tr|D3W5S3|D3W5S3_HELME -> LEP_HEL_UV-opsin1_tr_D3W5S3_D3W5S3_HELME
+LEP_HEL_UV-opsin2_tr|C4XV71|C4XV71_HELME -> LEP_HEL_UV-opsin2_tr_C4XV71_C4XV71_HELME
+LEP_PLU_330374_Px017369.1/7-35 -> LEP_PLU_330374_Px017369.1_7-35
+DIP_MEL_UV-opsin2_sp|P08255|OPS4_DROME -> DIP_MEL_UV-opsin2_sp_P08255_OPS4_DROME
+DIP_LUC_tr|A0A0L0BLX9|A0A0L0BLX9_LUCCU -> DIP_LUC_tr_A0A0L0BLX9_A0A0L0BLX9_LUCCU
+DIP_MEL_UV-opsin1_sp|P04950|OPS3_DROME -> DIP_MEL_UV-opsin1_sp_P04950_OPS3_DROME
+HYM_ZOO_tr|A0A067RJW7|A0A067RJW7_ZOONE -> HYM_ZOO_tr_A0A067RJW7_A0A067RJW7_ZOONE
+ODO_LAD_UV-opsin1_tr|A0A0C9LM74|A0A0C9LM74_LADFU -> ODO_LAD_UV-opsin1_tr_A0A0C9LM74_A0A0C9LM74_LADFU
+HYM_BIM_tr|Q4QXT7|Q4QXT7_BOMIM -> HYM_BIM_tr_Q4QXT7_Q4QXT7_BOMIM
+HYM_API_UV-opsin_sp|O61303.1|OPSUV_APIME -> HYM_API_UV-opsin_sp_O61303.1_OPSUV_APIME
+COL_TRI_LWS-opsin_tr|D6WDA5|D6WDA5_TRICA -> COL_TRI_LWS-opsin_tr_D6WDA5_D6WDA5_TRICA
+HYM_API_Blue_Opsin_sp|P90680.2|OPSB_APIME -> HYM_API_Blue_Opsin_sp_P90680.2_OPSB_APIME
+LEP_HEL_Blue-Opsin_tr|E2DZM8|E2DZM8_HELME -> LEP_HEL_Blue-Opsin_tr_E2DZM8_E2DZM8_HELME
+LEP_PLU_328952_Px000090.1/1-12 -> LEP_PLU_328952_Px000090.1_1-12
+LEP_PLU_330151_Px009550.2/27-3 -> LEP_PLU_330151_Px009550.2_27-3
+DIP_LUC_tr|A0A0L0C2F9|A0A0L0C2F9_LUCCU -> DIP_LUC_tr_A0A0L0C2F9_A0A0L0C2F9_LUCCU
+DIP_MEL_Blue-opsin_sp|P91657|OPS5_DROME -> DIP_MEL_Blue-opsin_sp_P91657_OPS5_DROME
+HYM_ZOO_tr|A0A067QRP7|A0A067QRP7_ZOONE -> HYM_ZOO_tr_A0A067QRP7_A0A067QRP7_ZOONE
+MLT_O88495_/1-239 -> MLT_O88495__1-239
+MLT_B2Y4M8_/1-238 -> MLT_B2Y4M8__1-238
+MTR1C_XENL/1-223 -> MTR1C_XENL_1-223
+
+                                                   Gap/Ambiguity  Composition  p-value
+   1  HYM_ZOO_tr_A0A067QNL2_A0A067QNL2_ZOONE              87.11%    failed      0.09%
+   2  HYM_ZOO_tr_A0A067RGM0_A0A067RGM0_ZOONE              53.47%    failed      0.00%
+   3  MeL_Camponotus_Floridanus_7-25                      77.64%    failed      0.02%
+   4  MeL_Harpegnathos_saltator_6-24                      78.63%    failed      3.74%
+   5  DIP_LUC_tr_A0A0L0C8J1_A0A0L0C8J1_LUCCU              40.40%    failed      0.00%
+   6  HYM_ZOO_tr_A0A067R9I6_A0A067R9I6_ZOONE              66.10%    passed     22.91%
+   7  DIP_LUC_tr_A0A0L0C4K6_A0A0L0C4K6_LUCCU              61.95%    passed     60.38%
+   8  DIP_LUC_tr_A0A0L0CH32_A0A0L0CH32_LUCCU              67.36%    passed      8.47%
+   9  ODO_LAD_arhtropsin_tr_A0A0C9LGA4_A0A0C9LGA4_LADFU   41.12%    failed      0.00%
+  10  HYM_API_90606_GB53350-PA_pep_k                      74.12%    passed     37.14%
+  11  HYM_API_C-opsin_C-NP_001035057.1                    70.42%    passed     50.26%
+  12  HYM_ATTA_104748_ACEP13381-PA_p                      83.23%    passed     89.89%
+  13  HEM_RHO_335850_RPRC001048-PA_p                      90.26%    passed     33.02%
+  14  ODO_LAD_Pteropsin_tr_A0A0C9LI82_A0A0C9LI82_LADFU    46.53%    failed      0.00%
+  15  COL_TRI_C-opsin_NP_001138950.1                      68.44%    passed     71.90%
+  16  HEM_RHO_335851_RPRC001049-PA_p                      86.47%    passed     45.10%
+  17  LEP_PLU_320859_Px005502.1_1-22                      79.62%    passed     87.27%
+  18  LEP_PLU_327040_Px001281.1_1-12                      88.91%    passed     67.58%
+  19  LEP_MEL_278343_MCINX005490-PA_                      91.34%    passed     12.73%
+  20  LEP_MEL_276680_MCINX003733-PA_                      88.91%    passed     64.68%
+  21  LEP_HEL_229369_HMEL017535-PA_p                      74.93%    passed     73.10%
+  22  LEP_MAN_248644__Msex2.10233-RA_C-opsin              74.30%    passed     92.10%
+  23  LEP_BOM_119604_BGIBMGA008437-T                      75.02%    passed     79.07%
+  24  LEP_BOM_Bombyx_mori_putC_5-290                      74.30%    passed     75.26%
+  25  DIP_ARC_IU25_07888-mRNA-1                           74.30%    passed     49.52%
+  26  DIP_ANG_68786_AGAP002443-PA_pe                      74.03%    passed     32.88%
+  27  DIP_AED_52451_AAEL005373-PA_pe                      74.03%    passed      5.27%
+  28  DIP_ANG_68787_AGAP002444-PA_pe                      74.03%    passed     31.87%
+  29  DIP_ARC_IU25_09491-mRNA-1                           77.73%    passed     49.26%
+  30  DIP_AED_52415_AAEL005322-PA_pe                      73.85%    passed     84.28%
+  31  DIP_ANG_66956_AGAP007548-PB_pe                      73.85%    passed     21.50%
+  32  DIP_LUC_tr_A0A0L0BXJ6_A0A0L0BXJ6_LUCCU              56.81%    passed      7.26%
+  33  DIP_MOJ_RH7_tr_B4KZ42_B4KZ42_DROMO                  57.53%    passed     84.57%
+  34  DIP_MEL_187817_FBpp0075752_pep                      70.15%    passed     54.96%
+  35  DIP_MEL_RH-7-opsin_tr_Q9VTU7_Q9VTU7_DROME           56.45%    passed     54.66%
+  36  HEM_RHO_342237_RPRC015283-PA_p                      71.69%    passed     59.69%
+  37  PHT_PED_309604_PHUM596710-PA_p                      73.94%    passed     48.84%
+  38  ODO_LAD_Rh7-tr_A0A0C9LNS8_A0A0C9LNS8_LADFU          45.36%    failed      0.00%
+  39  LEP_PLU_318961_Px007857.1_19-3                      71.42%    passed     31.22%
+  40  LEP_BOM_114228_BGIBMGA012539-T                      70.06%    passed     18.25%
+  41  LEP_BOM_RH7_opsin_tr_H9JSM8_H9JSM8_BOMMO            50.77%    failed      0.01%
+  42  LEP_MAN_230976__Msex2.00682-RA_Rh7                  70.33%    passed      5.71%
+  43  LEP_HEL_Heliconius_melpomene_putUV_27-              70.06%    passed     26.16%
+  44  LEP_MEL_279786_MCINX007237-PA_                      78.27%    passed     12.04%
+  45  ARA_MIM_tr_A0A087TCD7_A0A087TCD7_9ARAC              65.92%    passed     88.26%
+  46  DIP_LUC_tr_A0A0L0CD34_A0A0L0CD34_LUCCU              66.73%    passed     97.32%
+  47  DIP_MEL_198422_FBpp0082600_pep                      68.53%    passed     92.71%
+  48  DIP_MOJ_LW-opsin3_tr_B4KAD0_B4KAD0_DROMO            66.73%    passed     98.78%
+  49  DIP_LUC_tr_A0A0L0CJY4_A0A0L0CJY4_LUCCU              66.55%    passed     71.56%
+  50  DIP_MEL_199291_FBpp0083266_pep                      68.35%    passed     39.14%
+  51  DIP_MOJ_LW-opsin1_tr_B4K4R8_B4K4R8_DROMO            66.37%    passed     54.91%
+  52  DIP_LUC_tr_A0A0L0CQ52_A0A0L0CQ52_LUCCU              66.82%    passed     91.70%
+  53  DIP_MEL_199125_FBpp0083111_pep                      68.26%    passed     42.18%
+  54  DIP_MOJ_LW-opsin-2_tr_B4K591_B4K591_DROMO           65.37%    passed     89.55%
+  55  ARA_MIM_tr_A0A087UIB1_A0A087UIB1_9ARAC              80.79%    passed      8.44%
+  56  ARA_MIM_tr_A0A087UIB0_A0A087UIB0_9ARAC              84.76%    passed     61.37%
+  57  ARA_MIM_tr_A0A087UIB3_A0A087UIB3_9ARAC              68.26%    passed     65.44%
+  58  ARA_MIM_tr_A0A087UEP7_A0A087UEP7_9ARAC              64.38%    passed     82.00%
+  59  ODO_LAD_LW5-opsin_tr_A0A0C9LJJ3_A0A0C9LJJ3_LADFU    65.92%    passed     62.15%
+  60  DIP_AED_38043_AAEL007389-PA_pe                      68.44%    passed     85.48%
+  61  DIP_ANG_68812_AGAP002462-PA_pe                      68.44%    passed     95.76%
+  62  DIP_ANG_67249_AGAP001162-PA_pe                      68.53%    passed     96.64%
+  63  PHT_PED_305323_PHUM310950-PA_p                      70.42%    passed     70.50%
+  64  ODO_LAD_LW4_opsin_tr_A0A0C9LM69_A0A0C9LM69_LADFU    66.01%    passed     95.49%
+  65  ODO_LAD_LW1-opsin_tr_A0A0C9LNT3_A0A0C9LNT3_LADFU    66.01%    passed     85.25%
+  66  ODO_LAD_LW6-opsin_tr_A0A0C9LJJ4_A0A0C9LJJ4_LADFU    67.00%    passed     94.46%
+  67  ODO_LAD_LW2-opsintr_A0A0C9LI85_A0A0C9LI85_LADFU     66.37%    passed     85.13%
+  68  ODO_LAD_LW3-opsin-tr_A0A0C9LGA7_A0A0C9LGA7_LADFU    65.92%    passed     88.67%
+  69  ODO_LAD_LW7-opsin_tr_A0A0C9LM70_A0A0C9LM70_LADFU    67.09%    passed     66.78%
+  70  DIP_ARC_IU25_01935-mRNA-1                           65.83%    passed     96.64%
+  71  HYM_ATTA_99734_ACEP19443-PA_pe                      69.07%    passed     30.98%
+  72  HYM_BIM_tr_Q6ECH8_Q6ECH8_BOMIM                      81.51%    passed     82.72%
+  73  HYM_API_92282_GB50034-PA_pep_k                      69.25%    passed     89.93%
+  74  HYM_API_LW2_opsin_NP_001071293.1                    65.28%    passed     94.35%
+  75  LEP_HEL_220635_HMEL003344-PA_p                      68.53%    passed     94.29%
+  76  LEP_BOM_LW-opsin1_sp_Q95YI3_OPSCE_BOMMO             65.64%    passed     82.42%
+  77  LEP_BOM_LW-opsin2_tr_H9JE40_H9JE40_BOMMO            66.82%    passed     80.82%
+  78  LEP_BOM_117014_BGIBMGA007787-T                      69.70%    passed     89.44%
+  79  LEP_PLU_321652_Px009837.1_21-3                      68.44%    passed     94.32%
+  80  LEP_BOM_117013_BGIBMGA007786-T                      68.44%    passed     81.47%
+  81  LEP_MAN_248245__Msex2.09799-RB_LW                   68.44%    passed     72.07%
+  82  DIP_AED_36899_AAEL006484-PA_pe                      68.44%    passed     99.55%
+  83  DIP_AED_52734_AAEL005621-PA_pe                      68.44%    passed     97.66%
+  84  DIP_AED_52735_AAEL005625-PA_pe                      68.44%    passed     97.72%
+  85  DIP_ANG_67248_AGAP001161-PA_pe                      68.44%    passed     99.60%
+  86  DIP_ANG_67250_AGAP012985-PA_pe                      68.53%    passed     92.42%
+  87  DIP_ANG_67270_AGAP013149-PA_pe                      68.53%    passed     92.42%
+  88  DIP_AED_36577_AAEL006259-PA_pe                      68.62%    passed     91.21%
+  89  DIP_AED_36898_AAEL006498-PA_pe                      68.53%    passed     94.44%
+  90  HYM_NAS_301750_NV11485-PA_pep_                      68.89%    passed     95.29%
+  91  HYM_ATTA_99733_ACEP19445-PA_pe                      68.80%    passed     94.65%
+  92  HYM_API_92281_GB50196-PA_pep_k                      68.71%    passed     88.67%
+  93  HYM_API_LW_opsin_NP_001011639.2                     66.01%    passed     82.53%
+  94  HYM_BIM_tr_Q6ECI2_Q6ECI2_BOMIM                      74.39%    passed     35.51%
+  95  HYM_BIM_tr_Q86CA8_Q86CA8_BOMIM                      83.95%    passed     84.84%
+  96  COL_DEN_LWS-opsin_XP_019757680.1                    63.12%    passed     97.98%
+  97  HYM_ZOO_tr_A0A067RBE1_A0A067RBE1_ZOONE              66.10%    passed     86.70%
+  98  HEM_RHO_333985_RPRC010623-PA_p                      68.44%    passed     90.48%
+  99  ARA_MIM_tr_A0A087TK86_A0A087TK86_9ARAC              83.86%    passed     25.61%
+ 100  ARA_MIM_tr_A0A087TQX0_A0A087TQX0_9ARAC              65.46%    passed     83.13%
+ 101  ODO_LAD_SW4-opsin_tr_A0A0C9LM72_A0A0C9LM72_LADFU    64.74%    passed     95.88%
+ 102  ODO_LAD_SW3-opsin_tr_A0A0C9LJJ8_A0A0C9LJJ8_LADFU    65.46%    passed     76.43%
+ 103  ODO_LAD_SW1_opsin_tr_A0A0C9LNU0_A0A0C9LNU0_LADFU    65.92%    passed     94.10%
+ 104  ODO_LAD_SW2-opsin_tr_A0A0C9LGA8_A0A0C9LGA8_LADFU    65.64%    passed     92.35%
+ 105  ODO_LAD_SW5-opsintr_A0A0C9LI86_A0A0C9LI86_LADFU     65.73%    passed     58.99%
+ 106  PHT_PED_307365_PHUM009850-PA_p                      68.44%    passed     56.69%
+ 107  LEP_MEL_275971_MCINX002910-PA_                      80.52%    passed     85.41%
+ 108  LEP_HEL_223585_HMEL022525-PA_p                      68.35%    passed     58.46%
+ 109  LEP_HEL_UV-opsin1_tr_D3W5S3_D3W5S3_HELME            65.92%    passed     76.29%
+ 110  LEP_HEL_225678_HMEL010962-PA_p                      68.35%    passed     83.61%
+ 111  LEP_HEL_UV-opsin2_tr_C4XV71_C4XV71_HELME            65.92%    passed     83.30%
+ 112  LEP_PLU_330374_Px017369.1_7-35                      68.35%    passed     75.48%
+ 113  LEP_BOM_113949_BGIBMGA011685-T                      82.60%    passed     17.28%
+ 114  LEP_MAN_253717__Msex2.13227-RA_UV-opsin             68.26%    passed     82.76%
+ 115  HEM_RHO_334534_RPRC002621-PA_p                      68.17%    passed     92.27%
+ 116  DIP_MOJ_UV-opsin2_XP_002008720.1                    65.37%    passed     99.07%
+ 117  DIP_MEL_188877_FBpp0075097_pep                      69.16%    passed     99.91%
+ 118  DIP_MEL_UV-opsin2_sp_P08255_OPS4_DROME              65.92%    passed     96.76%
+ 119  DIP_LUC_tr_A0A0L0BLX9_A0A0L0BLX9_LUCCU              64.92%    passed     98.31%
+ 120  DIP_MOJ_UV-opsin1_XP_002000102.1                    65.73%    passed     86.54%
+ 121  DIP_MEL_199339_FBpp0083284_pep                      69.16%    passed     89.62%
+ 122  DIP_MEL_UV-opsin1_sp_P04950_OPS3_DROME              65.46%    passed     91.02%
+ 123  HYM_ZOO_tr_A0A067RJW7_A0A067RJW7_ZOONE              68.08%    passed     96.36%
+ 124  ODO_LAD_UV-opsin1_tr_A0A0C9LM74_A0A0C9LM74_LADFU    64.83%    passed     96.29%
+ 125  HYM_ATTA_102738_ACEP24081-PA_p                      68.71%    passed     98.40%
+ 126  HYM_NAS_296580_NV10460-PA_pep_                      68.71%    passed    100.00%
+ 127  HYM_BIM_tr_Q4QXT7_Q4QXT7_BOMIM                      66.55%    passed     99.49%
+ 128  HYM_API_78818_GB51369-PA_pep_k                      68.71%    passed     99.07%
+ 129  HYM_API_UV-opsin_sp_O61303.1_OPSUV_APIME            66.55%    passed     97.55%
+ 130  DIP_ARC_IU25_04889-mRNA-1                           66.01%    passed     93.55%
+ 131  DIP_AED_40889_AAEL009615-PA_pe                      68.08%    passed     96.33%
+ 132  DIP_ANG_65461_AGAP006126-PA_pe                      68.26%    passed     78.18%
+ 133  COL_DEN_UV-opsin_XP_019755582.1                     69.25%    passed     99.00%
+ 134  COL_TRI_LWS-opsin_tr_D6WDA5_D6WDA5_TRICA            66.10%    passed     65.09%
+ 135  COL_TRI_UV-opsin_XP_015833491.1                     67.45%    passed     85.18%
+ 136  HYM_ATTA_105473_ACEP24672-PA_p                      84.49%    passed     34.29%
+ 137  HYM_NAS_300023_NV11914-PA_pep_                      68.71%    passed     98.26%
+ 138  HYM_API_88141_GB41643-PA_pep_k                      68.71%    passed     88.00%
+ 139  HYM_API_Blue_Opsin_sp_P90680.2_OPSB_APIME           66.01%    passed     86.80%
+ 140  HYM_ATTA_105474_ACEP24671-PA_p                      88.73%    passed     17.46%
+ 141  DIP_ARC_IU25_01197-mRNA-1                           65.55%    passed     96.85%
+ 142  DIP_ARC_IU25_06513-mRNA-1                           66.82%    passed     62.24%
+ 143  LEP_HEL_219203_HMEL010706-PA_p                      68.35%    passed     99.98%
+ 144  LEP_HEL_Blue-Opsin_tr_E2DZM8_E2DZM8_HELME           65.83%    passed     99.89%
+ 145  LEP_BOM_122271_BGIBMGA012104-T                      79.53%    passed     96.97%
+ 146  LEP_BOM_122272_BGIBMGA012105-T                      88.55%    passed     54.97%
+ 147  LEP_MAN_244697__Msex2.07985-RA_BLUE                 68.44%    passed     99.84%
+ 148  LEP_MAN_244699__Msex2.07985-RB_BLUE                 73.40%    passed     95.16%
+ 149  LEP_MEL_280402_MCINX007972-PA_                      72.68%    passed     97.74%
+ 150  LEP_PLU_328952_Px000090.1_1-12                      88.64%    passed     61.97%
+ 151  LEP_PLU_330151_Px009550.2_27-3                      68.44%    passed     97.70%
+ 152  DIP_AED_49513_AAEL003035-PA_pe                      68.53%    passed     99.58%
+ 153  DIP_ANG_76450_AGAP010089-PA_pe                      69.61%    passed     90.26%
+ 154  DIP_LUC_tr_A0A0L0C2F9_A0A0L0C2F9_LUCCU              64.92%    passed     77.77%
+ 155  DIP_MOJ_Blue-opsin_XP_002002075.1                   64.92%    passed     93.49%
+ 156  DIP_MEL_178328_FBpp0079875_pep                      68.53%    passed     98.71%
+ 157  DIP_MEL_Blue-opsin_sp_P91657_OPS5_DROME             65.55%    passed     92.82%
+ 158  HYM_ZOO_tr_A0A067QRP7_A0A067QRP7_ZOONE              53.56%    failed      0.00%
+ 159  MLT_O88495__1-239                                   78.45%    failed      0.56%
+ 160  MLT_B2Y4M8__1-238                                   78.54%    failed      0.24%
+ 161  MTR1C_XENL_1-223                                    79.89%    failed      3.44%
+WARNING: 157 sequences contain more than 50% gaps/ambiguity
+****  TOTAL                                               69.67%  13 sequences failed composition chi2 test (p-value<5%; df=19)
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.632 seconds
+
+NOTE: ModelFinder requires 213 MB RAM!
+ModelFinder will test 26 protein models (sample size: 1109) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+Measuring multi-threading efficiency up to 16 CPU cores
+Increase to 10 rounds for branch lengths
+14 trees examined
+Threads: 1 / Time: 18.130 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -102426
+Threads: 2 / Time: 31.992 sec / Speedup: 0.504 / Efficiency: 25% / LogL: -102695
+BEST NUMBER OF THREADS: 1
+
+  1  LG            60718.598    319 122075.196   122333.954   123673.773
+  2  LG+I          60674.790    320 121989.580   122250.290   123593.168
+  3  LG+G4         57740.331    320 116120.663   116381.373   117724.251
+  4  LG+I+G4       57698.889    321 116039.778   116302.451   117648.377
+  5  LG+R2         58459.174    321 117560.347   117823.021   119168.947
+  6  LG+R3         57839.861    323 116325.723   116592.352   117944.345
+  7  LG+R4         57672.945    325 115995.889   116266.515   117624.534
+  8  LG+R5         57608.886    327 115871.772   116146.435   117510.439
+  9  LG+R6         57555.139    329 115768.278   116047.020   117416.967
+ 10  LG+R7         57549.806    331 115761.612   116044.474   117420.324
+ 11  LG+ 10  LG+R7         57520.523    331 115703.045   115985.907   117361.757
+ 11  LG+R8         57515.519    333 115697.038   115984.062   117365.772
+ 12  LG+R9         Skipped 
+ 13  LG+R10        Skipped 
+ 14  LG+F          60814.887    338 122305.773   122603.389   123999.564
+ 15  LG+F+I        60742.165    339 122162.329   122462.095   123861.131
+ 16  LG+F+G4       57650.724    339 115979.448   116279.214   117678.249
+ 17  LG+F+I+G4     57638.995    340 115957.990   116259.917   117661.803
+ 18  LG+F+R2       58390.880    340 117461.760   117763.687   119165.572
+ 19  LG+F+R3       57801.414    342 116286.827   116593.109   118000.662
+ 20  LG+F+R4       57603.242    344 115894.483   116205.164   117618.341
+ 21  LG+F+R5       57506.644    346 115705.288   116020.411   117439.168
+ 22  LG+F+R6       57459.626    348 115615.252   115934.863   117359.155
+ 23  LG+F+R7       57445.197    350 115590.394   115914.537   117344.319
+ 24  LG+F+R8       5 26  LG+F+R10      57452.754    356 115617.508   115955.519   117401.500
+Akaike Information Criterion:           LG+F+R9
+Corrected Akaike Information Criterion: LG+F+R9
+Bayesian Information Criterion:         LG+F+R9
+Best-fit model: LG+F+R9 chosen according to BIC
+
+All model information printed to 1-161_Opsin-gene.phy.model
+CPU time for ModelFinder: 1694.919 seconds (0h:28m:14s)
+Wall-clock time for ModelFinder: 1874.950 seconds (0h:31m:14s)
+Generating 1000 samples for ultrafast bootstrap (seed: 728779)...
+
+NOTE: 192 MB RAM (0 GB) is required!
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -57539.938
+2. Current log-likelihood: -57473.510
+3. Current log-likelihood: -57467.636
+4. Current log-likelihood: -57466.327
+5. Current log-likelihood: -57465.245
+6. Current log-likelihood: -57464.540
+7. Current log-likelihood: -57463.814
+8. Current log-likelihood: -57462.550
+9. Current log-likelihood: -57460.226
+10. Current log-likelihood: -57457.310
+11. Current log-likelihood: -57454.947
+12. Current log-likelihood: -57453.636
+13. Current log-likelihood: -57453.119
+14. Current log-likelihood: -57452.960
+Optimal log-likelihood: -57452.918
+Site proportion and rates:  (0.029,0.021) (0.082,0.072) (0.153,0.141) (0.148,0.270) (0.174,0.455) (0.111,0.680) (0.093,1.121) (0.072,2.064) (0.138,3.789)
+Parameters optimization took 14 rounds (332.549 sec)
+Computing ML distances based on estimated model parameters... 38.937 sec
+WARNING: Some pairwise ML distances are too long (saturated)
+Computing BIONJ tree...
+0.033 seconds
+Log-likelihood of BIONJ tree: -58236.677
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 15.652 second
+Computing log-likelihood of 98 initial trees ... 273.396 seconds
+Current best score: -57452.918
+
+Do NNI search on 20 best initial trees
+EsIteration 20 / LogL: -57356.720 / Time: 0hBETTER TREE FOUND at iteration 1: -57316.710
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 5: -57315.117
+Iteration 10 / LogL: -57378.011 / Time: 0h:49m:49s
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 11: -57308.295
+Iteration 20 / LogL: -57365.842 / Time: 0h:56m:17s
+Finish initializing candidate tree set (20)
+Current best tree score: -57308.295 / CPU time: 1101.369
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 21: -57307.682
+Iteration 30 / LogL: -57310.429 / Time: 1h:2m:45s (1h:38m:51s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 31: -57307.103
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 36: -57306.398
+Iteration 40 / LogL: -57323.878 / Time: 1h:9m:51s (1h:35m:3s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 42: -57306.227
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 49: -57305.465
+Iteration 50 / LogL: -57311.338 / Time: 1h:15m:30s (1h:29m:25s left)
+Log-likelihood cutoff on original alignment: -57366.351
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 60: -57305.274
+Iteration 60 / LogL: -57305.274 / Time: 1hIteration 100 / LogL: -5732Iteration 70 / LogL: -57310.782 / Time: 1h:Iteration 140 / LogL: -573Iteration 80 / LogL: -57305.845 / Time: 1h:3Iteration 150 / LogL: -5Iteration 90 / LogL: -57330.813 / Time: 1h:37m:7s (0h:51m:48s left)
+Iteration 100 / LogL: -57305.744 / Time: 1h:42m:6s (0h:42m:56s left)
+Log-likelihood cutoff on original alignment: -57356.310
+NOTE: Bootstrap correlation coefficient of splitIteration 180 / LogL: -57324.68Iteration 110 / LogL: -57307.963 / TimIteration 190 / LogL: -57325.22Iteration 120 / LogL: -57305.572 / Time: 1h:53m:30s (0h:55m:18s left)
+Iteration 130 / LogL: -57309.519 / Time: 1h:58m:52s (0h:47m:33s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 136: -57305.108
+Iteration 140 / LogL: -57317.228 / Time: 2h:4m:15s (1h:4m:14s left)
+Iteration 150 / LogL: -57305.316 / Time: 2h:9m:38s (0h:56m:47s left)
+Log-likelihood cutoff on original alignment: -57356.310
+Iteration 160 / LogL: -57311.978 / Time: 2h:14m:25s (0h:49m:19s left)
+Iteration 170 / LogL: -57306.793 / Time: 2h:19m:22s (0h:42m:13s left)
+Iteration 180 / LogL: -57310.513 / Time: 2h:24m:6s (0h:35m:18s left)
+Iteration 190 / LogL: -57307.566 / Time: 2h:28m:29s (0h:28m:32s left)
+Iteration 200 / LogL: -57305.213 / Time: 2h:32m:43s (0h:21m:58s left)
+Log-likelihood cutoff on original alignment: -57356.310
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.999
+Iteration 210 / LogL: -57305.278 / Time: 2h:37m:14s (0h:54m:15s left)
+Iteration 220 / LogL: -57318.322 / Time: 2h:41m:32s (0h:47m:35s left)
+Iteration 230 / LogL: -57306.020 / Time: 2h:45m:46s (0h:41m:7s left)
+TREE SEARCH COMPLETED AFTER 237 ITERATIONS / Time: 2h:48m:53s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -57305.108
+Optimal log-likelihood: -57305.107
+Site proportion and rates:  (0.029,0.020) (0.082,0.072) (0.149,0.139) (0.151,0.265) (0.187,0.462) (0.104,0.698) (0.088,1.131) (0.073,2.084) (0.137,3.806)
+Parameters optimization took 1 rounds (3.424 sec)
+BEST SCORE FOUND Iteration 350 / LogL: -57325.387 / Time: 2h:49m:5s (0h:22m:5s left)
+Log-likelihood cutoff on original alignment: -57371.110
+TREE SEARCH COMPLETED AFTER 352 ITERATIONS / Time: 2h:49m:45s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = BETTER TREE FOUND at iteration 359: -57323.419
+Iteration 360 / LogL: -57325.992 / Time: 2h:50m:20s (0h:42m:57s left)
+Iteration 370 / LogL: -57328.600 / Time: 2h:53m:41s (0h:38m:22s left)
+Iteration 380 / LogL: -57330.191 / Time: 2h:56m:59s (0h:33m:51s left)
+Iteration 390 / LogL: -57326.568 / Time: 3h:0m:17s (0h:29m:23s left)
+Iteration 400 / LogL: -57327.519 / Time: 3h:3m:16s (0h:24m:56s left)
+Log-likelihood cutoff on original alignment: -57385.886
+NOTE: Bootstrap correlation coefficient of split occurrence frequencies: 0.995
+Iteration 410 / LogL: -57323.420 / Time: 3h:6m:38s (0h:37m:51s left)
+Iteration 420 / LogL: -57324.781 / Time: 3h:9m:34s (0h:33m:24s left)
+Iteration 430 / LogL: -57329.012 / Time: 3h:13m:5s (0h:29m:7s left)
+Iteration 440 / LogL: -57324.622 / Time: 3h:16m:20s (0h:24m:50s left)
+Iteration 450 / LogL: -57326.464 / Time: 3h:19m:32s (0h:20m:35s left)
+Log-likelihood cutoff on original alignment: -57385.886
+Iteration 460 / LogL: -57324.226 / Time: 3h:22m:35s (0h:16m:23s left)
+TREE SEARCH COMPLETED AFTER 460 ITERATIONS / Time: 3h:22m:35s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -57323.419
+Optimal log-likelihood: -57323.413
+Site proportion and rates:  (0.052,0.034) (0.185,0.116) (0.173,0.257) (0.222,0.489) (0.124,0.871) (0.089,1.712) (0.155,3.638)
+Parameters optimization took 1 rounds (7.744 sec)
+BEST SCORE FOUND : -57323.413
+Creating bootstrap support values...
+Split supports printed to NEXUS file 1-161_Opsin-gene.phy.splits.nex
+Total tree length: 187.868
+
+Total number of iterations: 460
+CPU time used for tree search: 10787.839 sec (2h:59m:47s)
+Wall-clock time used for tree search: 11118.804 sec (3h:5m:18s)
+Total CPU time used: 11756.227 sec (3h:15m:56s)
+Total wall-clock time used: 12164.144 sec (3h:22m:44s)
+
+Computing bootstrap consensus tree...
+Reading input file 1-161_Opsin-gene.phy.splits.nex...
+161 taxa and 749 splits.
+Consensus tree written to 1-161_Opsin-gene.phy.contree
+Reading input trees file 1-161_Opsin-gene.phy.contree
+Log-likelihood of consensus tree: -57324.193
+
+Analysis results written to: 
+  IQ-TREE report:                1-161_Opsin-gene.phy.iqtree
+  Maximum-likelihood tree:       1-161_Opsin-gene.phy.treefile
+  Likelihood distances:          1-161_Opsin-gene.phy.mldist
+
+Ultrafast bootstrap approximation results written to:
+  Split support values:          1-161_Opsin-gene.phy.splits.nex
+  Consensus tree:                1-161_Opsin-gene.phy.contree
+  Screen log file:               1-161_Opsin-gene.phy.log
+
+Date and Time: Sat Dec  2 21:18:03 2017

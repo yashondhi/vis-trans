@@ -1,0 +1,72 @@
+#!/bin/bash
+
+#Load required modules and set $PATH
+#module load mrbayes/3.2.2
+#module load mafft/7.015
+#module load readseq
+PATH=~/scripts:$PATH
+
+#Run MAFFT; generate aligned file (COMMENTED OUT)
+    #
+    #Using this setting, MAFFT will 
+    #automatically select the best 
+    #alignment protocol (slow/fast)
+    #based on file size.
+    #mafft --auto ${1} > ${1/.fas/}.mafft.fas
+    
+#Change sequence names so they 
+#can be converted to NEXUS format.
+    #
+    #This command uses 'namechangebashreal'
+    #which requires $1: the name of the 
+    #input file, and $2: the name of the 
+    #eventual tree file.
+    updated_namechangebashreal_fixed ${1} ${1/.fas/}.nex.con.tre
+
+#Convert sequences to PAUP/NEXUS format.
+    #
+    #This script uses a program called
+    #'readseq' for conversion.
+    $readseq -a -f17 ${1} -o ${1/.fas/}.nex
+    #Convert all consecutive newlines (\n) in the NEXUS file to single newlines.
+    #For some reason, readseq on the cluster adds a bunch of unnecessary newlines.
+    cat -s ${1/.fas/}.nex > ${1/.fas/}.nex.tmp
+    rm ${1/.fas/}.nex
+    mv ${1/.fas/}.nex.tmp ${1/.fas/}.nex
+
+#Ensure that the format is set to 'protein.'
+sed -i "s/format datatype=dna/format datatype=protein/g" ${1/.fas/}.nex
+sed -i "s/FORMAT DATATYPE=NUCLEOTIDE/format datatype=protein/g" ${1/.fas/}.nex
+#This adds a 'bayes block' to the end of the NEXUS file.
+echo "begin mrbayes;" >> ${1/.fas/}.nex
+echo "  log start filename="${1/.fas/}.log.txt";" >> ${1/.fas/}.nex
+echo "	set autoclose=yes nowarnings=yes;" >> ${1/.fas/}.nex
+echo "	lset rates=gamma;" >> ${1/.fas/}.nex
+echo "	prset aamodel=mixed;" >> ${1/.fas/}.nex
+echo "	mcmcp ngen=5000000 stoprule=yes stopval=0.005 samplefreq=100 printfreq=100 relburnin=yes burninfrac=0.25 savebrlens=yes;" >> ${1/.fas/}.nex
+echo "	propset ExtTBR\$prob=0;" >> ${1/.fas/}.nex
+echo "	mcmc;" >> ${1/.fas/}.nex
+echo "	sump;" >> ${1/.fas/}.nex
+#The first 'sumt' line prints a consensus tree with 'rich' data for figtree.
+#(Seems to cause problems so the 'simple' option is being used for now)
+#echo "	sumt contype=halfcompat;" >> ${1/.fas/}.nex
+echo "	sumt contype=halfcompat conformat=simple;" >> ${1/.fas/}.nex
+echo "  log stop;" >> ${1/.fas/}.nex
+echo "" >> ${1/.fas/}.nex
+echo "quit;" >> ${1/.fas/}.nex
+
+#Run MrBayes in parallel mode (using 4 cores) in the background
+    mpirun -np 4 mb ${1/.fas/}.nex
+
+#Recover original (but 'cleaned') sequence names.
+        bash namesback.${1}
+        bash namesback.${1/.fas/}.nex.con.tre
+
+#Create a folder to hold all of these files.
+
+    mkdir ${1/.fas/}_bayes
+    
+    
+    #Move all associated files into that folder.
+    #This also moves ${1}, which is awesome.
+    mv *${1/.fas/}.* ${1/.mafft.fas/.fasta} ${1/.mafft.fas/.distmat} ${1/.fas/}_bayes

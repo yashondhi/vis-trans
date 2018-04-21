@@ -1,0 +1,141 @@
+
+This is RAxML MPI Process Number: 2
+
+This is RAxML MPI Process Number: 4
+
+This is RAxML MPI Process Number: 6
+
+This is RAxML MPI Process Number: 7
+
+This is RAxML MPI Process Number: 8
+
+This is RAxML MPI Process Number: 9
+
+This is RAxML MPI Process Number: 10
+
+This is RAxML MPI Process Number: 12
+
+This is RAxML MPI Process Number: 15
+
+This is RAxML MPI Process Number: 0
+
+This is RAxML MPI Process Number: 3
+
+This is RAxML MPI Process Number: 5
+
+This is RAxML MPI Process Number: 11
+
+This is RAxML MPI Process Number: 13
+
+This is RAxML MPI Process Number: 14
+
+This is RAxML MPI Process Number: 1
+
+
+This is RAxML version 8.2.8 released by Alexandros Stamatakis on March 23 2016.
+
+With greatly appreciated code contributions by:
+Andre Aberer      (HITS)
+Simon Berger      (HITS)
+Alexey Kozlov     (HITS)
+Kassian Kobert    (HITS)
+David Dao         (KIT and HITS)
+Sarah Lutteropp   (KIT and HITS)
+Nick Pattengale   (Sandia)
+Wayne Pfeiffer    (SDSC)
+Akifumi S. Tanabe (NRIFS)
+Charlie Taylor    (UF)
+
+
+Alignment has 369 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 8.18%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 16 non-parametric bootstrap inferences
+
+All free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 369
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: LG
+Using empirical base frequencies
+
+
+
+
+RAxML was called as follows:
+
+raxmlHPC-MPI -s Op1-insect.phy -b 12345 -N 16 -m PROTGAMMALGF -n test -p 12345 
+
+
+Bootstrap[6]: Time 107.324999 seconds, bootstrap likelihood -12697.326447, best rearrangement setting 5
+Bootstrap[9]: Time 114.986141 seconds, bootstrap likelihood -13230.259623, best rearrangement setting 5
+Bootstrap[5]: Time 137.151581 seconds, bootstrap likelihood -11855.542307, best rearrangement setting 5
+Bootstrap[4]: Time 137.240748 seconds, bootstrap likelihood -12297.380085, best rearrangement setting 5
+Bootstrap[15]: Time 138.869901 seconds, bootstrap likelihood -12949.292252, best rearrangement setting 5
+Bootstrap[8]: Time 139.191729 seconds, bootstrap likelihood -12742.760785, best rearrangement setting 5
+Bootstrap[1]: Time 143.811995 seconds, bootstrap likelihood -13257.815398, best rearrangement setting 5
+Bootstrap[11]: Time 155.801603 seconds, bootstrap likelihood -11877.541601, best rearrangement setting 10
+Bootstrap[3]: Time 160.809974 seconds, bootstrap likelihood -13000.065217, best rearrangement setting 5
+Bootstrap[7]: Time 161.231175 seconds, bootstrap likelihood -12866.092512, best rearrangement setting 5
+Bootstrap[13]: Time 161.651095 seconds, bootstrap likelihood -12292.527175, best rearrangement setting 5
+Bootstrap[0]: Time 168.889588 seconds, bootstrap likelihood -12949.757676, best rearrangement setting 5
+Bootstrap[10]: Time 169.225906 seconds, bootstrap likelihood -12613.712542, best rearrangement setting 5
+Bootstrap[2]: Time 186.652380 seconds, bootstrap likelihood -13195.017499, best rearrangement setting 5
+Bootstrap[14]: Time 191.163509 seconds, bootstrap likelihood -13004.441758, best rearrangement setting 5
+Bootstrap[12]: Time 214.139636 seconds, bootstrap likelihood -12441.724437, best rearrangement setting 5
+
+
+Overall Time for 16 Bootstraps 214.174125
+
+
+Average Time per Bootstrap 13.385883
+All 16 bootstrapped trees written to: /home/ysond001/RAxML_bootstrap.test
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@n035>
+Subject: Job 508115: <mpirun -np 16 raxmlHPC-MPI -s Op1-insect.phy -b 12345 -N 16 -m PROTGAMMALGF -n test -p 12345> Done
+
+Job <mpirun -np 16 raxmlHPC-MPI -s Op1-insect.phy -b 12345 -N 16 -m PROTGAMMALGF -n test -p 12345> was submitted from host <u02> by user <ysond001> in cluster <panther>.
+Job was executed on host(s) <16*n035>, in queue <normal>, as user <ysond001> in cluster <panther>.
+</home/ysond001> was used as the home directory.
+</home/ysond001> was used as the working directory.
+Started at Fri Oct 20 20:12:35 2017
+Results reported at Fri Oct 20 20:16:15 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+mpirun -np 16 raxmlHPC-MPI -s Op1-insect.phy -b 12345 -N 16 -m PROTGAMMALGF -n test -p 12345
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time   :   3414.22 sec.
+    Max Memory :       140 MB
+    Max Swap   :      3063 MB
+
+    Max Processes  :        21
+    Max Threads    :        22
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <err.txt> for stderr output of this job.
+

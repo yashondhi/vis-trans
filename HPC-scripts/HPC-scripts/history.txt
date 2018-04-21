@@ -1,0 +1,1000 @@
+  117  ls
+  118  cd ..
+  119  ls
+  120  cd new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark
+  121  ls
+  122  linearize.py new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark.fasta | min30_noXBZJOU_filter.py > new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta
+  123  ls
+  124  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta
+  125  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta | grep -v '>tr' | grep -v '>sp'
+  126  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta | grep '^>' | grep -v '>tr' | grep -v '>sp'
+  127  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta | grep '^>' | grep -v '>tr' | grep -v '>sp' | grep '.t1'
+  128  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta | grep '^>' | grep -v '>tr' | grep -v '>sp' | grep -v '.t1'
+  129  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta | grep '^>' | grep -v '>tr' | grep -v '>sp' | grep -v '>g'
+  130  ls
+  131  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_40_90
+  132  rm new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark.fasta.phr new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark.fasta.pin new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark.fasta.psd new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark.fasta.psi new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark.fasta.psq
+  133  ls
+  134  rm new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_40_90
+  135  module load blast/2.2.26 
+  136  ls
+  137  blastclust_job_creator_luis new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db.fasta
+  138  bjobs
+  139  ls
+  140  bjobs
+  141  nano ~/scripts/min30_noXBZJOU_filter.py 
+  142  bjobs
+  143  ls
+  144  cd new_metazoa_set/
+  145  ls
+  146  cd new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark/
+  147  ls
+  148  cat log.txt 
+  149  cat out.txt 
+  150  ls
+  151  exit
+  152  ls
+  153  bobs
+  154  bjobs
+  155  cd new_metazoa_set/
+  156  ls
+  157  scp -r new_metazoa_from_up_2017_04 /home/liberles/
+  158  scp -r new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark/ /home/liberles/
+  159  cd /home/ccarr114/
+  160  ls /home/ccarr114/
+  161  ls ~/scripts/blastclust_job_creator_luis 
+  162  nano ~/scripts/blastclust_job_creator_luis 
+  163  bjobs
+  164  cd scripts/
+  165  ls
+  166  nano min30_noXBZJOU_filter.py 
+  167  bjobs
+  168  nano ~/scripts/linearize.py 
+  169  bjobs
+  170  ls
+  171  cd new_metazoa_set/
+  172  ls
+  173  cd new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark/
+  174  ls
+  175  nano ~/scripts/linearize.py 
+  176  bjosb
+  177  bjobs
+  178  ls
+  179  cd new_metazoa_set/
+  180  ls
+  181  cd new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark/
+  182  l
+  183  ls
+  184  l
+  185  ls
+  186  exit
+  187  ls
+  188  cd protists_for_luis/
+  189  sl
+  190  ls
+  191  cd alveolata/
+  192  ls
+  193  cp alveolata.fasta ../
+  194  ls
+  195  cd ..
+  196  ls
+  197  cp apicomplexa/apicomplexa.fasta .
+  198  ls
+  199  rm alveolata.fasta 
+  200  rm apicomplexa.fasta 
+  201  PATH=~/scripts/:$PATH
+  202  nano ~/scripts/min30_noXBZJOU_filter.py 
+  203  chmod +x ~/scripts/min30_noX_filter.py 
+  204  linearize.py alveolata/alveolata.fasta | min30_noX_filter.py > alveolata_min30_noX.fasta
+  205  ls
+  206  cat alveolata/alveolata.fasta | grep -c '^>'
+  207  cat alveolata_min30_noX.fasta | grep -c '^>'
+  208  ls
+  209  linearize.py apicomplexa/apicomplexa.fasta | min30_noX_filter.py > apicomplexa_min30_noX.fasta
+  210  ls
+  211   cd ..
+  212  ls
+  213  cd Sacchar
+  214  cd Saccharromycetale/
+  215  ls
+  216  linearize.py saccharromycetales.fasta | min30_noX_filter.py > saccharomycetales_min30_noX.fasta
+  217  ls
+  218  cd ..
+  219  ls
+  220  mkdir luis_filter_redo
+  221  ls
+  222  mv protists_for_luis/alveolata_min30_noX.fasta protists_for_luis/apicomplexa_min30_noX.fasta Saccharromycetale/saccharomycetales_min30_noX.fasta luis_filter_redo/
+  223  cd luis_filter_redo/
+  224  ls
+  225  cat saccharomycetales_min30_noX.fasta | grep -v > | grep B
+  226  cat saccharomycetales_min30_noX.fasta | grep -v | grep B
+  227  cat saccharomycetales_min30_noX.fasta | grep -v '>' | grep B
+  228  cat saccharomycetales_min30_noX.fasta | grep -v '>' | grep X
+  229  ls
+  230  mkdir alveolata
+  231  mv alveolata_min30_noX.fasta alveolata
+  232  mkdir apicomplexa
+  233  mv apicomplexa_min30_noX.fasta apicomplexa
+  234  mkdir saccharomycetales
+  235  mv saccharomycetales_min30_noX.fasta saccharomycetales
+  236  ls
+  237  c alveolata/
+  238  ls
+  239  cd alveolata/
+  240  ls
+  241  module load blast/2.2.26 
+  242  ls
+  243  blastclust_job_creator_luis alveolata_min30_noX.fasta 
+  244  cd ../apicomplexa/
+  245  ls
+  246  blastclust_job_creator_luis apicomplexa_min30_noX.fasta 
+  247  ls
+  248  cd ../saccharomycetales/
+  249  blastclust_job_creator_luis saccharomycetales_min30_noX.fasta 
+  250  ls
+  251  bjobs
+  252  nano ~/scripts/linearize.py
+  253  ls
+  254  chmod +x ~/scripts/linearize_fasta.py 
+  255  linearize_fasta.py saccharomycetales_min30_noX.fasta
+  256  cd ...
+  257  ls
+  258  cd ..
+  259  ls
+  260  cd ..
+  261  ls
+  262  cd G1LLZ1
+  263  ls
+  264  cd G1LLZ1_for_bayes/
+  265  ls
+  266  cd 
+  267  ls
+  268  cd G1LLZ1_for_bayes/
+  269  ls
+  270  cd G1LLZ1_seed_cluster.mafft_bayes/
+  271  ls
+  272  linearize_fasta.py G1LLZ1_seed_cluster.mafft.fas
+  273  las
+  274  l
+  275  ls
+  276  cd ..
+  277  ls
+  278  cd ..
+  279  ls
+  280  linearize_fasta.py G1LLZ1.fasta 
+  281  linearize_fasta.py G1LLZ1.fasta >G1LLZ1_linearized.fasta
+  282  ls
+  283  nano G1LLZ1_linearized.fasta 
+  284  cat G1LLZ1.fasta | linearize_fasta.py 
+  285  ls
+  286  cd new_metazoa_set/
+  287  ls
+  288  cd new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark/
+  289  ls
+  290  cd ..
+  291  cd new_metazoa_from_up_2017_04
+  292  ls
+  293  cd ..
+  294  cd ~/new_metazoa_set/new_metazoa_from_up_2017_04
+  295  ls
+  296  bjobs
+  297  cd new_metazoa_set/
+  298  ls
+  299  cd new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark/
+  300  ls
+  301  head new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db_40_90
+  302  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db_40_90
+  303  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db_40_90 | wc -l
+  304  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db_40_90 | awk '{if (NF > 4) print}' | wc -l
+  305  cat new_metazoa_from_up_2017_04_plus_callorhynchus_and_whaleshark_for_db_40_90 | awk '{if (NF > 4) print}'
+  306  cd ..
+  307  ls
+  308  cd ..
+  309  ls
+  310  ls -.tr
+  311  ls -ltr
+  312  cat ADMIN_usage 
+  313  bjobs
+  314  ls
+  315  cd new_metazoa_set/
+  316  s
+  317  ls
+  318  cd new_metazoa_from_up_2017_04
+  319  ls
+  320  module load blast/2.2.26 
+  321  ls
+  322  formatdb -i new_metazoa_from_up_2017_04.linearized.fordb.fasta -p T -n new_metazoa_from_up_2017_04.linearized.fordb -o T
+  323  ls
+  324  PATH=~/scripts/:$PATH
+  325  break_clusters_into_groups.sh new_metazoa_from_up_2017_04_40_90
+  326  nano ~/scripts/cluster_to_fasta.sh 
+  327  pwd
+  328  nano ~/scripts/cluster_to_fasta.sh 
+  329  ls
+  330  nano ~/scripts/cluster_to_fasta.sh 
+  331  cluster_to_fasta.sh 
+  332  ls
+  333  ls 40_90_10_to_20_for_mb
+  334  ls 40_90_5_to_9_for_mb
+  335  ls 40_90_41_to_60_for_mb
+  336  ls 40_90_401_to_500_for_mb
+  337  ls 40_90_greater_than_600_for_mb
+  338  ls 40_90_101_to_200_for_mb
+  339  mv *for_mb/* .
+  340  ls
+  341  rm -r *_for_mb
+  342  ls
+  343  cat 40_90_10_to_20.ls
+  344  cat 40_90_greater_than_600.ls
+  345  cat new_metazoa_from_up_2017_04_40_90
+  346  rm *.ls
+  347  break_clusters_into_groups.sh new_metazoa_from_up_2017_04.linearized.fordb_40_90
+  348  cluster_to_fasta.sh 
+  349  cd new_metazoa_set/new_metazoa_from_up_2017_04
+  350  ls
+  351  ls 40_90_101_to_200_for_mb
+  352  nano A0A087UZK5.mafft.fas
+  353  ls
+  354  cd 40_90_101_to_200_for_mb
+  355  ls
+  356  nano A0A087UZK5.mafft.fas
+  357  nano ~/scripts/mafft_job_creator.sh 
+  358  nano A0A087UZK5.mafft.fas
+  359  cd ..
+  360  ls
+  361  cd 40_90_10_to_20_for_mb
+  362  ls
+  363  nano A0A075B6H5.mafft.fas
+  364  cd ..
+  365  l
+  366  sls
+  367  ls
+  368  cd 40_90_10_to_20_for_mb
+  369  ls
+  370  nano A0A075B6H5.mafft.fas
+  371  ls
+  372  ls *.fas | wc -l
+  373  ls *.fasta | wc -l
+  374  ls *.fas | wc -l
+  375  cd ..
+  376  ls
+  377  ls *for_mb/*.fas | wc -l
+  378  ls
+  379  ls *for_mb/*.fas | wc -l
+  380  ls *for_mb/*.fasta | wc -l
+  381  cat new_metazoa_from_up_2017_04.linearized.fordb_40_90 | awk '{if (NF > 4) print}'
+  382  cat new_metazoa_from_up_2017_04.linearized.fordb_40_90 | awk '{if (NF > 4) print}' | wc -l
+  383  ls
+  384  chmod +x ~/scripts/aligned_cluster_stats.py 
+  385  PATH=~/scripts/:$PATH
+  386  for i in *_for_mb/*.fas; do
+  387  cat new_metazoa_from_up_2017_04.linearized.fordb_40_90 | awk '{if (NF > 4) print}'
+  388  cat new_metazoa_from_up_2017_04.linearized.fordb_40_90 | awk '{if (NF > 4) print}' | wc -l
+  389  ls *.fas | wc -l
+  390  ls *for_mb/*.fas | wc -l
+  391  ls *for_mb/*.fasta | wc -l
+  392  for i in *_for_mb/*.fas; do cat ${i} | wc -l; done
+  393  for i in *_for_mb/*.fas; do cat ${i} | wc -l; done | awk '{if ($1 == 0) print}'
+  394  for i in *_for_mb/*.fas; do
+  395  ls
+  396  rm *_for_mb/*.mafft.fas
+  397  ls *for_mb/*.fas
+  398  exit
+  399  bjbos
+  400  bjobs
+  401  cd new_metazoa_set/new_metazoa_from_up_2017_04
+  402  ls
+  403  ls 40_90_greater_than_600_for_mb
+  404  ls 40_90_61_to_100_for_mb
+  405  ls 40_90_5_to_9_for_mb
+  406  ls
+  407  ls 40_90_501_to_600_for_mb
+  408  ls 40_90_41_to_60_for_mb
+  409  ls
+  410  ls 40_90_401_to_500_for_mb
+  411  ls 40_90_301_to_400_for_mb
+  412  ls 40_90_21_to_40_for_mb
+  413  ls
+  414  ls 40_90_201_to_300_for_mb
+  415  ls 40_90_10_to_20_for_mb
+  416  ls
+  417  ls 40_90_101_to_200_for_mb
+  418  cd 40_90_101_to_200_for_mb
+  419  ls
+  420  mv new_metazoa_from_up_2017_04.fasta new_metazoa_from_up_2017_04.linearized.fasta new_metazoa_from_up_2017_04.linearized.fordb.fasta ../
+  421  cd ..
+  422  ls
+  423  ls 40_90_101_to_200_for_mb
+  424  module load mafft/7.015 
+  425  mafft
+  426  nano ~/scripts/align_blastclust_fastas.sh 
+  427  nano ~/scripts/mafft_job_creator.sh
+  428  nano ~/scripts/mb_job_creator
+  429  nano ~/scripts/mafft_job_creator.sh
+  430  chmod +x ~/scripts/mafft_job_creator.sh 
+  431  PATH=~/scripts/:$PATH
+  432  ls
+  433  for i in *_for_mb/*.fasta; do
+  434  for i in *_for_mb/*.fasta; do mafft_job_creator.sh ${i}; done
+  435  nano ~/scripts/mafft_job_creator.sh 
+  436  mafft --help
+  437  ls
+  438  cd 40_90_10_to_20_for_mb
+  439  ls
+  440  mafft A0A1B8Y2Y4.fasta
+  441  nano ~/scripts/mafft_job_creator.sh 
+  442  nano ~/scripts/run_mafft.sh 
+  443  nano ~/scripts/mafft_job_creator.sh 
+  444  ls
+  445  cd ..
+  446  ls
+  447  for i in *_for_mb/*.fasta; do mafft_job_creator.sh ${i}; done
+  448  ls
+  449  cd 40_90_5_to_9_for_mb
+  450  ls
+  451  mafft_job_creator.sh X1WHY8.fasta
+  452  ls
+  453  ls *.mafft.fas
+  454  mafft_job_creator.sh X1WHY8.fasta
+  455  bjobs
+  456  ls
+  457  nano ~/scripts/mb_job_creator_normal 
+  458  nano ~/scripts/mafft_job_creator.sh 
+  459  nano ~/scripts/run_mafft.sh 
+  460  chmod +x ~/scripts/run_mafft.sh 
+  461  mafft_job_creator.sh X1WHY8.fasta
+  462  ls
+  463  nano X1WHY8.mafft.fas
+  464  cd ..
+  465  ls
+  466  bjobs
+  467  bkill 573889 575553 575554 575597 575598 575469 575702 575703 575704 575732
+  468  ls
+  469  bjobs
+  470  bkill 573889 575597 575598 575702 575703 575704 575732 575733 575734 575735 575736 575737 575738 575739 575740 575741 575453 575454 575455 575472 575473 575474 575475 575476 575481
+  471  ls
+  472  bjobs
+  473  bkill 573889 575597 575598 575702 575703 575704 575732 575733 575734 575735 575736 575737 575738 575739 575740 575741575454 575455 575475 575476 575481
+  474  bjobs
+  475  bkill 575732 575733 575734 575735 575736 575736 575738 575739 575740 575741
+  476  bjobs
+  477  ls
+  478  for i in *_for_mb/*.fasta; do mafft_job_creator.sh ${i}; done
+  479  ls
+  480  aligned_cluster_stats.py *_for_mb/*.fas
+  481  nano ~/scripts/aligned_cluster_stats.py 
+  482  for i in *_for_mb/*.fasta; do mafft_job_creator.sh ${i} 0; done
+  483  ls
+  484  bjobs
+  485  bjobs | wc -l
+  486  ls
+  487  ls 40_90_101_to_200_for_mb | wc -l
+  488  bjobs | wc -l
+  489  ls
+  490  bjobs | wc -l
+  491  bjobs
+  492  bkill 584448 590520 590565 590566 590570 590571 590573 590574
+  493  bjobs | wc -l
+  494  bkill 584448 590520 590565 590566 590570 590571 590573 590574
+  495  bjobs | wc -l
+  496  bjobs
+  497  bjobs | wc -l
+  498  for i in *_for_mb/*.fasta; do mafft_job_creator.sh ${i} 0; done
+  499  bjobs
+  500  cd new_metazoa_set/
+  501  cd new_metazoa_from_up_2017_04
+  502  ls
+  503  cd 40_90_10_to_20_for_mb
+  504  ls
+  505  module load mrbayes/3.2.2 readseq
+  506  cd ..
+  507  ls
+  508  cd 40_90_41_to_60_for_mb
+  509  ls
+  510  PATH=~/scripts:$PATH
+  511  nano ~/scripts/mb_job_creator_luis
+  512  nano ~/scripts/mb_job_creator
+  513  nano ~/scripts/prealigned_mb_job_creator_fixed
+  514  prealigned_mb_job_creator_fixed
+  515  bjobs
+  516  ls *.p
+  517  ls
+  518  cat A0A151NZK5.mafft.log.txt
+  519  exit
+  520  bjobs
+  521  bjobs | grep RUN
+  522  bjobs | grep RUN | wc -l
+  523  bjobs | grep PEND | wc -l
+  524  module load mrbayes/3.2.2 
+  525  cd new_metazoa_set/new_metazoa_from_up_2017_04
+  526  ls
+  527  cd 40_90_61_to_100_for_mb
+  528  ls
+  529  module load readseq 
+  530  PATH=~/scripts/:$PATH
+  531  ls
+  532  prealigned_mb_job_creator_fixed 
+  533  bjobs | grep PEND | wc -l
+  534  exit
+  535  cd new_metazoa_set/new_metazoa_from_up_2017_04
+  536  ls
+  537  cd 40_90_41_to_60_for_mb
+  538  ls -d *_bayes | wc -ll
+  539  ls -d *_bayes | wc -l
+  540  ls
+  541  exit
+  542  bjobs
+  543  bjobs | grep RUN | wc -l
+  544  bjobs | grep PEND | wc -l
+  545  ls
+  546  cd new_metazoa_set/new_metazoa_from_up_2017_04
+  547  ls
+  548  cd 40_90_21_to_40_for_mb
+  549  ls
+  550  module load readseq mrbayes/3.2.2 
+  551  PATH=~/scripts/:$PATH
+  552  prealigned_mb_job_creator_fixed 
+  553  bjobs | grep PEND | wc -l
+  554  bjobs | grep RUN | wc -l
+  555  exit
+  556  bjobs
+  557  bjobs | grep RUN
+  558  bjobs | grep RUN | wc -l
+  559  bjobs | grep PEND | wc -l
+  560  exit
+  561  bjobs
+  562  ls -ltr
+  563  cd luis_filter_redo/
+  564  ls
+  565  cd alvso
+  566  cd alveolata/
+  567  ls
+  568  cat alveolata_min30_noX_40_90
+  569  cd ..
+  570  ls
+  571  cd apicomplexa/
+  572  ls
+  573  cat apicomplexa_min30_noX_40_90
+  574  cd ..
+  575  ls
+  576  cd saccharomycetales/
+  577  ls
+  578  cat saccharomycetales_min30_noX_40_90
+  579  cd ..
+  580  ls
+  581  cd alveolata/
+  582  ls
+  583  cat log.txt 
+  584  cat out.txt 
+  585  cat error.log 
+  586  cat err.txt 
+  587  ls
+  588  ssh joseph@10.100.20.222
+  589  pwdf
+  590  pwd
+  591  ls
+  592  cd ..
+  593  ls
+  594  cd apicomplexa/
+  595  ls
+  596  nano ~/scripts/cluster_to_fasta.sh 
+  597  ls
+  598  module load blast/2.2.26 
+  599  ls
+  600  formatdb -i apicomplexa_min30_noX.fasta -p T -n apicomplexa_min30_noX -o T
+  601  ls
+  602  nano ~/scripts/cluster_to_fasta.sh 
+  603  ls
+  604  nano ~/scripts/cluster_to_fasta.sh 
+  605  ls
+  606  PATH=~/scripts/:$PATH
+  607  break_clusters_into_groups.sh apicomplexa_min30_noX_40_90
+  608  ls
+  609  cluster_to_fasta.sh 
+  610  bjobs
+  611  cat ADMIN_usage
+  612  bjobs | wc -l
+  613  ls
+  614  cd new_
+  615  cd new_metazoa_set/
+  616  ls
+  617  cd new_metazoa_from_up_2017_04
+  618  ls
+  619  bjbos
+  620  bjobs
+  621  ls
+  622  module avail
+  623  ls
+  624  nano ~/scripts/prealigned_mb_job_creator
+  625  cat ADMIN_usage 
+  626  ls
+  627  bjobs
+  628  cd luis_filter_redo/
+  629  ls
+  630  cd alveolata/
+  631  ls
+  632  cd api
+  633  cd ../apicomplexa/
+  634  ls
+  635  cd ../saccharomycetales/
+  636  ls
+  637  history | greo format
+  638  bjobs
+  639  cd luis_filter_redo/
+  640  ls
+  641  cd alveolata/
+  642  ls
+  643  cd api
+  644  cd ../apicomplexa/
+  645  ls
+  646  cd ../saccharomycetales/
+  647  ls
+  648  history | greo format
+  649  history | grep format
+  650  ls
+  651  formatdb -i saccharomycetales_min30_noX.fasta -p T -n saccharomycetales_min30_noX -o T
+  652  module load blast/2.2.26 
+  653  formatdb -i saccharomycetales_min30_noX.fasta -p T -n saccharomycetales_min30_noX -o T
+  654  ls
+  655  PATH=~/scripts/:$PATH
+  656  break_clusters_into_groups.sh 
+  657  break_clusters_into_groups.sh saccharomycetales_min30_noX_40_90
+  658  ls
+  659  nano ~/scripts/cluster_to_fasta.sh 
+  660  cluster_to_fasta.sh 
+  661  bjobs
+  662  cd luis_filter_redo/
+  663  ls
+  664  cd alveolata/
+  665  ls
+  666  history | grep format
+  667  formatdb -i alveolata_min30_noX.fasta -p T -n alveolata_min30_noX -o T
+  668  module load blast/2.2.26 
+  669  formatdb -i alveolata_min30_noX.fasta -p T -n alveolata_min30_noX -o T
+  670  ls
+  671  nano ~/scripts/
+  672  nano ~/scripts/cluster_to_fasta.sh 
+  673  PATH=~/scripts/:$PATH
+  674  break_clusters_into_groups.sh 
+  675  break_clusters_into_groups.sh alveolata_min30_noX_40_90
+  676  ls
+  677  cluster_to_fasta.sh 
+  678  ls
+  679  cd ..
+  680  ls
+  681  cd luis_filter_redo/
+  682  ls
+  683  cd saccharomycetales/
+  684  ls
+  685  nano ~/scripts/mafft_job_creator.sh 
+  686  nano ~/scripts/align_blastclust_fastas.sh 
+  687  nano ~/scripts/run_mafft.sh 
+  688  module load mafft/7.015 
+  689  ls
+  690  nano ~/scripts/run_
+  691  nano ~/scripts/run_mafft.sh 
+  692  mkdir too_big
+  693  mv 40_90_greater_than_600_for_mb too_big/
+  694  ls 40_90_101_to_200_for_mb
+  695  mv 40_90_101_to_200_for_mb/saccharomycetales_min30_noX.fasta .
+  696  ls
+  697  for i in *for_mb/*.fasta; do
+  698  PATH=~/scripts/:$PATH
+  699  for i in *for_mb/*.fasta; do
+  700  nano ~/scripts/mafft_job_creator.sh 
+  701  nano ~/scripts/run_mafft.sh 
+  702  PATH=~/scripts/:$PATH
+  703  for i in *for_mb/*.fasta; do mafft_job_creator.sh ${i}; done
+  704  bjobs
+  705  cd luis_filter_redo/
+  706  ls
+  707  cd saccharomycetales/
+  708  ls
+  709  cd 40_90_101_to_200_for_mb
+  710  ls
+  711  nano A0A0F4X969.mafft.fas
+  712  cd ..
+  713  ls
+  714  cd ..
+  715  ls
+  716  cd alveolata/
+  717  module load mafft/7.015 
+  718  ls
+  719  mkdir too_big
+  720  mv 40_90_greater_than_600_for_mb too_big/
+  721  mv 40_90_101_to_200_for_mb/alveolata_min30_noX.fasta .
+  722  ls
+  723  for i in *_for_mb/*.fasta; do
+  724  PATH=~/scripts/:$PATH
+  725  for i in *_for_mb/*.fasta; do mafft_job_creator.sh ${i}; done
+  726  bjobs
+  727  ls
+  728  cd 40_90_101_to_200_for_mb
+  729  ls
+  730  nano A0A024VSX3.mafft.fas
+  731  cd ..
+  732  ls
+  733  cd ..
+  734  ls
+  735  cd apicomplexa/
+  736  ls
+  737  ls 40_90_101_to_200_for_mb
+  738  mv 40_90_101_to_200_for_mb/apicomplexa_min30_noX.fasta .
+  739  ls
+  740  mkdir too_big
+  741  mv 40_90_greater_than_600_for_mb
+  742  mv 40_90_greater_than_600_for_mb too_big/
+  743  ls
+  744  for i in *_for_mb/*.fasta; do mafft_job_creator.sh ${i}; done
+  745  bjobs
+  746  ls
+  747  cd cd luis_filter_redo/
+  748  s
+  749  ls
+  750  cd luis_filter_redo/
+  751  ls
+  752  cd alveolata/
+  753  ls
+  754  bjobs
+  755  cd luis_filter_redo/
+  756  ls
+  757  cd alveolata/
+  758  ls
+  759  nano ~/scripts/aligned_cluster_stats.py 
+  760  PATH=~/scripts/:$PATH
+  761  ls
+  762  for i in *for_mb/*.mafft.fas; do aligned_cluster_stats.py ${i} 0; done
+  763  ls
+  764  for i in *for_mb/*.mafft.fas; do aligned_cluster_stats.py ${i} 0 >> alveolata_min30_noX_cluster_stats.txt; done
+  765  ls
+  766  head alveolata_min30_noX_cluster_stats.txt
+  767  nano ~/scripts/aligned_cluster_stats.py 
+  768  ls
+  769  mkdir alveolata_min30_noX_good_clusters
+  770  while read i; do cluster = echo ${i} | awk '{print $1}'
+  771  cat alveolata_min30_noX_cluster_stats.txt | awk '{if ($10 >= 0.3 && $8 > 0.5) print}'
+  772  cat alveolata_min30_noX_cluster_stats.txt | awk '{if ($10 >= 0.3 && $8 > 0.5) print}' | wc -l
+  773  ls
+  774  cat alveolata_min30_noX_cluster_stats.txt | awk '{if ($10 >= 0.3 && $8 > 0.5) print}' > alveolata_min30_noX_good_cluster_stats.txt
+  775  cd ..
+  776  ls
+  777  cd alveolata_good_clusters/
+  778  ls
+  779  cd ..
+  780  ls
+  781  cd protists_
+  782  ls
+  783  cd protists_for_luis/
+  784  ls
+  785  cd alveolata/
+  786  ls
+  787  cat alveolata_40_90 
+  788  chmod +x ~/scripts/find_new_clusters.py 
+  789  ls
+  790  cd ..
+  791  ls
+  792  cd ..
+  793  l
+  794  ls
+  795  cd luis_filter_redo/
+  796  ls
+  797  cd alveolata/
+  798  ls
+  799  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  800  nano ~/scripts/find_new_clusters.py 
+  801  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  802  nano ~/scripts/find_new_clusters.py 
+  803  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  804  nano ~/scripts/find_new_clusters.py 
+  805  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  806  nano ~/scripts/find_new_clusters.py 
+  807  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  808  nano ~/scripts/find_new_clusters.py 
+  809  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  810  nano ~/scripts/find_new_clusters.py 
+  811  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  812  nano ~/scripts/find_new_clusters.py 
+  813  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 
+  814  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 | ec -l
+  815  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 | wc -l
+  816  nano ~/scripts/find_new_clusters.py 
+  817  ls
+  818  cat alveolata_min30_noX_40_90 | grep Q4MYW0
+  819  cat ~/protists_for_luis/alveolata/alveolata_40_90 | grep Q4MYW0
+  820  ls alveolata_min30_noX_good_clusters/
+  821  while read i; do cluster=( `echo ${i} | awk '{print $1}'` ); cp ${cluster} alveolata_min30_noX_good_clusters/; done
+  822  while read i; do cluster=( `echo ${i} | awk '{print $1}'` ); cp ${cluster} alveolata_min30_noX_good_clusters/; done < alveolata_min30_noX_good_cluster_stats.txt
+  823  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 > alveolata_min30_noX_mismatches.txt
+  824  ls
+  825  while read i; do
+  826  mkdir alveolata_min30_noX_rerun
+  827  while read i; do cp alveolata_min30_noX_good_clusters/${i}* alveolata_min30_noX_rerun/; done < alveolata_min30_noX_mismatches.txt
+  828  l
+  829  ls
+  830  cat alveolata_min30_noX_mismatches.txt
+  831  nano ~/scripts/find_new_clusters.py 
+  832  find_new_clusters.py alveolata_min30_noX_40_90 ~/protists_for_luis/alveolata/alveolata_40_90 > alveolata_min30_noX_mismatches.txt
+  833  cat alveolata_min30_noX_mismatches.txt 
+  834  while read i; do cp alveolata_min30_noX_good_clusters/${i}* alveolata_min30_noX_rerun/; done < alveolata_min30_noX_mismatches.txt
+  835  ls
+  836  cd alveolata_min30_noX_rerun
+  837  ls
+  838  module load mrbayes/3.2.2
+  839  ls
+  840  module load readseq 
+  841  prealigned_mb_job_creator_fixed 
+  842  ls
+  843  bjobs
+  844  cd ..
+  845  ls
+  846  cd apicomplexa/
+  847  ls
+  848  for i in *_for_mb/*.mafft.fas; do aligned_cluster_stats.py ${i} 0 >> apicomplexa_min30_noX_cluster_stats.txt; done
+  849  ls
+  850  history | grep if
+  851  cat apicomplexa_min30_noX_cluster_stats.txt | awk '{if ($10 >= 0.3 && $8 > 0.5) print}' > apicomplexa_min30_noX_good_cluster_stats.txt
+  852  car apicomplexa_min30_noX_good_cluster_stats.txt 
+  853  cart apicomplexa_min30_noX_good_cluster_stats.txt 
+  854  cat apicomplexa_min30_noX_good_cluster_stats.txt 
+  855  ls
+  856  find_new_clusters.py apicomplexa_min30_noX_40_90 ~/protists_for_luis/apicomplexa/apicomplexa_40_90 
+  857  find_new_clusters.py apicomplexa_min30_noX_40_90 ~/protists_for_luis/apicomplexa/apicomplexa_40_90 |wc -l
+  858  find_new_clusters.py apicomplexa_min30_noX_40_90 ~/protists_for_luis/apicomplexa/apicomplexa_40_90 > apicomplexa_min30_noX_mismatches.txt
+  859  ls
+  860  mkdir apicomplexa_min30_noX_good_clusters/
+  861  while read i; do
+  862  history | grep header
+  863  history | grep cluster
+  864  while read i; do cluster=( `echo ${i} | awk '{print $1}'` ); cp ${cluster} apicomplexa_min30_noX_good_clusters/; done < apicomplexa_min30_noX_good_cluster_stats.txt
+  865  ls
+  866  mkdir apicomplexa_min30_noX_rerun
+  867  history | grep rerun
+  868  while read i; do cp apicpomplexa_min30_noX_good_clusters/${i}* apicomplexa_min30_noX_rerun/; done < apicomplexa_min30_noX_mismatches.txt
+  869  cd apicomplexa_min30_noX_rerun/
+  870  ls
+  871  cd ..
+  872  ls
+  873  ls apicomplexa_min30_noX_good_clusters
+  874  cat *.fas | grep -v '^>'
+  875  cd apicomplexa_min30_noX_good_clusters
+  876  cat *.fas | grep -v '^>'
+  877  cat *.fas | grep -v '^>' | grep X
+  878  cd ..
+  879  ls
+  880  while read i; do cp apicomplexa_min30_noX_good_cluster/${i}* apicomplexa_min30_noX_rerun/; done < apicomplexa_min30_noX_mismatches.txt
+  881  ls
+  882  ls apicomplexa_min30_noX_rerun
+  883  cat apicomplexa_min30_noX_mismatches.txt
+  884  ls
+  885  ls apicomplexa_min30_noX_good_clusters/A0A0L7M2K8*
+  886  while read i; do cp apicomplexa_min30_noX_good_cluster/${i}* apicomplexa_min30_noX_rerun/; done < apicomplexa_min30_noX_mismatches.txt 
+  887  while read i; do cp apicomplexa_min30_noX_good_cluster/${i}.mafft.fas apicomplexa_min30_noX_rerun/; done < apicomplexa_min30_noX_mismatches.txt 
+  888  cat apicomplexa_min30_noX_good_cluster/A0A024VNW1.mafft.fas
+  889  while read i; do cp apicomplexa_min30_noX_good_clusters/${i}* apicomplexa_min30_noX_rerun/; done < apicomplexa_min30_noX_mismatches.txt 
+  890  ls
+  891  cd apicomplexa_min30_noX_rerun
+  892  ls
+  893  ls | wc -l
+  894  prealigned_mb_job_creator_fixed 
+  895  cd ..
+  896  ls
+  897  cd ..
+  898  ls
+  899  cd saccharomycetales/
+  900  ls
+  901  cd ..
+  902  ls
+  903  mkdir plants
+  904  ls
+  905  cd ..
+  906  ls
+  907  cd 25_NEW_PLANTS_PHYLOGENY/
+  908  ls
+  909  cp 25_NEW_plants.fasta ../luis_filter_redo/plants/
+  910  cd ../luis_filter_redo/plants/
+  911  ls
+  912  module load blast/2.2.26 
+  913  ls
+  914  blastclust_job_creator_luis 
+  915  ls
+  916  cat log.txt 
+  917  l
+  918  ls
+  919  rm log.txt 
+  920  ls
+  921  ls ~/scripts/
+  922  ls -ltr ~/scripts/
+  923  ls
+  924  linearize_fasta.py 25_NEW_plants.fasta | min30_noX_filter.py > 25_NEW_plants_min30_noX.fasta 
+  925  ls
+  926  nano ~/scripts/min30_noX_filter.py 
+  927  cat 25_NEW_plants_min30_noX.fasta
+  928  ls
+  929  rm 25_NEW_plants.fasta
+  930  blastclust_job_creator_luis 25_NEW_plants_min30_noX.fasta
+  931  ls
+  932  nano ~/scripts/blastclust_job_creator_luis 
+  933  cd ..
+  934  ls
+  935  cd saccharomycetales/
+  936  ls
+  937  bjobs
+  938  ls
+  939  history | grep stats
+  940  for i in *_for_mb/*.mafft.fas; do aligned_cluster_stats.py ${i} 0 >> saccharomycetales_min30_noX_cluster_stats.txt; done
+  941  cd luis_filter_redo/
+  942  ls
+  943  saccharomycetales/
+  944  ;ls
+  945  ls
+  946  cd saccharomycetales/
+  947  ls
+  948  cat saccharomycetales_min30_noX_cluster_stats.txt
+  949  cat saccharomycetales_min30_noX_cluster_stats.txt | wc -l
+  950  ls
+  951  ls *_for_mb/*.fasta | wc -l
+  952  ls *_for_mb/*.mafft.fas | wc -l
+  953  history | grep good
+  954  while read i; do cluster=( `echo ${i} | awk '{print $1}'` ); cp ${cluster} saccharomycetales_min30_noX_good_clusters/; done < saccharomycetales_min30_noX_good_cluster_stats.txt
+  955  cat saccharomycetales_min30_noX_cluster_stats.txt | awk '{if ($10 >= 0.3 && $8 > 0.5) print}' > saccharomycetales_min30_noX_good_cluster_stats.txt
+  956  ls
+  957  mkdir saccharomycetales_min30_noX_good_clusters
+  958  while read i; do cluster=( `echo ${i} | awk '{print $1}'` ); cp ${cluster} saccharomycetales_min30_noX_good_clusters/; done < saccharomycetales_min30_noX_good_cluster_stats.txt
+  959  cd ../../
+  960  ls
+  961  ls -ltr
+  962  cd Sacchar
+  963  ls
+  964  cd Saccharromycetale/
+  965  ls
+  966  cd ..
+  967  ls
+  968  cd luis_filter_redo/
+  969  ls
+  970  cd saccharomycetales/
+  971  ls
+  972  PATH=~/scripts/:$PATH
+  973  module load readseq mrbayes/3.2.2 
+  974  ls
+  975  find_new_clusters.py saccharomycetales_min30_noX_40_90 ~/Saccharromycetale/saccharromycetales_40_90 
+  976  find_new_clusters.py saccharomycetales_min30_noX_40_90 ~/Saccharromycetale/saccharromycetales_40_90 > saccharomycetales_min30_noX_mismatches.txt
+  977  ls
+  978  mkdir saccharomycetales_min30_noX_rerun
+  979  ls
+  980  history | grep rerun
+  981  while read i; do cp saccharomycetales_min30_noX_good_clusters/${i}* saccharomycetales_min30_noX_rerun/; done < saccharomycetales_min30_noX_mismatches.txt
+  982  ls
+  983  cd saccharomycetales_min30_noX_rerun
+  984  ls
+  985  ls | wc -l
+  986  cd ..
+  987  ls
+  988  ls saccharomycetales_min30_noX_mismatches.txt
+  989  cat saccharomycetales_min30_noX_mismatches.txt | wc -l
+  990  cd saccharomycetales_min30_noX_rerun
+  991  ls
+  992  for i in *fas; do cat ${i} | grep -c '^>'; done
+  993  cat ~/ADMIN_usage
+  994  ls
+  995  readseq
+  996  mb
+  997  prealigned_mb_job_creator_fixed 
+  998  bjobs | wc -l
+  999  bjobs
+ 1000  exit
+ 1001  bjobs
+ 1002  bjobs | wc-l
+ 1003  bjobs | wc -l
+ 1004  cat ADMIN_usage 
+ 1005  module avail | grep rax
+ 1006  module avail
+ 1007  phyml
+ 1008  module load phyml/20120412/intel 
+ 1009  phyml
+ 1010  phyml-mpi 
+ 1011  phyml-mpi -help
+ 1012  module load raxml/8.2.8 
+ 1013  RAXML
+ 1014  raxmkl
+ 1015  raxml
+ 1016  raxmlHPC
+ 1017  raxmlHPC-MPI
+ 1018  raxmlHPC-MPI --help
+ 1019  raxmlHPC-MPI -h
+ 1020  raxmlHPC-MPI -h | grep CPU
+ 1021  ls
+ 1022  cd luis_filter_redo/
+ 1023  ls
+ 1024  cd alveolata/
+ 1025  ls
+ 1026  cd alveolata_min30_noX_rerun/
+ 1027  ls
+ 1028  cd A0A024VEP7.mafft_bayes
+ 1029  s
+ 1030  ls
+ 1031  nano A0A024VEP7.mafft.fas
+ 1032  cd ..
+ 1033  cp -r A0A024VEP7.mafft_bayes ~/
+ 1034  cd ~/
+ 1035  ls
+ 1036  cd A0A024VEP7.mafft_bayes
+ 1037  ls
+ 1038  module load readseq 
+ 1039  nano ~/scripts/run_mb
+ 1040  readseq -h
+ 1041  readseq --help
+ 1042  $readseq --help
+ 1043  $readseq -a -f12 A0A024VEP7.mafft.fas -o A0A024VEP7.mafft.phy
+ 1044  ls
+ 1045  nano A0A024VEP7.mafft.phy
+ 1046  raxmlHPC-MPI -h
+ 1047  ls
+ 1048  raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -T 16 -m PROTGAMMAJTT
+ 1049  raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -T 16 -m PROTGAMMAJTT -n raxtest
+ 1050  nano A0A024VEP7.mafft.phy
+ 1051  raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -T 16 -m PROTGAMMAJTT -n raxtest
+ 1052  ls
+ 1053  ls -ltr
+ 1054  rm RAxML_info.raxtest
+ 1055  raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -T 16 -m PROTGAMMAJTT -n raxtest
+ 1056  raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -T 16 -m PROTGAMMAJTT -n raxtest -p12345
+ 1057  raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -T 16 -m PROTGAMMAJTT -n raxtest -p 12345
+ 1058  rm RAxML_info.raxtest
+ 1059  raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -T 16 -m PROTGAMMAJTT -n raxtest -p 12345
+ 1060  ls
+ 1061  ls -ltr
+ 1062  rm RAxML_info.raxtest RAxML_bootstrap.raxtest.PID.0 A0A024VEP7.mafft.phy.reduced
+ 1063  ls
+ 1064  ls -ltr
+ 1065  mpirun -np 16 raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 100 -m PROTGAMMAJTT -n raxtest -p 12345
+ 1066  ls
+ 1067  ls -ltr
+ 1068  nano A0A024VEP7.mafft.phy.reduced
+ 1069  nano RAxML_bootstrap.raxtest
+ 1070  nano RAxML_info.raxtest
+ 1071  raxmlHPC-MPI --help
+ 1072  raxmlHPC-MPI -h
+ 1073  s
+ 1074  ls
+ 1075  ls =ltr
+ 1076  ls -ltr
+ 1077  rm RAxML_info.raxtest RAxML_bootstrap.raxtest A0A024VEP7.mafft.phy.reduced
+ 1078  mpirun -np 16 raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 50 -m PROTGAMMAJTT -n raxtest -p 12345 -J STRICT
+ 1079  ls -ltr
+ 1080  mpirun -np 16 raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 50 -m PROTGAMMAJTT -n raxtest -p 12345 -J STRICT
+ 1081  mpirun -np 16 raxmlHPC-MPI -s A0A024VEP7.mafft.phy -b 12345 -N 50 -m PROTGAMMAJTT -n raxtest -p 12345
+ 1082  ls
+ 1083  ls 0ltr
+ 1084  ls -ltr
+ 1085  cat RAxML_info.raxtest | grep Boot
+ 1086  cat RAxML_info.raxtest | grep '^Boot'
+ 1087  cat RAxML_info.raxtest | grep '^Boot' | wc -l
+ 1088  ls
+ 1089  raxmlHPC-MPI -m PROTGAMMAJTT -z RAxML_bootstrap.raxtest -J STRICT -n test2
+ 1090  raxmlHPC -m PROTGAMMAJTT -z RAxML_bootstrap.raxtest -J STRICT -n test2
+ 1091  raxmlHPC-HYBRID -m PROTGAMMAJTT -z RAxML_bootstrap.raxtest -J STRICT -n test2
+ 1092  module load raxml
+ 1093  module load raxml/raxmlLight-1.0.9 
+ 1094  module load raxml/raxmlLight-1.0.9 openmpi/1.6.3/gcc 
+ 1095  module load openmpi/1.6.3/gcc 
+ 1096  module load raxml/raxmlLight-1.0.9
+ 1097  raxmlLight-MPI -m PROTGAMMAJTT -z RAxML_bootstrap.raxtest -J STRICT -n test2
+ 1098  raxmlHPC-HYBRID-SSE3 -m PROTGAMMAJTT -z RAxML_bootstrap.raxtest -J STRICT -n test2
+ 1099  raxmlHPC-HYBRID -m PROTGAMMAJTT -z RAxML_bootstrap.raxtest -J STRICT -n test2
+ 1100  mpirun -np 2raxmlHPC-MPI -m PROTGAMMAJTT -z RAxML_bootstrap.raxtest -J STRICT -n test2
+ 1101  module load raxml/7.4.2 
+ 1102  raxmlHPC-MPI -h
+ 1103  nano ~/scripts/run_raxml.sh
+ 1104  PATH=~/scripts/:$PATH
+ 1105  chmod +x ~/scripts/run_raxml.sh 
+ 1106  ls
+ 1107  run_raxml.sh A0A024VEP7.mafft.phy
+ 1108  ls
+ 1109  bjobs
+ 1110  cd ~/scripts/
+ 1111  ls
+ 1112  nano prealigned_run_mb_fixed
+ 1113  nano prealigned_run_mb_fixed 
+ 1114  nano prealigned_mb_job_creator_fixed 
+ 1115  history
+ 1116  history > history.txt

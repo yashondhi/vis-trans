@@ -1,0 +1,55 @@
+# OpenMP projects should set the environment variable OMP_NUM_THREADS to a reasonably small value (say, 4). 
+dist: trusty
+sudo : false
+
+notifications:
+    slack: veg-igem:rqQd95zjTuZoRNElekQx2CLf
+    email:
+        recipients:
+            - spond@temple.edu
+            - steven@stevenweaver.org
+        on_success: change
+        on_failure: always
+
+branches:
+  only:
+    - master
+
+env:
+  - METHOD_TEST=tests/hbltests/libv3/SLAC.wbf
+  - METHOD_TEST=tests/hbltests/libv3/SLAC-partitioned.wbf
+  - METHOD_TEST=tests/hbltests/libv3/FEL.wbf
+  - METHOD_TEST=tests/hbltests/libv3/MEME.wbf
+  - METHOD_TEST=tests/hbltests/libv3/MEME-partitioned.wbf
+  - METHOD_TEST=tests/hbltests/libv3/FUBAR.wbf
+  - METHOD_TEST=tests/hbltests/libv3/RELAX.wbf
+  - METHOD_TEST=tests/hbltests/libv3/aBSREL.wbf
+  - METHOD_TEST=tests/hbltests/libv3/BUSTED.wbf
+
+language: c++
+compiler: 
+  - gcc
+
+addons:
+  apt:
+    sources:
+        - llvm-toolchain-precise
+        - ubuntu-toolchain-r-test
+        - george-edison55-precise-backports
+    packages:
+        - g++-6
+        - gcc-6
+
+install:
+  - if [ "$CXX" = "g++" ]; then export CXX="g++-6" CC="gcc-6"; fi
+  - cmake . 
+  - make HYPHYMP
+  - make HYPHYGTEST
+
+script: 
+  - export OMP_NUM_THREADS=4
+  - ./HYPHYGTEST
+  - ./HYPHYMP LIBPATH=`pwd`/res/ tests/hbltests/libv3/math.bf
+  - ./HYPHYMP LIBPATH=`pwd`/res/ tests/hbltests/libv3/iofunctions.bf
+  - ./HYPHYMP LIBPATH=`pwd`/res/ tests/hbltests/libv3/utilityfunctions.bf
+  - ./HYPHYMP LIBPATH=`pwd`/res/ $METHOD_TEST

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PATH=~/scripts:$PATH
+
+for i in *.mafft.fas; do
+
+bsub -q PQ_liberles -n 4 -R "span[hosts=1]" -oo "out.txt" -eo "err.txt" prealigned_run_mb_fixed ${i}
+#bsub -n 4 -R "span[hosts=1]" -oo "out.txt" -eo "err.txt" prealigned_run_mb ${i}
+
+done

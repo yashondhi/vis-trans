@@ -1,0 +1,30 @@
+#!/bin/bash 
+#---Number of core 
+#BSUB -n 8
+
+#---Job's name in LSF system
+#BSUB -J codon
+
+#---Error file
+#BSUB -eo %J.err
+
+
+#---Output file 
+#BSUB -oo %J.out
+
+#---LSF Queue name
+#BSUB -q normal
+
+#---use openmpi wrapper
+#BSUB -a openmpi
+##########################################################
+# Setup envrionmental variable. 
+##########################################################
+export NPROCS=`echo $LSB_HOSTS | wc -w`
+. $MODULESHOME/../global/profile.modules
+module load mrbayes/3.2.2
+##########################################################
+##########################################################
+
+# Change only the input file 
+mpirun.lsf mb codon.nex

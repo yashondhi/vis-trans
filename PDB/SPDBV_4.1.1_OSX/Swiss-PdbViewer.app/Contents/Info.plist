@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>txt</string>
+				<string>aa</string>
+				<string>nuc</string>
+				<string>pep</string>
+				<string>fas</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>TEXT</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ent</string>
+				<string>pdb</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>icondoc</string>
+			<key>CFBundleTypeName</key>
+			<string>Swiss-PdbViewer PDB file</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>TEXT</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>iconsurf</string>
+			<key>CFBundleTypeName</key>
+			<string>Swiss-PdbViewer Surface</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>SURF</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<true/>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeIconFile</key>
+			<string>iconpot</string>
+			<key>CFBundleTypeName</key>
+			<string>Swiss-PdbViewer Potential</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>POTE</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<true/>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>prf</string>
+			</array>
+			<key>CFBundleTypeIconFile</key>
+			<string>iconpref</string>
+			<key>CFBundleTypeName</key>
+			<string>Swiss-PdbViewer Preferences</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>PREF</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<true/>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+	</array>
+	<key>CFBundleExecutable</key>
+	<string>Swiss-PdbViewer</string>
+	<key>CFBundleGetInfoString</key>
+	<string>4.1.1 (c)1995-2017 N.Guex</string>
+	<key>CFBundleIconFile</key>
+	<string>icon</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Swiss-PdbViewer 4.1.1</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>4.1.1</string>
+	<key>CFBundleSignature</key>
+	<string>P3D√</string>
+	<key>CFBundleVersion</key>
+	<string>4.1.1</string>
+	<key>CSResourcesFileMapped</key>
+	<true/>
+</dict>
+</plist>

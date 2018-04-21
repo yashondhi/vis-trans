@@ -1,0 +1,76 @@
+#!/bin/bash
+
+#This script will compress sequence names in an aligned .mafft.fas file, 
+#and rewrite abridged headers to the file (and matching headers in the tree file) 
+#after phylogenetic analysis is complete.
+
+#Input format for this script is as follows:
+#./script $1 $2
+#More specifically
+#./namechangebashreal fasta_sequence_file tree_file
+
+#NOTE: It is likely that the tree file will not have
+#been created yet when this script first runs, since
+#the whole point of compressing the sequence names
+#is to convert the sequence file to phylip/NEXUS format 
+#in order to actually generate a tree.
+
+#First, original sequence names need to be saved.
+grep '>' $1 | tr -d '>' > $1.original_names
+original_names=( `grep '>' $1 | tr -d '>'` )
+
+#This is a piped command that creates a list of short headers that can be used in tree files.
+#In order, each command does the following:
+#1. List all headers in a given fasta file.
+#2-3. Change pipes and underscores to spaces.
+#4. Print the fields containing the 5-letter species code ($4), the uniprot code ($2)
+#and the third to last field IFF it contains the gene name.
+#5. Remove any weird characters.
+
+tree_names=( `grep '>' $1 | sed 's/|/ /g' | sed 's/_/ /g' | awk '{if ($(NF - 2) ~ /GN=/) print $4"_"$2"_"$(NF - 2); else print $4"_"$2}' | sed 's/GN=//' | tr "()[],':;{}/\\." "_"` )
+
+#...and a backup file needs to be made.
+cp $1 $1.bk
+
+#This removes spaces and weird characters from fasta names and saves "clean" names in
+#a file called $1.clean 
+sed "s/ /_/g" $1 | sed "s/_>/_/g" | sed "s/->/_/g" | tr -d "()[],':;{}/\\\." > $1.clean
+
+#The "clean" file replaces $1
+mv $1.clean $1
+
+#"Clean" names are stored as a variable
+clean_names=( `grep '>' $1 | tr -d '>'` )
+
+#A file/script will be created called "namesback.$1"
+#If this file alreadt exists, it will be deleted.
+if [ -e namesback.$1 ]
+then
+	rm namesback.$1
+fi
+
+#same for "namesback.$2"
+if [ -e namesback.$2 ]
+then
+	rm namesback.$2
+fi
+
+#Here, original_names are changed to a code that serves as the sequence 
+#header in phyML/MrBayes.
+for ((i=0;i<${#clean_names[@]};++i))
+do
+
+	#The new sequence ID will be a number appended to 5 trailing zeros.
+	j=( `printf "%.5d" $i` )
+	#Each new name will be the word "TAXA" followed by 5 digits.
+	sed -i "s/${clean_names[$i]}/TAXA$j/" $1
+
+	#This line creates a "namesback" file/script for the sequence file.
+	#To execute, type "bash namesback.$1 $1"
+	echo "sed -i 's/"TAXA$j"/"${tree_names[$i]}"/' $1" >> namesback.$1
+	#This line creates a "namesback" file/script for the tree file.
+	#To execute, type "bash namesback.$2 $2"
+	echo "sed -i 's/"TAXA$j"/"${tree_names[$i]}"/'  $2" >> namesback.$2
+	
+done
+

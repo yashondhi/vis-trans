@@ -1,0 +1,53 @@
+<tool id="fasta2phylip-e" name="FASTA2PHYLIP-E" version="1.0">
+    <description>Convert Aligned FASTA to PHYLIP extended</description>
+    <command interpreter="perl">
+	seqConverterG.pl -d$input $format -O$output
+    </command>
+    <inputs>
+	    <param name="input" type="data" format="fasta" label="Input Fasta File" help="Aligned fasta" />
+    <param name="format" type="select" label="Output Format">
+      <option value="-ope">Phylip extended</option>
+      <option value="-opc">Phylip classic</option>
+      <option value="-on">Nexus</option>
+    </param>
+    </inputs>
+    <outputs>
+	<data format="txt" name="output" label="${tool.name} on ${on_string}: output file" />
+    </outputs>
+    <help>
+**What it does**
+
+FASTA2PHYLIP-E uses seqConverter.pl (Bininda-Emonds, 2010) to convert an aligned FASTA input file to PHYLIP extended file format.
+
+------
+
+**Inputs**
+
+Aligned FASTA file.
+
+------
+
+**Outputs**
+
+PHYLIP extended file.
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a 
+publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Bininda-Emonds, O.R.P. 2010. seqConverter.pl. Program distributed by the author. AG Systematik und 
+Evolutionsbiologie, IBU - Fakultät V, Carl von Ossietzky Universität Oldenburg.
+
+http://www.molekularesystematik.uni-oldenburg.de/33997.html#Sequences
+
+    </help>
+</tool>

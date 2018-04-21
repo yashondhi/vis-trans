@@ -1,0 +1,60 @@
+<tool id="get_1_gb" name="Get_1_GB" version="1.0">
+    <description> Grab one sequence from GenBank using accession number query </description>
+    <requirements>
+        <requirement type="package">bioperl</requirement>
+    </requirements>
+    <command interpreter="perl">
+        get_1_gb.pl $acc $database $outtype $outfile 2>&amp;1
+    </command>
+    <inputs>
+	<param name="acc" type="text" label="Accession Number" />
+        <param name="database" type="select" label="Protein or Nucleotide Data">
+                <option value="nucleotide">Nucleotide</option>
+                <option value="protein">Protein</option>
+        </param>
+        <param name="outtype" type="select" label="File Format">
+                <option value="fasta">Fasta</option>
+                <option value="genbank">GenBank</option>
+        </param>
+    </inputs>
+    <outputs>
+        <data format="txt" name="outfile" label="Sequence data from ${tool.name} with ${on_string}" />
+    </outputs>
+    <help>
+**What it does**
+
+Get_1_GB grabs one sequence from GenBank using accession number query.
+
+------
+
+**Inputs**
+
+GenBank accession number
+
+------
+
+**Outputs**
+
+FASTA or GenBank
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Link to Genbank: http://www.ncbi.nlm.nih.gov/genbank/
+    </help>
+</tool>

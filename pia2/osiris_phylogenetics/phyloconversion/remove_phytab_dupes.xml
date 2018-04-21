@@ -1,0 +1,48 @@
+<tool id="remove_phytab_dupes" name="remove_phytab_dupes" version="1.0">
+    <description> Finds duplicates in phytab format files </description>
+    <command interpreter="perl">
+        remove_phytab_dupes.pl $infile $keeplongest $ignoregaps $okfile $dupefile 
+    </command>
+    <inputs>
+        <param format="tabular" name="infile" type="data" label="Phytab Input file" help=""/>
+    <param name="keeplongest" type="select" optional="false" label="Keep which duplicate?">
+      <option value="1">Keep Longest Duplicate</option>
+      <option value="0">Keep First Duplicate in File</option>
+    </param>
+        <param name='ignoregaps' type='boolean' checked='true' falsevalue ='0' truevalue='1' label='Ignore Gaps' help='Whether to ignore gaps when calculating length for which duplicate to retain. Gaps not removed from file.'/>
+    </inputs>
+    <outputs>
+	<data format="tabular" name="okfile" label="Unique phytab lines from ${on_string}" />
+	<data format="tabular" name="dupefile" label="Duplicated phytab lines from ${on_string}" />
+    </outputs>
+    <help>
+**What it does**
+
+Finds lines with identical species (column 1) and partition (column 2) and writes on of the duplicates to one file, unique lines to another file.
+
+------
+
+**Inputs**
+
+1. PHYTAB format input file.
+2. Choose whether to keep the longest or first sequence of a duplicated species in output file one. 
+3. Choose whether to ignore gap characters (-) when comparing length of sequences for input #2.
+
+------
+
+**Outputs**
+
+Two PHYTAB format files. One contains only unique species. The other contains duplicates. 
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>

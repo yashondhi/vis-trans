@@ -1,0 +1,101 @@
+<tool id="JModelTest" name="JModelTest 1.0" version="1.0">
+	<description>Statistical selection of best-fit models of nucleotide substitution</description>
+	<command interpreter="perl">
+		#if $likelihoodInput.likelihoodStyle == "-t":
+			jmodeltest.pl $input -t ${likelihoodInput.likelihoodPARAM} $criterion $inputType
+		#elif $likelihoodInput.likelihoodStyle == "-u":
+			jmodeltest.pl $input -u ${likelihoodInput.likelihoodFILE} $criterion $inputType
+		#else:
+		#end if#
+	</command>
+	
+	<inputs>
+		<param name="inputType" type="select">
+			<option value="fasta">FASTA</option>
+			<option value="nex">NEXUS</option>
+			<option value="phylip">Phylip</option>
+		</param>
+	
+		<param name="input" type="data" label="Input file" help="Can be: PHYLIP, FASTA or NEXUS"/>
+		
+		<conditional name="likelihoodInput">
+			<param name="likelihoodStyle" type="select" label="Likelihood Option" >
+				<option value="-t">Base Tree</option>
+				<option value="-u">User Specified Tree</option>
+			</param>
+			
+			<when value="-t">
+				<param name="likelihoodPARAM" type="select" label="Likelihood options">
+					<option value="fixed">Fixed BIONJ-JC</option>
+					<option value="BIONJ">BIONJ</option>
+					<option value="ML">ML Optimized</option>
+				</param>
+			</when>
+			
+			<when value="-u">
+				<param name="likelihoodFILE" type="data" format="trees" label="User specified tree file" />
+			</when>
+		</conditional>
+
+		<param name="criterion" type="select" label="Information criterion">
+			<option value="AIC">AIC</option>
+			<option value="BIC">BIC</option>
+			<option value="DT">DT</option>
+			<option value="hLRT">hLRT</option>
+		</param>
+		
+	</inputs>
+	
+	<outputs>
+		<data name="output" from_work_dir="output.txt" format="txt" />
+		<data name="errors" from_work_dir="err_log.txt" format="txt" />
+	</outputs>
+    <help>
+**What it does**
+
+"jModelTest is a new program for the statistical selection of models of nucleotide substitution based on “Phyml” (Guindon and Gascuel 2003. 
+A simple, fast, and accurate algorithm to estimate large phylogenies by maximum likelihood. Syst Biol. 52:696–704.). It implements 5 
+different selection strategies, including “hierarchical and dynamical likelihood ratio tests,” the “Akaike information criterion,” the 
+“Bayesian information criterion,” and a “decision-theoretic performance-based” approach. This program also calculates the relative 
+importance and model-averaged estimates of substitution parameters, including a model-averaged estimate of the phylogeny."
+
+(Posada, 2008; see full citation below)
+
+------
+
+**Inputs**
+
+Phylip, FASTA, NEXUS
+
+------
+
+**Outputs**
+
+Text file
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at 
+bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please 
+consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+jModelTest: Posada, D. 2008. jModelTest: Phylogenetic Model Averaging. Mol Biol Evol 25 (7): 1253-1256.
+
+Phyml: Guindon S and Gascuel O (2003). A simple, fast and accurate method to estimate large phylogenies by maximum-likelihood". Systematic 
+Biology 52: 696-704.
+    </help>
+</tool>

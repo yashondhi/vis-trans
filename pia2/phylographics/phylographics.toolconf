@@ -1,0 +1,5 @@
+<section name="Phylographics" id="phylographics">
+       <tool file="osiris/phylographics/tab2trees.xml" />
+       <tool file="osiris/phylographics/TreeVector.xml" />
+ </section>
+

@@ -1,0 +1,53 @@
+<tool id="phytab_ssr" name="phytab Similar Sequence Remover">
+	<description>Removes redundant sequences</description>
+        <requirements>
+          <requirement type="package">java</requirement>
+        </requirements>
+	<command interpreter="python">phytab_ssr.py -i $in -s $percentage -a $h</command>
+
+	<inputs>
+		<param name="in" type="data" format="fasta,tabular,text" label="Input Sequences" help="Single/multi-gene PHYTAB or single-gene FASTA accepted." />
+		<param name="percentage" type="float" value="0.99" label="Percentage similarity to be considered redundant."/>
+		<param name="h" type="boolean" truevalue="t" falsevalue="f" label="Align first 100 characters instead of entire sequence" /> 
+	</inputs>
+	
+	<outputs>
+                <data from_work_dir="data/results.data" format="input" name="nonredundant seqs" label="${tool.name} on ${on_string}: Nonredundant Sequences"/>
+	</outputs>
+	
+	<help>
+**What it does**
+
+phytab Similar Sequence Remover will take a set of sequences in either FASTA or phytab format and remove redundant sequences based on the minimum similarity percentage specified. 
+
+------
+
+**Inputs**
+
+FASTA, phytab
+
+------
+
+**Outputs**
+
+FASTA, phytab
+
+-------
+
+**Additional Information**
+
+Introduction to phytab format: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+	</help>
+</tool>

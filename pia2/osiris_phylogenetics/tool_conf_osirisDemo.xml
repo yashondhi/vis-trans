@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<toolbox>
+<section name="Osiris: Get Data" id="getdata">
+    <tool file="data_source/upload.xml" />
+    <tool file="osiris_phylogenetics/getdata/get_seqs.xml" />
+    <tool file="osiris_phylogenetics/getdata/get_1_gb.xml" />
+    <tool file="osiris_phylogenetics/getdata/get_gb.xml" />
+    <tool file="osiris_phylogenetics/getdata/get_gb_sp.xml" />
+    <tool file="osiris_phylogenetics/getdata/genbankstrip.xml" />
+    <tool file="osiris_phylogenetics/getdata/gb_gene_summary.xml" />
+    <tool file="osiris_phylogenetics/getdata/generate_from_phylota.xml" />
+    <tool file="osiris_phylogenetics/getdata/phylota_with_taxid.xml" />
+  </section>
+<section name="Osiris: Orthologs" id="orthologs">   
+    <label text="Ortholog Determination" id="orthologs" />
+      <tool file="osiris_phylogenetics/orthologs/evolmap.xml" />
+      <tool file="osiris_phylogenetics/orthologs/evolmap_output.xml" />
+      <tool file="osiris_phylogenetics/orthologs/evolmap_output_exclude.xml" />
+      <tool file="osiris_phylogenetics/orthologs/hmmbuild.xml" />
+      <tool file="osiris_phylogenetics/orthologs/hmmsearch.xml"/>  
+      <tool file="osiris_phylogenetics/orthologs/hmmsearch2table.xml"/>  
+      <tool file="osiris_phylogenetics/orthologs/domain_report.xml"/>  
+      <tool file="osiris_phylogenetics/orthologs/pulldomain2fasta.xml"/>  
+      <tool file="osiris_phylogenetics/orthologs/annotate_hmmsearchdomains.xml"/>  
+      <tool file="osiris_phylogenetics/orthologs/ucsb_hamster/ucsb_hamster.xml" />
+ </section>
+<section name="Osiris: Alignment" id="alignment">
+  <label text="Alignment" id="phyloalign" />
+        <tool file="osiris_phylogenetics/alignment/phytab_muscle.xml" />
+        <tool file="osiris_phylogenetics/alignment/phytab_aliscorecut.xml"/>
+        <tool file="osiris_phylogenetics/alignment/phytab_mafft.xml" />
+        <tool file="temptools/mafft.xml" />
+        <tool file="osiris_phylogenetics/alignment/profilemafft.xml" />
+        <tool file="osiris_phylogenetics/alignment/phytab_mview.xml" />
+        <tool file="osiris_phylogenetics/alignment/phytab_prank.xml" />
+        <tool file="osiris_phylogenetics/alignment/mview.xml" />
+  <label text="Alignment masking" id="alignmask" />
+        <tool file="osiris_phylogenetics/alignment/phytab_ssr.xml" />
+        <tool file="osiris_phylogenetics/alignment/phytab_gblocks.xml" />
+        <tool file="osiris_phylogenetics/alignment/gblocks.xml" />
+        <tool file="osiris_phylogenetics/alignment/gap-rem.xml" />
+        <tool file="osiris_phylogenetics/alignment/phytab_consensus.xml" />
+  <label text="Concatenation" id="concat" />
+        <tool file="osiris_phylogenetics/alignment/fasconcat.xml" />
+        <tool file="osiris_phylogenetics/alignment/phylocatenator.xml" />
+        <tool file="osiris_phylogenetics/alignment/titrate_phytabG.xml" />
+        <tool file="osiris_phylogenetics/alignment/fasta_concatenate_by_species.xml" />
+  <label text="ModelTest" id="modeltest" />
+        <tool file="osiris_phylogenetics/alignment/jmodeltest.xml"/>
+        <tool file="osiris_phylogenetics/alignment/prottest.xml" />
+ </section>
+<section name="Osiris: Phyloconversion" id="phyloconv">
+    <label text="phytab" id="phytabconversion" />
+        <tool file="osiris_phylogenetics/phyloconversion/prune_phytab_using_list.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/remove_phytab_dupes.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/change_sp.xml" />
+    <label text="fasta" id="fastaconversion" />
+        <tool file="osiris_phylogenetics/phyloconversion/fasta2phylip-e.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/fasta2phytab.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/uniprotfasta2phytab.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/addstring2fashead.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/beautify_fasta.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/raxify_fasta.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/length_outliers.xml" />
+    <label text="GenBank" id="gbconversion" />
+        <tool file="osiris_phylogenetics/phyloconversion/gb2phytab.xml" />
+        <tool file="osiris_phylogenetics/phyloconversion/remove_gbs_dupes.xml" />
+    <label text="phylip" id="phylipconversion" />
+        <tool file="osiris_phylogenetics/phyloconversion/phylip2fasta.xml" />
+    <label text="tnt" id="tntconversion" />
+        <tool file="osiris_phylogenetics/phyloconversion/tnt2phytab.xml" />
+</section>
+<section name="Osiris: Phylogenies" id="phylogenies">
+  <label text="Phylogeny Estimation" id="phyloprogs" />
+        <tool file="osiris_phylogenetics/phylogenies/raxml.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phylobayes33_wrapper.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/raxml_boot.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/raxml_pars.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phytab_raxml.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phytab_raxml_boot.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phytab_raxml_pars.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/raxml_read_placement.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/genetree_read_placement.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/place_fossil_ml.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phytab_clearcut.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/NJst.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phytab_raxml.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/long_branch_finder.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phytab_raxml_boot_avg_trimmer.xml" />
+        <tool file="osiris_phylogenetics/phylogenies/phytab_raxml_boot_avg.xml" />
+ </section>
+<section name="Osiris: Phylostatistics" id="phylostatistics">
+ <label text="Phylogeny Stats" id="treestats" />
+       <tool file="osiris_phylogenetics/phylostatistics/PDpairs.xml" />
+       <tool file="osiris_phylogenetics/phylostatistics/tree_support_raxml.xml" />
+       <tool file="osiris_phylogenetics/phylostatistics/tree_support_phyutility.xml" />
+       <tool file="osiris_phylogenetics/phylostatistics/SHtest.xml" />
+       <tool file="osiris_phylogenetics/phylostatistics/tree_species.xml" />
+ </section>
+<section name="Osiris: Phylographics" id="phylographics">
+       <tool file="osiris_phylogenetics/phylographics/tab2trees.xml" />
+       <tool file="osiris_phylogenetics/phylographics/TreeVector.xml" />
+ </section>
+<section name="Other: Text Manipulation" id="textmanipulation">
+       <tool file="osiris_phylogenetics/append_names.xml"/>  
+       <tool file="osiris/text-manipulation/find_and_replace.xml" />
+       <tool file="osiris/text-manipulation/revcomp.xml" />
+       <tool file="osiris_phylogenetics/orthologs/ucsb_hamster/translate.xml" />
+       <tool file="osiris/text-manipulation/edit_headers.xml" />
+       <tool file="fasta_tools/tabular_to_fasta.xml" />
+       <tool file="filters/fixedValueColumn.xml" />
+       <tool file="stats/column_maker.xml" />
+       <tool file="filters/catWrapper.xml" />
+       <tool file="filters/cutWrapper.xml" />
+       <tool file="filters/mergeCols.xml" />
+       <tool file="filters/convert_characters.xml" />
+       <tool file="filters/CreateInterval.xml" />
+       <tool file="filters/cutWrapper.xml" />
+       <tool file="filters/changeCase.xml" />
+       <tool file="filters/find_and_replace.xml"/>
+       <tool file="filters/pasteWrapper.xml" />
+       <tool file="filters/remove_beginning.xml" />
+       <tool file="filters/randomlines.xml" />
+       <tool file="filters/headWrapper.xml" />
+       <tool file="filters/tailWrapper.xml" />
+       <tool file="filters/trimmer.xml" />
+       <tool file="filters/wc_gnu.xml" />
+ </section>
+<section name="Galaxy: Blast tools" id="blasttools">
+           <tool file="ncbi_blast_plus/ncbi_blastn_wrapper.xml" />
+           <tool file="ncbi_blast_plus/ncbi_blastp_wrapper.xml" />
+           <tool file="ncbi_blast_plus/ncbi_blastx_wrapper.xml" />
+           <tool file="ncbi_blast_plus/ncbi_tblastn_wrapper.xml" />
+           <tool file="ncbi_blast_plus/ncbi_tblastx_wrapper.xml" />
+           <tool file="ncbi_blast_plus/blastxml_to_tabular.xml" />
+ </section>
+<section name="Galaxy: Other" id="miscgalaxy">
+	  <tool file="temptools/get_orfs_or_cdss.xml" />
+ </section>
+</toolbox>
+  

@@ -1,0 +1,59 @@
+<tool id="fasconcat" name="FASConcat" version="1.0">
+	<description>Appends all input sequence files into one file</description>
+	<command interpreter="perl">fasconcat.pl $outputFormat $totalNum
+	#for $file in $sourceFiles
+		${file.input}
+	#end for
+	</command>
+	<inputs>
+		<param name="totalNum" type="integer" value="1" label="Total number of input files" />
+		<repeat name="sourceFiles" title="Input files (FASTA, Phylip or NEXUS)" >
+			<param name="input" type="data" label="input files" />
+		</repeat>
+		<param name="outputFormat" type="select" label="Choose the output file format">
+			<option value="0" selected="true">FASTA Only</option>
+			<option value="1">Phylip Only</option>
+			<option value="2">NEXUS Only</option>
+		</param>
+	</inputs>
+
+	<outputs>
+		<data from_work_dir="FcC_info.xls" />
+		<data from_work_dir="output" />
+	</outputs>
+    <help>
+**What it does**
+
+FASConcat appends all input sequences into one file.
+
+------
+
+**Inputs**
+
+FASTA, Phylip, NEXUS
+
+------
+
+**Outputs**
+
+FASTA, Phylip, NEXUS
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this 
+tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+ </help>
+</tool>

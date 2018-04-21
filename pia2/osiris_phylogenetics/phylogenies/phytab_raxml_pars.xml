@@ -1,0 +1,49 @@
+<tool id="phytab_raxml_pars" name="Phytab RAxML-Parsimony" version="1.0">
+  <description>Phytab RAxML - Parsimony for phytab format</description>
+  <requirements>
+    <requirement type="package">raxml</requirement>
+  </requirements>
+  <command interpreter="python">
+    phytab_raxml_pars.py -i $sequence -e $evo -f $efile -T 4> $stdout 2>&amp;1
+  </command>
+<!-- if using a queuing system, make sure number of ppn in jobrunner matches threads as set above -->
+
+  <inputs>
+    <param format="tabular" name="sequence" type="data" label="PHYTAB sequence file"/>
+    <param name="evo" type="select" format="text">
+      <label>Model of evolution to apply to all data partitions (-m)</label>
+      <option value="GTRGAMMA">DNA</option> <option value="PROTGAMMADAYHOFF">PROTEIN</option>
+    </param>
+    <param format="txt" name="efile" type="data" optional="true" value="n" label="Tab-delimited file with partition name in first column, evolutionary model in the second column. Must be RAxML 
+valid model names. (optional)"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="tabular" name="Parsimony Tree(s)" label="${tool.name} on ${on_string}: results" from_work_dir="results/parsimony_results.txt" />
+  </outputs>
+  <tests>
+  </tests>
+  <help>
+**What it does**
+This tool computes a randomized parsimony starting tree with RAxML (-y argument).  Single or multi-gene phytab files accepted.
+
+Also, see RAxML site for additional information: https://github.com/stamatak/standard-RAxML
+
+**Output**
+A tab-delimited file containing partition-name and newick parsimony tree on each line.  This output is accepted by the tool 'RAxML using Starting Trees' to optimize branch lengths for each 
+partition. 
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+ 
+ </help>
+</tool>

@@ -1,0 +1,47 @@
+<tool id="change_sp" name="change_sp" version="1.0">
+    <description>Change code name to full species name in fasta or phytab</description>
+    <command interpreter="perl">
+		change_sp.pl $infile $changefile $outfile
+    </command>
+    <inputs>
+	    <param name="infile" type="data" format="tabular" label="Input File" help="PHYTAB file to alter" />
+	    <param name="changefile" type="data" format="tabular" label="Conversion Table" help="Tabular format with column 1=code; column 2=Full species name" />
+    </inputs>
+    <outputs>
+	<data format="tabular" name="outfile" label="${tool.name} on ${on_string}: Out file" />
+    </outputs>
+    <help>
+**What it does**
+
+Many times a dataset will have code names instead of full species names. This will search for a code name and replace with a species name based on a table of input values.
+
+------
+
+**Inputs**
+
+PHYTAB with species codes
+
+------
+
+**Outputs**
+
+PHYTAB with full species names replacing codes
+------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use 
+of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+    </help>
+</tool>

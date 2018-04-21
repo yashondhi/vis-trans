@@ -1,0 +1,23 @@
+<tool id="translate" name="Translate">
+        <description>Runs Translate</description>
+        <command interpreter="perl">translate.pl -infile=$inFile 2&gt;log.txt</command>
+        <inputs>
+                <param name="inFile" type="data" format="fasta" label="fasta file" />
+
+        </inputs>
+
+        <outputs>
+                <data  format="fasta" label="Translated" from_work_dir="translate_tc.out" />
+        </outputs>
+
+        <help>
+                Translate is a part of Hamster.
+
+                Note: Translate will only read the first 20 characters of a header. If there are identical
+                headers within your file, the script will crash.
+
+                Input: FASTA file containing ESTs.
+
+        </help>
+</tool>
+

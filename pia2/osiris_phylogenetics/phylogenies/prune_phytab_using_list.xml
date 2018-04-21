@@ -1,0 +1,67 @@
+<tool id="phytab_prune_with_list" name="Prune PHYTAB using list">
+  <description>Filters PHYTAB dataset by comparison to a text list</description>
+    <command interpreter="python">
+	prune_phytab_using_list.py $input1 $matchlist $tokeep > $output
+    </command>
+  <inputs>
+    <param name="input1" type="data" format="tabular" label="PHYTAB sequence file"/>
+    <param name="matchlist" type="data" format="txt" label="List to match to data file" />
+    <param name="tokeep" type="select" optional="false" label="keep|discard" help="Choose whether to keep or discard matches">
+      <option value="keep">Keep lines in output that match list</option>
+      <option value="discard">Remove lines in output that match list</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" label="Phytab file ${tool.name} on ${on_string}" >
+    </data>
+  </outputs>
+  <help>
+
+**What it does**
+
+This tool filters a PHYTAB sequence file to remove undesired sequences based on a list provided. 
+
+-----
+
+**Basic Example**
+
+The input data must be in phytab column format (fields are tab-delimited).  Column 1 is species name, C2 is genefamily, C3 unique sequence identifier, C4 is sequence:: 
+
+  species1	gene1	uniquenameA	acgttagcgcgctatagc
+  species2	gene1	uniquenameB	acgttag--cgctataaa
+  species3	gene1	uniquenameC	acgttagcgcgctatagc
+  species4	gene1	uniquenameD	acgttagcgcgctatagc
+  species1	gene2	uniquenameE	--gttagtttgcta
+  species3	gene2	uniquenameF	gtgttagtttgcta
+
+Sequences from selected taxa, genes, or specific sequences provided on the List input will be excluded or retained (depending on the popup option selected) in the resulting PHYTAB output. 
+The format of the list may consist of
+
+taxa only::
+
+  species1
+  species4
+
+genes only::
+  
+  geneA
+  geneB
+
+specific genes from select taxa (tab-delimited)::
+ 
+  species1   geneA
+  species4   geneB
+
+(This last sort of list is produced by the tool 'Long Branch Finder'.)
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+</help>
+</tool>

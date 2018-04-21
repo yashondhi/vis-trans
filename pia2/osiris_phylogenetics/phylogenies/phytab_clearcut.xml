@@ -1,0 +1,70 @@
+<tool id="phytab_clearcut" name="phytab clearcut" version="1.0.0">
+  <description>clearcut: Generate Neighbor Joining phylogeny. Input can be aligned fasta or phytab format.</description>
+  <requirements>
+    <requirement type="package">clearcut</requirement>
+  </requirements>
+  <command interpreter="python">
+    phytab_clearcut.py -i $data -t $datatype > $clearcut_stdout 2>&amp;1
+  </command>
+  <inputs>
+    <param format="tabular" name="data" type="data" label="Sequence data" help="This should be sequence data in phytab or fasta"/>
+    <param name="datatype" type="select" format="text">
+      <label>Type of data for all partitions</label>
+      <option value="P">Protein</option> 
+	<option value="D">DNA</option> 
+    </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="clearcut_stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="tabular" name="clearcut_results" label="${tool.name} on ${on_string}: results" from_work_dir="data/results.data" />
+  </outputs>
+  <tests>
+  </tests>
+<help>
+**What it does**
+
+This tool uses the the program Clearcut to infer a Neighbor-Joining phylogeny using the fast RNJ algorithm for a data set using uncorrected distances (p-distances).
+
+------
+
+**Input**
+The program will automatically detect possible inputs of two types
+1. ALIGNED FASTA file for a single gene family
+
+2. ALIGNED PHYTAB for multiple genes. See 
+http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html for description of phytab format.
+
+------
+
+**Output**
+
+A phylogenetic tree in newick format. In the Osiris package this can be visualized with a tool like TreeVector.
+
+------
+
+**Additional Information**
+
+http://bioinformatics.hungry.com/clearcut/
+
+------
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Evans, J., L. Sheneman, and J.A. Foster (2006) Relaxed Neighbor-Joining: A Fast Distance-Based Phylogenetic Tree Construction Method, J. Mol. Evol., 62, 785-792
+
+</help>
+</tool>
+
+
+
+
+
+

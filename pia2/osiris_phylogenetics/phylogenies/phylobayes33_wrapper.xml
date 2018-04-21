@@ -1,0 +1,53 @@
+<tool id="phylobayes" name="Phylobayes" version="1.0">
+	<description>version 3.3b</description>
+	<requirements>
+		<requirement type="binary">Phylobayes 3.3b</requirement>
+	</requirements>
+	<command interpreter="perl">
+phylobayes33_wrapper.pl $filename $nchain $cycles $discrepancies $effectivesize $burnin $sampleInterval
+       </command>
+	<inputs>
+		<param name="filename" type="data" format="txt" label="Input file (ali)" />
+		<param name="nchain" type="integer" value="0" label="Number of chains to run" />
+		<param name="cycles" type="integer" value="0" label="Cycle interval to run bpcomp and tracecomp" />
+		<param name="discrepancies" type="float" value="0.0" label="Discrepancies ceiling" />
+		<param name="effectivesize" type="integer" value="0" label="Effective sizes floor"/>
+		<param name="burnin" type="integer" value="0" label="Post analysis burnin" />
+		<param name="sampleInterval" type="integer" value="0" label="Post analysis sample interval"/>
+	</inputs>
+	<outputs>
+		<data from_work_dir="dataset.con.tre" name="contre" format="txt" />
+		<data from_work_dir="dataset.bplist" name="bplist" format="txt" />
+	</outputs>
+	
+	<help>
+
+**How it works**	
+PhyloBayes is a Bayesian Monte Carlo Markov Chain (MCMC) sampler for phylogenetic reconstruction using protein alignments. 
+Compared to other phylogenetic MCMC samplers (e.g. MrBayes ), the main distinguishing feature of PhyloBayes is the underlying probabilistic model, CAT. 
+It is particularly well suited for large multigene alignments, such as those used in phylogenomics. 
+
+The version 2.3 of phylobayes allows for divergence time estimation, posterior predictive analyses, including compositional homogeneity and saturation tests, 
+data recoding (analogous to R/Y coding, but for amino-acids), and cross-validation. It also implements a more efficient tree searching MCMC algorithm. 
+
+http://www.atgc-montpellier.fr/phylobayes/
+
+**Citations**
+Phylobayes - Bayesian phylogenetic software based on mixture models.
+
+Lartillot N., Philippe H. "A Bayesian Mixture Model for Across-Site Heterogeneities in the Amino-Acid Replacement Process." Molecular Biology and Evolution. 2004 21(6):1095-1109.
+http://www.atgc-montpellier.fr/download/papers/cat_2004.pdf
+	
+Lartillot N., Philippe H. "Computing Bayes factors using thermodynamic integration." Systematic Biology. 2006 55:195-207.
+http://www.atgc-montpellier.fr/download/papers/phylobayes_2006.pdf
+	
+Lartillot N., Brinkmann H., Philippe H. "Suppression of long-branch attraction artefacts in the animal phylogeny using a site-heterogeneous model." BMC Evolutionary Biology. 2007 Feb 8;7 
+Suppl 1:S4.
+	
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+	</help>
+</tool>

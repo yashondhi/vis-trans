@@ -1,0 +1,93 @@
+<tool id="gblocks" name="Gblocks" version="1.0">
+    <description>Convert Aligned FASTA to phylip Extended</description>
+    <command interpreter="perl">
+        gblocks.pl $input $datatype $gaps $Block $out_file $html_file > $screen
+    </command>
+    <inputs>
+            <param name="input" type="data" format="fasta" label="Input Fasta File" help="Aligned fasta" />
+    <param name="datatype" type="select" label="Type of Sequence">
+      <option value="-t=d">DNA</option>
+      <option value="-t=p">Protein</option>
+      <option value="-t=c">Codons</option>
+    </param>
+    <param name="Block" type="integer" value="10" label="Minimum block size" help='10 is default. Smaller values less stringent.'/>
+    <param name="gaps" type="select" label="Gap Allowance">
+      <option value="-b5=n">None</option>
+      <option value="-b5=h">Half</option>
+      <option value="-b5=a">All</option>
+    </param>
+    </inputs>
+    <outputs>
+        <data format="txt" name="screen" label="${tool.name} on ${on_string}: screen Log" />
+        <data format="html" name="html_file" label="${tool.name} on ${on_string}: html File"/>
+        <data format="txt" name="out_file" label="${tool.name} on ${on_string}: Output File"/>
+    </outputs>
+    <help>
+**What it does**
+
+About GBlocks
+
+Version 0.91b, January 2002
+
+Copyright Jose Castresana
+
+Gblocks is a computer program written in ANSI C language that eliminates poorly aligned 
+positions and divergent regions of an alignment of DNA or protein sequences. These 
+positions may not be homologous or may have been saturated by multiple substitutions and it 
+is convenient to eliminate them prior to phylogenetic analysis. Gblocks selects blocks in a 
+similar way as it is usually done by hand but following a reproducible set of conditions. 
+The selected blocks must fulfill certain requirements with respect to the lack of large 
+segments of contiguous nonconserved positions, lack of gap positions and high conservation 
+of flanking positions, making the final alignment more suitable for phylogenetic analysis. 
+Gblocks outputs several files to visualize the selected blocks. The use of a program such 
+as Gblocks reduces the necessity of manually editing multiple alignments, makes the 
+automation of phylogenetic analysis of large data sets feasible and, finally, facilitates 
+the reproduction of the alignments and subsequent phylogenetic analysis by other 
+researchers. Gblocks is very fast in processing alignments and it is therefore highly 
+suitable for large-scale phylogenetic analyses.
+
+Several parameters can be modified to make the selection of blocks more or less stringent. 
+In general, a relaxed selection of blocks is better for short alignments, whereas a 
+stringent selection is more adequate for longer ones. Be aware that the default options of 
+Gblocks are stringent.
+
+------
+
+**Inputs**
+
+FASTA
+
+------
+
+**Outputs**
+
+Phylip extended
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at
+bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider
+citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Talavera, G., and Castresana, J. (2007). Improvement of phylogenies after removing 
+divergent and ambiguously aligned blocks from protein sequence alignments. Systematic 
+Biology 56, 564-577.
+
+Castresana, J. (2000). Selection of conserved blocks from multiple alignments for their 
+use in phylogenetic analysis. Molecular Biology and Evolution 17, 540-552.
+    </help>
+</tool>

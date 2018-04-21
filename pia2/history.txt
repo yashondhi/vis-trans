@@ -1,0 +1,906 @@
+    1  module load ufrc
+    2  history
+    3  ls
+    4  cd ufrc
+    5  cd uf
+    6  ls -as
+    7  logout
+    8  cd ufc
+    9  ls
+   10  cd ~
+   11  ls
+   12  cd ufrc
+   13  module spyder
+   14  module spider
+   15  module load ufrc 
+   16  grep
+   17  ls
+   18  cd uf
+   19  cd ufrc
+   20  cd home
+   21  cd /frc
+   22  cd /ufrc
+   23  ld
+   24  ls
+   25  cd kawahara/
+   26  cd goughh/
+   27  ls
+   28  cd 14_tiger_transcriptomes/
+   29  ls
+   30  cd L1
+   31  ls
+   32  cd TblastX_Trinitydb/
+   33  ls
+   34  cp blast_resultsL1.out /ufrc/kawahara/yashsondhi/hgough/TblastX_Trinitydb
+   35  cp blast_resultsL1.out /ufrc/kawahara/yashsondhi
+   36  cd ..
+   37  cd yashsondhi/
+   38  ls
+   39  md gough
+   40  mdr gough
+   41  mkdir gough
+   42  mv blast_resultsL1.out ./gough/
+   43  cd gough/
+   44  head blast_resultsL1.out 
+   45  cat blast_resultsL1.out 
+   46  srundev -h
+   47  history
+   48  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+   49  history
+   50  module load ufrc
+   51  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+   52  module load ufrc
+   53  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+   54  module load ufrc
+   55  cd ufrc
+   56  cd /ufrc
+   57  cd kawahara/
+   58  cd yashsondhi/
+   59  ls
+   60  cd paml/
+   61  ls
+   62  cd $HPC_PAML
+   63  ls
+   64  pwd
+   65  cd /ufrc/kawahara/yashsondhi/
+   66  module load paml/4.9a
+   67  cd $HPC_PAML_Ex
+   68  ls
+   69  cd $HPC_PAML_EX
+   70  ls
+   71  cp ./lysozyme/ /ufrc/kawahara/yashsondhi/
+   72  cp lysozyme /ufrc/kawahara/yashsondhi/
+   73  cp -r lysozyme /ufrc/kawahara/yashsondhi/
+   74  cd /ufrc/kawahara/yashsondhi/
+   75  ls
+   76  mv -r lysozyme/ paml/
+   77  ls
+   78  cd paml/
+   79  ls
+   80  cd ..
+   81  ls
+   82  cd lysozyme/
+   83  ls
+   84  codeml lysozymeSmall.ctl
+   85  history
+   86  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+   87  module load ufrc
+   88  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+   89  OA
+   90  module load ufrc
+   91  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+   92  ls
+   93  cd /ufrc/kawahara/
+   94  cd share/
+   95  ls
+   96  cd Transcriptomes/
+   97  ls
+   98  cd /ufrc/kawahara/
+   99  cd yashsondhi/
+  100  ls
+  101  cd vis-trans/
+  102  cd ..
+  103  cd /ufrc/kawahara/
+  104  ls
+  105  cd share/
+  106  cd Transcriptomes/
+  107  ls
+  108  ls -al
+  109  ls
+  110  pwd
+  111  cd /ufrc/kawahara/yashsondhi/
+  112  ls
+  113  cd vis-trans/
+  114  ls
+  115  cd uv-opsin/
+  116  ls
+  117  nano rst
+  118  nano uv-null 
+  119  nano ds3_uv-alligned-trim-10-taxon.ctl 
+  120  module load spider
+  121  module load ufrc
+  122  module load paml
+  123  ls
+  124  nano uv-opsin-10_1.4.tree 
+  125  rename rst rst_1.4
+  126  rename ./rst ./rst_1.4
+  127  help rename
+  128  rename
+  129  mv rst rst_1.4
+  130  ls
+  131  codeml ds3_uv-alligned-trim-10-taxon.ctl 
+  132  nano ds3_uv-alligned-trim-10-taxon.ctl
+  133  codeml ds3_uv-alligned-trim-10-taxon.ctl 
+  134  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  135  cd ufr/
+  136  cd /ufrc/
+  137  cd kawahara/
+  138  ls
+  139  cd share/
+  140  ls
+  141  cd Transcriptomes/
+  142  ls
+  143  cd ..
+  144  locate *SW130206*
+  145  find ./ -name '*SW130206*'
+  146  find -name SW130206
+  147  module load ufrc
+  148  find /ufrc/kawahara/ -name "*SW130206*"
+  149  module spider blast
+  150  module spider mafft/
+  151  module spider R
+  152  module spider perl
+  153  module spider Bioperl
+  154  module spider BioPerl
+  155  module spider Perl
+  156  module spider USEARCH
+  157  module spider Numpy
+  158  module spider python
+  159  module spider java
+  160  cd ..
+  161  cd /apps/
+  162  ls
+  163  ncbi blast tblastx
+  164  module spider ncbi-blast
+  165  module spider blast
+  166  cd /ufrc
+  167  ls
+  168  cd kawahara/
+  169  cd share/
+  170  ls
+  171  cd Transcriptomes/
+  172  ls
+  173  cd ..
+  174  cd NUC_1kite_DEC_2017/
+  175  ls
+  176  cd ..
+  177  ls
+  178  cd Transcriptomes/
+  179  cd ..
+  180  cd ForNick/
+  181  ls
+  182  cd ..
+  183  ls
+  184  cd Transcriptomes/
+  185  ls
+  186  module spider pia
+  187  module load gcc/5.2.0 .
+  188  module load gcc/5.2.0
+  189  module load pia2/20180305 
+  190  ls
+  191  cd ..
+  192  ls
+  193  cd ..
+  194  cd yash
+  195  cd yashsondhi/
+  196  module load pia2/20180305 
+  197  ls
+  198  cd tmp
+  199  ls
+  200  cd ..
+  201  cd HPC_PIA2_EXE
+  202  cd $HPC_PIA2_BIN
+  203  ls
+  204  nano README.md 
+  205  cd $HPC_PIA2_DIR
+  206  ls
+  207  cd $HPC_PIA2_DOC
+  208  cd $HPC_PIA2_BIN
+  209  ls
+  210  nano pia.pl
+  211  cd ...
+  212  pwd
+  213  cd /ufrc/kawahara/yashsondhi/
+  214  ls
+  215  mv /ufrc/kawahara/share/Transcriptomes/CLEAN_* ./
+  216  cp /ufrc/kawahara/share/Transcriptomes/CLEAN_* ./
+  217  ls
+  218  mkdir Transcriptomes
+  219  mv ./CLEAN* ./Transcriptomes/a
+  220  mv ./CLEAN* ./Transcriptomes
+  221  ls
+  222  cd Transcriptomes/
+  223  ./pia.pl
+  224  pia.pl
+  225  mkdir test
+  226  cp CLEAN_Attac.fa test
+  227  cd test
+  228  cd ..
+  229  cd test_pia2/
+  230  cd ..
+  231  ls
+  232  cd ..
+  233  ;s
+  234  ls
+  235  cd yashsondhi/
+  236  ls
+  237  cd tmp
+  238  ls
+  239  module load pia2 
+  240  ls
+  241  $HPC_PIA2_BIN 
+  242  ls $HPC_PIA2_BIN
+  243  nano $HPC_PIA2_BIN/pia.pl
+  244  pia.pl
+  245  ls
+  246  pwd
+  247  nano allhits.
+  248  nano allhits.tab 
+  249  rm allhits.
+  250  rm allhits.tab 
+  251  rm allhits.fas 
+  252  cd ..
+  253  ls
+  254  cd vis-trans/
+  255  ls
+  256  cd ..
+  257  cd Transcriptomes/test_pia2/
+  258  nano pia.pl
+  259  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  260  ls
+  261  pwd
+  262  cd /ufrc/kawahara/
+  263  cd share
+  264  cd Transcriptomes/
+  265  cd ..
+  266  cd yashsondhi/
+  267  ls
+  268  cd Transcriptomes/
+  269  ls
+  270  cd test_pia2/
+  271  ls
+  272  rm pia
+  273  ls
+  274  cd pia
+  275  ls
+  276  nano results_\*.fasta/
+  277  module load ufrc
+  278  ls
+  279  module load gcc
+  280  module load pia2
+  281  module load PIA2
+  282  ls
+  283  cd ..
+  284  ls
+  285  ls module
+  286  module load spider
+  287  spider pia
+  288  module spider lia
+  289  module spider pia
+  290  load module pia2/2018035
+  291  module load pia2
+  292  nano pia.pl
+  293  ls
+  294  cd pia
+  295  cd ..
+  296  rm -rf /pia
+  297  ls
+  298  rmdir pia
+  299  rm -r pia
+  300  ls
+  301  $HPC_PIA2_BIN
+  302  cd $HPC_PIA2_BIN
+  303  ls
+  304  cp pia.pl orig_pia.pl
+  305  nano pia.pl
+  306  cd LIT_1.1/
+  307  ls
+  308  nano LIT_1.1.txt 
+  309  cd ..
+  310  nano pia.pl
+  311  cd ..
+  312  ls
+  313  cd /ufrc/
+  314  ls
+  315  cd yashsondhi
+  316  cd ..
+  317  cd /ufrc/
+  318  cd /ufrc/kawahara/yashsondhi/
+  319  mkdir pia2
+  320  cd pia2
+  321  cp $HPC_PIA2_BIN * ./pia2
+  322  cp $HPC_PIA2_BIN  
+  323  cp $HPC_PIA2_BIN/* ./  
+  324  cp -r $HPC_PIA2_BIN/* ./  
+  325  ls
+  326  edit pia.pl
+  327  nano pia.pl
+  328  viml pia.pl
+  329  vim pia.pl
+  330  nano pia.pl
+  331  load ufrc
+  332  module load ufrc
+  333  module load perl
+  334  module load blast
+  335  module load ncbi-blast
+  336  module load mafft
+  337  ls
+  338  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  339  cd /ufrc/kawahara/yashsondhi/
+  340  ls
+  341  cd pia2
+  342  ls
+  343  nano pia.pl 
+  344  module load ufrc
+  345  nano pia.pl
+  346  module load pia2
+  347  module load gcc
+  348  module load pia2
+  349  ls
+  350  nano $HPC_pia2
+  351  ls
+  352  cd phyutility/
+  353  ls
+  354  pws
+  355  pwd
+  356  ls
+  357  nano phyutility
+  358  module load phyutility
+  359  cd $HPC_pia2
+  360  ls
+  361  pwd
+  362  cd $HPC_PIA2
+  363  ls
+  364  cd $HPC_PIA2_BIN
+  365  ls
+  366  nano pia.pl
+  367  cd phyutility/
+  368  ls
+  369  nano phyutility
+  370  cd /ufrc/kawahara/yashsondhi/
+  371  ls
+  372  cd pia2
+  373  ls
+  374  nano pia.pl
+  375  module load phyutility
+  376  module load phylographics
+  377  cd phylographics/
+  378  ls
+  379  nano tab2trees.sh
+  380  cd ..
+  381  ls
+  382  pwd
+  383  nano pia.pl
+  384  cd ..
+  385  ls
+  386  cd Transcriptomes/
+  387  cd ..
+  388  cd pia2
+  389  mkdir test
+  390  cd test
+  391  cp -r ../../Transcriptomes/test_pia2
+  392  cp -r ../../Transcriptomes/test_pia2 ./
+  393  ls
+  394  cd test_pia2/
+  395  ls
+  396  cd ...
+  397  run_pia.sh
+  398  ls
+  399  rm pia
+  400  rm -r pia
+  401  /ufrc/kawahara/yashsondhi/pia2/run_pia.sh CLEAN_Attac.fa 
+  402  cd ..
+  403  ls
+  404  cd ..
+  405  ls
+  406  nano pia.pl
+  407  nano run_pia.sh
+  408  cd ..
+  409  ls
+  410  cd pia2
+  411  cd pia
+  412  nano run_pia.sh
+  413  cd ..
+  414  cd pia2
+  415  ls
+  416  cd test/
+  417  ls
+  418  cd test_pia2/
+  419  ls
+  420  cd ..
+  421  ls
+  422  cd ..
+  423  ~
+  424  ls
+  425  nano run_pia.sh 
+  426  cd test
+  427  ls
+  428  cp test_pia2/CLEAN_Attac.fa ./
+  429  rm -r test_pia2/
+  430  ls
+  431  cp /ufrc/kawahara/yashsondhi/pia2/run_pia.sh ./
+  432  ls
+  433  ls
+  434  nano run_pia.sh 
+  435  rm CLEAN_Attac.fa CLEAN_Attac.fasta 
+  436  mv CLEAN_Attac.fa CLEAN_Attac.fasta 
+  437  ls
+  438  cp ../../Transcriptomes/CLEAN_Attac.fa ./
+  439  mv CLEAN_Attac.fa ./CLEAN_Attac.fasta
+  440  ./run_pia.sh 
+  441  ls pia
+  442  ls
+  443  cd pia
+  444  ls
+  445  nano results_CLEAN_Attac.fasta/
+  446  nano results_\*.fasta/
+  447  cd ..
+  448  ls
+  449  rm pia
+  450  rm -r pia
+  451  ls
+  452  nano run_pia.sh 
+  453  cd ..
+  454  ls
+  455  nano pia.pl
+  456  cd phyutility/
+  457  ls
+  458  nano phyutility
+  459  cd ..
+  460  cd phylographics/
+  461  ls
+  462  nano tab2trees.sh
+  463  cd ..
+  464  ls
+  465  cd test/
+  466  ls
+  467  ./run_pia.sh 
+  468  ls
+  469  cd pia
+  470  ls
+  471  nano results_CLEAN_Attac.fasta/
+  472  cd ..
+  473  ls
+  474  cd ..
+  475  ls
+  476  nano pia.pl
+  477  cd test
+  478  ls
+  479  module load ufrc
+  480  cd /ufrc/kawahara/yashsondhi/
+  481  ls
+  482  cd pia2
+  483  ls
+  484  module load raxml
+  485  module load gcc
+  486  module load g
+  487  module load mafft
+  488  module load raxml
+  489  ls
+  490  cd phyutility/
+  491  ls
+  492  nano phyutility
+  493  ls
+  494  cd ..
+  495  ls
+  496  module load perl
+  497  nano pia.pl
+  498  cd test
+  499  ls
+  500  rm -r pia
+  501  ./run_pia.sh 
+  502  nano run_pia.sh 
+  503  ./run_pia.sh 
+  504  ls
+  505  rm -r pia
+  506  ls
+  507  nano run_pia.sh 
+  508  cd ..
+  509  ls
+  510  mv ./run_pia.sh ./
+  511  mv ./test/run_pia.sh ./
+  512  ls
+  513  nano run_pia.sh 
+  514  ls
+  515  cp test/CLEAN_Attac.fasta ./
+  516  ./run_pia.sh 
+  517  nano run_pia.sh 
+  518  ~/.bashrc
+  519  $PATH
+  520  echo $PATH
+  521  export PATH=$PATH:/ufrc/kawahara/yashsondhi/pia2
+  522  ls
+  523  cd test
+  524  ls
+  525  cp ../run_pia.sh ./
+  526  ls
+  527  ./run_pia.sh 
+  528  module load ncb-blast
+  529  module load ncbi-blast
+  530  module load ncbi_blast
+  531  ls
+  532  rm -r pia
+  533  ls
+  534  module load python
+  535  OBls
+  536  module load r
+  537  module load R
+  538  ls
+  539  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  540  module load ufrc
+  541  cd /ufrc/kawahara/yashsondhi/
+  542  ls
+  543  cd pia2
+  544  ls
+  545  cd test
+  546  ls
+  547  pwd
+  548  ls
+  549  cd ..
+  550  ls
+  551  pwd
+  552  cd phylographics/
+  553  ls
+  554  cd ..
+  555  ls
+  556  cd pia2
+  557  ;s
+  558  ls
+  559  module load raxml
+  560  module load usearch
+  561  module load python
+  562  module load mafft
+  563  module load gcc
+  564  module load raxml
+  565  module load ncbi-blast
+  566  module load ncbi_blast
+  567  ls
+  568  ./run_pia.sh 
+  569  ls
+  570  export PATH=$PATH:/ufrc/kawahara/yashsondhi/pia2
+  571  ./run_pia.sh 
+  572  ls
+  573  rm -r pia
+  574  ./run_pia.sh 
+  575  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  576  module load ufrc
+  577  ls
+  578  cd /ufrc/kawahara/yashsondhi/
+  579  cd pia2
+  580  ls
+  581  nano pia.pl
+  582  ls
+  583  cd LIT_1.1/
+  584  ls
+  585  nano opsin
+  586  ls
+  587  nano opsin/
+  588  cd opsin/
+  589  ls
+  590  cd ..
+  591  ls
+  592  cd ..
+  593  ls
+  594  cd pia
+  595  ls
+  596  ls -al
+  597  ls
+  598  cd results_CLEAN_Attac.fasta/
+  599  ls
+  600  cd ..
+  601  ls
+  602  cd ..
+  603  ls
+  604  nano pia.pl
+  605  module load iq-tree
+  606  module load phyutility
+  607  $HPC_PHYUTILITY_DIR
+  608  cd $HPC_PHYUTILITY_
+  609  cd $HPC_PHYUTILITY_BIN
+  610  ls
+  611  seqConverterG.pl -d aligned.fas -ope -O aligned.phy"
+  612  cd ..
+  613  cd /ufrc/kawahara/
+  614  ls
+  615  cd yashsondhi/
+  616  cd pia2/
+  617  cd pia
+  618  ls
+  619  cd results_CLEAN_Attac.fasta/
+  620  ls
+  621  Print Using: MAFFT v7.032bPlacing Hits on gene tree with Maximum Likelihood using Evolutionary Placement Algorithm (EPA) of RAxML...
+  622  raxmlHPC: invalid option -- '8'
+  623  The file aligned.phy you want to open for reading does not exist, exiting ...
+  624  Using phyutility to root with OUTGROUPS determined from midpoint rooting
+  625  : Acropora_digitifera_adi_v1_19625 Acropora_digitifera_adi_v1_07397 Nematostella_vectensis_jgi_Nemve1_202741 Nematostella_vectensis_jgi_Nemve1_94740 Saccoglossus_kowalevskii_XP_002737556 Saccoglossus_kowalevskii_XP_002737063 Strongylocentrotus_purpuratus_XP_786638 LANDMARK2_SSTR4_Homo_sapiens_NP_001043 Mus_musculus_ENSMUSP00000105588 Gallus_gallus_ENSGALP00000013602 Petromyzon_marinus_ENSPMAP00000011106 Danio_rerio_ENSDARP00000061673 Xenopus_tropicalis_jgi_Xentr4_168918 Danio_rerio_ENSDARP00000092663 LANDMARK2_star1_Drosophila_melanogaster_NP_649040 Saccoglossus_kowalevskii_XP_002730938 Lottia_gigantea_jgi_Lotgi1_108200 LANDMARK2_Alstr_Bombyx_mori_NP_001037035 Capitella_teleta_jgi_Capca1_113004 Saccoglossus_kowalevskii_XP_002738024 Danio_rerio_ENSDARP00000025567 LANDMARK2_capaR_Drosophila_melanogaster_NP_996140 Daphnia_pulex_jgi_Dappu1_53990 Apis_mellifera_gnl_Amel_GB18786_PB Saccoglossus_kowalevskii_XP_002741582 Strongylocentrotus_purpuratus_XP_001200425 Xenopus_tropicalis_jgi_Xentr4_332501 LANDMARK2_Npy1r_Mus_musculus_P21555 Mus_musculus_ENSMUSP00000045530 Gallus_gallus_ENSGALP00000015445 Petromyzon_marinus_ENSPMAP00000010944 Gallus_gallus_ENSGALP00000033702 Danio_rerio_ENSDARP00000097182 Xenopus_tropicalis_jgi_Xentr4_357979 Tribolium_castaneum_TC003150_GLEAN_03150 Caenorhabditis_elegans_F41E7_3 Saccoglossus_kowalevskii_XP_002737358 Saccoglossus_kowalevskii_XP_002738788 Drosophila_melanogaster_FBpp0084470 Strongylocentrotus_purpuratus_XP_783326 Strongylocentrotus_purpuratus_XP_783390 Tribolium_castaneum_TC004977_GLEAN_04977 Daphnia_pulex_jgi_Dappu1_54510 Daphnia_pulex_jgi_Dappu1_54432 LANDMARK2_Takr86C_Drosophila_melanogaster_NP_00109 Drosophila_melanogaster_FBpp0111701 Capitella_teleta_jgi_Capca1_124884 Helobdella_robusta_jgi_Helro1_79600 Gallus_gallus_ENSGALP00000006747 LANDMARK2_Tacr2_Mus_musculus_NP_033340 Mus_musculus_ENSMUSP00000020278 Strongylocentrotus_purpuratus_XP_784480 Hydra_magnipapillata_XP_002163873 Hydra_magnipapillata_XP_002160138 Nematostella_vectensis_jgi_Nemve1_178677 Nematostella_vectensis_jgi_Nemve1_166669 Nematostella_vectensis_jgi_Nemve1_6197 Nematostella_vectensis_jgi_Nemve1_198502 Acropora_digitifera_adi_v1_03476 Nematostella_vectensis_jgi_Nemve1_101008 Capitella_teleta_jgi_Capca1_34591 Lottia_gigantea_jgi_Lotgi1_73938 Saccoglossus_kowalevskii_XP_002731156 Nematostella_vectensis_jgi_Nemve1_198600 Nematostella_vectensis_jgi_Nemve1_105138 Nematostella_vectensis_jgi_Nemve1_90900 Nematostella_vectensis_jgi_Nemve1_205216 Tribolium_castaneum_TC007687_GLEAN_07687 Strongylocentrotus_purpuratus_XP_782439 Trichoplax_adhaerens_jgi_Triad1_3759 Nematostella_vectensis_jgi_Nemve1_79984 Nematostella_vectensis_jgi_Nemve1_25017 Trichoplax_adhaerens_jgi_Triad1_26040 Trichoplax_adhaerens_jgi_Triad1_26009 Capitella_teleta_jgi_Capca1_131359 Saccoglossus_kowalevskii_XP_002739783 Capitella_teleta_jgi_Capca1_63714 Saccoglossus_kowalevskii_XP_002737377 Nematostella_vectensis_jgi_Nemve1_214360 Acropora_digitifera_adi_v1_20518 Nematostella_vectensis_jgi_Nemve1_209217 Acropora_digitifera_adi_v1_19148 Nematostella_vectensis_jgi_Nemve1_211467 Nematostella_vectensis_jgi_Nemve1_96957 Acropora_digitifera_adi_v1_00791 Nematostella_vectensis_jgi_Nemve1_1652 Nematostella_vectensis_jgi_Nemve1_131347 Ixodes_scapularis_ISCW009595_PA Capitella_teleta_jgi_Capca1_104279 Saccoglossus_kowalevskii_XP_002736833 Lottia_gigantea_jgi_Lotgi1_105958 Acropora_digitifera_adi_v1_04019 Saccoglossus_kowalevskii_XP_002731019 Trichoplax_adhaerens_jgi_Triad1_58557 Trichoplax_adhaerens_jgi_Triad1_951 Trichoplax_adhaerens_jgi_Triad1_58590 Trichoplax_adhaerens_jgi_Triad1_58576 Trichoplax_adhaerens_jgi_Triad1_4017 Trichoplax_adhaerens_jgi_Triad1_28157 Trichoplax_adhaerens_jgi_Triad1_58712 Nematostella_vectensis_jgi_Nemve1_23333
+  626  Error: Unable to access jarfile phyutility.jar
+  627  Can't open Rooted Tree File! Rooting requires phyutility at /ufrc/kawahara/yashsondhi/pia2/pia.pl line 725.
+  628  No such file or directory at /ufrc/kawahara/yashsondhi/pia2/phylographics/makeRtrees.pl line 9.
+  629  R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+  630  Copyright (C) 2017 The R Foundation for Statistical Computing
+  631  Platform: x86_64-pc-linux-gnu (64-bit)
+  632  R is free software and comes with ABSOLUTELY NO WARRANTY.
+  633  You are welcome to redistribute it under certain conditions.
+  634  Type 'license()' or 'licence()' for distribution details.
+  635    Natural language support but running in an English locale
+  636  R is a collaborative project with many contributors.
+  637  Type 'contributors()' for more information and
+  638  'citation()' on how to cite R or R packages in publications.
+  639  Type 'demo()' for some demos, 'help()' for on-line help, or
+  640  'help.start()' for an HTML browser interface to help.
+  641  Type 'q()' to quit R.
+  642  > 
+  643  /ufrc/kawahara/yashsondhi/pia2/post_pia.sh: line 23: /ufrc/kawahara/yashsondhi/pia2/long_branch_finder2.py: Permission denied
+  644  usearch v9.2.64_i86linux64, 264Gb RAM, 64 cores
+  645  (C) Copyright 2013-16 Robert C. Edgar, all rights reserved.
+  646  http://drive5.com/usearch
+  647  License: om@rc.ufl.edu, non-profit use, max 1 process(es)
+  648  00:00 43Mb    100.0% Reading allhits.pruned.fasta
+  649  WARNING: Max OMP threads 4
+  650  00:00 217Mb  3 seqs, 3 uniques, 3 singletons (100.0%)
+  651  00:00 217Mb  Min size 1, median 1, max 1, avg 1.00
+  652  00:00 222Mb   100.0% DB
+  653  00:00 222Mb  Sort length... done.
+  654  00:00 287Mb   100.0% 3 clusters, max size 1, avg 1.0
+  655  00:00 287Mb   100.0% Writing centroids to PIA.results.fasta
+  656                                                             
+  657        Seqs  3
+  658    Clusters  3
+  659    Max size  1
+  660    Avg size  1.0
+  661    Min size  1
+  662  Singletons  3, 100.0% of seqs, 100.0% of clusters
+  663     Max mem  287Mb
+  664        Time  1.00s
+  665  module load perl
+  666  ls
+  667  ls ../../seqConverterG.pl -d aligned.fas -ope -O aligned.phy 
+  668  ls ../../seqConverterG.pl -d aligned.fas -op -Oaligned.phy 
+  669  ls ../../seqConverterG.pl -daligned.fas -ope -Oaligned.phy 
+  670  ../../seqConverterG.pl -daligned.fas -ope -Oaligned.phy 
+  671  module load raxml
+  672  raxmlHPC -f v -s aligned.phy -m PROTGAMMALG -t $path.tre -n $thisgene"
+  673  ls
+  674  nano stdout 
+  675  nano aligned.phy 
+  676  Print Using: MAFFT v7.032bPlacing Hits on gene tree with Maximum Likelihood using Evolutionary Placement Algorithm (EPA) of RAxML...
+  677  raxmlHPC: invalid option -- '8'
+  678  The file aligned.phy you want to open for reading does not exist, exi
+  679  Using phyutility to root with OUTGROUPS determined from midpoint rooting
+  680  : Acropora_digitifera_adi_v1_19625 Acropora_digitifera_adi_v1_07397 Nematostella_vectensis_jgi_Nemve1_202741 Nematostella_vectensis_jgi_Nemve1_94740 Saccoglossus_kowalevskii_XP_002737556 Saccoglossus_kowalevskii_XP_002737063 Strongylocentrotus_purpuratus_XP_786638 LANDMARK2_SSTR4_Homo_sapiens_NP_001043 Mus_musculus_ENSMUSP00000105588 Gallus_gallus_ENSGALP00000013602 Petromyzon_marinus_ENSPMAP00000011106 Danio_rerio_ENSDARP00000061673 Xenopus_tropicalis_jgi_Xentr4_168918 Danio_rerio_ENSDARP00000092663 LANDMARK2_star1_Drosophila_melanogaster_NP_649040 Saccoglossus_kowalevskii_XP_002730938 Lottia_gigantea_jgi_Lotgi1_108200 LANDMARK2_Alstr_Bombyx_mori_NP_001037035 Capitella_teleta_jgi_Capca1_113004 Saccoglossus_kowalevskii_XP_002738024 Danio_rerio_ENSDARP00000025567 LANDMARK2_capaR_Drosophila_melanogaster_NP_996140 Daphnia_pulex_jgi_Dappu1_53990 Apis_mellifera_gnl_Amel_GB18786_PB Saccoglossus_kowalevskii_XP_002741582 Strongylocentrotus_purpuratus_XP_001200425 Xenopus_tropicalis_jgi_Xentr4_332501 LANDMARK2_Npy1r_Mus_musculus_P21555 Mus_musculus_ENSMUSP00000045530 Gallus_gallus_ENSGALP00000015445 Petromyzon_marinus_ENSPMAP00000010944 Gallus_gallus_ENSGALP00000033702 Danio_rerio_ENSDARP00000097182 Xenopus_tropicalis_jgi_Xentr4_357979 Tribolium_castaneum_TC003150_GLEAN_03150 Caenorhabditis_elegans_F41E7_3 Saccoglossus_kowalevskii_XP_002737358 Saccoglossus_kowalevskii_XP_002738788 Drosophila_melanogaster_FBpp0084470 Strongylocentrotus_purpuratus_XP_783326 Strongylocentrotus_purpuratus_XP_783390 Tribolium_castaneum_TC004977_GLEAN_04977 Daphnia_pulex_jgi_Dappu1_54510 Daphnia_pulex_jgi_Dappu1_54432 LANDMARK2_Takr86C_Drosophila_melanogaster_NP_00109 Drosophila_melanogaster_FBpp0111701 Capitella_teleta_jgi_Capca1_124884 Helobdella_robusta_jgi_Helro1_79600 Gallus_gallus_ENSGALP00000006747 LANDMARK2_Tacr2_Mus_musculus_NP_033340 Mus_musculus_ENSMUSP00000020278 Strongylocentrotus_purpuratus_XP_784480 Hydra_magnipapillata_XP_002163873 Hydra_magnipapillata_XP_002160138 Nematostella_vectensis_jgi_Nemve1_178677 Nematostella_vectensis_jgi_Nemve1_166669 Nematostella_vectensis_jgi_Nemve1_6197 Nematostella_vectensis_jgi_Nemve1_198502 Acropora_digitifera_adi_v1_03476 Nematostella_vectensis_jgi_Nemve1_101008 Capitella_teleta_jgi_Capca1_34591 Lottia_gigantea_jgi_Lotgi1_73938 Saccoglossus_kowalevskii_XP_002731156 Nematostella_vectensis_jgi_Nemve1_198600 Nematostella_vectensis_jgi_Nemve1_105138 Nematostella_vectensis_jgi_Nemve1_90900 Nematostella_vectensis_jgi_Nemve1_205216 Tribolium_castaneum_TC007687_GLEAN_07687 Strongylocentrotus_purpuratus_XP_782439 Trichoplax_adhaerens_jgi_Triad1_3759 Nematostella_vectensis_jgi_Nemve1_79984 Nematostella_vectensis_jgi_Nemve1_25017 Trichoplax_adhaerens_jgi_Triad1_26040 Trichoplax_adhaerens_jgi_Triad1_26009 Capitella_teleta_jgi_Capca1_131359 Saccoglossus_kowalevskii_XP_002739783 Capitella_teleta_jgi_Capca1_63714 Saccoglossus_kowalevskii_XP_002737377 Nematostella_vectensis_jgi_Nemve1_214360 Acropora_digitifera_adi_v1_20518 Nematostella_vectensis_jgi_Nemve1_209217 Acropora_digitifera_adi_v1_19148 Nematostella_vectensis_jgi_Nemve1_211467 Nematostella_vectensis_jgi_Nemve1_96957 Acropora_digitifera_adi_v1_00791 Nematostella_vectensis_jgi_Nemve1_1652 Nematostella_vectensis_jgi_Nemve1_131347 Ixodes_scapularis_ISCW009595_PA Capitella_teleta_jgi_Capca1_104279 Saccoglossus_kowalevskii_XP_002736833 Lottia_gigantea_jgi_Lotgi1_105958 Acropora_digitifera_adi_v1_04019 Saccoglossus_kowalevskii_XP_002731019 Trichoplax_adhaerens_jgi_Triad1_58557 Trichoplax_adhaerens_jgi_Triad1_951 Trichoplax_adhaerens_jgi_Triad1_58590 Trichoplax_adhaerens_jgi_Triad1_58576 Trichoplax_adhaerens_jgi_Triad1_4017 Trichoplax_adhaerens_jgi_Triad1_28157 Trichoplax_adhaerens_jgi_Triad1_58712 Nematostella_vectensis_jgi_Nemve1_23333
+  681  Error: Unable to access jarfile phyutility.jar
+  682  Can't open Rooted Tree File! Rooting requires phyutility at /ufrc/kawahara/yashsondhi/pia2/pia.pl line 725.
+  683  No such file or directory at /ufrc/kawahara/yashsondhi/pia2/phylographics/makeRtrees.pl line 9.
+  684  R version 3.4.3 (2017-11-30) -- "Kite-Eating Tree"
+  685  Copyright (C) 2017 The R Foundation for Statistical Computing
+  686  Platform: x86_64-pc-linux-gnu (64-bit)
+  687  R is free software and comes with ABSOLUTELY NO WARRANTY.
+  688  You are welcome to redistribute it under certain conditions.
+  689  Type 'license()' or 'licence()' for distribution details.
+  690    Natural language support but running in an English locale
+  691  R is a collaborative project with many contributors.
+  692  Type 'contributors()' for more information and
+  693  'citation()' on how to cite R or R packages in publications.
+  694  Type 'demo()' for some demos, 'help()' for on-line help, or
+  695  'help.start()' for an HTML browser interface to help.
+  696  Type 'q()' to quit R.
+  697  > 
+  698  /ufrc/kawahara/yashsondhi/pia2/post_pia.sh: line 23: /ufrc/kawahara/yashsondhi/pia2/long_branch_finder2.py: Permission denied
+  699  usearch v9.2.64_i86linux64, 264Gb RAM, 64 cores
+  700  (C) Copyright 2013-16 Robert C. Edgar, all rights reserved.
+  701  http://drive5.com/usearch
+  702  License: om@rc.ufl.edu, non-profit use, max 1 process(es)
+  703  00:00 43Mb    100.0% Reading allhits.pruned.fasta
+  704  WARNING: Max OMP threads 4
+  705  00:00 217Mb  3 seqs, 3 uniques, 3 singletons (100.0%)
+  706  00:00 217Mb  Min size 1, median 1, max 1, avg 1.00
+  707  00:00 222Mb   100.0% DB
+  708  00:00 222Mb  Sort length... done.
+  709  00:00 287Mb   100.0% 3 clusters, max size 1, avg 1.0
+  710  00:00 287Mb   100.0% Writing centroids to PIA.results.fasta
+  711                                                             
+  712        Seqs  3
+  713    Clusters  3
+  714    Max size  1
+  715    Avg size  1.0
+  716    Min size  1
+  717  Singletons  3, 100.0% of seqs, 100.0% of clusters
+  718     Max mem  287Mb
+  719        Time  1.00s
+  720  Throughput  3.0 seqs/sec.
+  721  iqtree -s aligned.phy
+  722  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  723  module load ufrc
+  724  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  725  cd ..
+  726  cd ..
+  727  ls
+  728  cd test/
+  729  cd Callidulidae/
+  730  module load mafft
+  731  module load ncbi_blast
+  732  module load phyutility 
+  733  module load perl
+  734  module load raxml
+  735  ls
+  736  export PATH=$PATH:/ufrc/kawahara/yashsondhi/pia2
+  737  mv CLEAN_Callid.fa CLEAN_Callid.fasta
+  738  run_pia.sh 
+  739  module load usearch
+  740  cd ..
+  741  ls
+  742  cd Callidulidae/
+  743  ls
+  744  rm -r pia
+  745  ls
+  746  cd ..
+  747  cd..
+  748  ls
+  749  mkdir pi2_attac
+  750  mv -r pia ./pi2_attac/
+  751  mv pia ./pi2_attac/
+  752  ls
+  753  ls pia.
+  754  ls pia
+  755  rm CLEAN_Attac.fasta 
+  756  cp ./test/Callidulidae/CLEAN_Callid.fasta ./
+  757  module load gcc
+  758  module load raxml
+  759  module load python
+  760  ./run_pia.sh 
+  761  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  762  ls
+  763  cd /ufrc/kawahara/
+  764  ls
+  765  cd yashsondhi/
+  766  ls
+  767  cd vis-trans/
+  768  ls
+  769  cd ..
+  770  ls
+  771  cd ..
+  772  cd yashsondhi
+  773  module load ufrc
+  774  module load gcc/5.2.0
+  775  module load raxml
+  776  module load python
+  777  module load perl
+  778  module load usearch
+  779  module load phyutility
+  780  ls
+  781  module spider 
+  782  ls
+  783  cd pia2
+  784  ls
+  785  nano pia.pl
+  786  cd pia
+  787  ls
+  788  cd results_CLEAN_Hema2.fasta/
+  789  ls
+  790  my $command = $PIADIR."seqConverterG.pl -d aligned.fas -ope -O aligned.phy";
+  791  system  /ufrc/kawahara/yashsondhi/pia2/".seqConverterG.pl -d aligned.fas -ope -O aligned.phy";
+  792  system  "/ufrc/kawahara/yashsondhi/pia2/.seqConverterG.pl -d aligned.fas -ope -O aligned.phy";
+  793  "/ufrc/kawahara/yashsondhi/pia2/.seqConverterG.pl -d aligned.fas -ope -O aligned.phy";
+  794  /ufrc/kawahara/yashsondhi/pia2/.seqConverterG.pl -d aligned.fas -ope -O aligned.phy
+  795  /ufrc/kawahara/yashsondhi/pia2/seqConverterG.pl -d aligned.fas -ope -O aligned.phy
+  796  export PATH=$PATH:/ufrc/kawahara/yashsondhi/pia2
+  797  /ufrc/kawahara/yashsondhi/pia2/seqConverterG.pl -d aligned.fas -ope -O aligned.phy
+  798  seqConverterG.pl -d aligned.fas -ope -O aligned.phy
+  799  seqConverterG.pl -d ./aligned.fas -ope -O aligned.phy
+  800  cd ..
+  801  ls
+  802  cd ..
+  803  ls
+  804  ./seqConverterG.pl
+  805  ./seqConverterG.pl ./pia/results_CLEAN_Hema2.fasta/aligned.fas 
+  806  ./seqConverterG.pl -d ./pia/results_CLEAN_Hema2.fasta/aligned.fas -ope aligned.phy 
+  807  ./seqConverterG.pl -d ./pia/results_CLEAN_Hema2.fasta -ope aligned.phy 
+  808  history
+  809  nano seqConverterG.pl
+  810  ./seqConverterG.pl -d/pia/results_CLEAN_Hema2.fasta -ope aligned.phy 
+  811  cd pia2
+  812  cd pia
+  813  ls
+  814  cd results_CLEAN_Hema2.fasta/
+  815  ls
+  816  ./seqConverterG. -daligned.fas -ope -Oaligned.phy 
+  817  eqConverterG. -daligned.fas -ope -Oaligned.phy 
+  818  ./seqConverterG.pl -daligned.fas -ope -Oaligned.phy 
+  819  seqConverterG.pl -daligned.fas -ope -Oaligned.phy 
+  820  ls
+  821  rm aligned.phy
+  822  ls
+  823  seqConverterG.pl -d./aligned.fas -ope -Oaligned.phy 
+  824  rm aligned.fas
+  825  ls
+  826  cd ..
+  827  ls
+  828  cd ..
+  829  ls
+  830  nano /apps/gcc/5.2.0/pia2/20180305/pia.pl 
+  831  ls
+  832  cd pia2
+  833  run_pia.sh  
+  834  ls
+  835  cd pia/
+  836  cd results_CLEAN_Hema2.fasta/
+  837  ls
+  838  nano allhits.
+  839  nano aligned.phy 
+  840  rm aligned.phy
+  841  ls
+  842  nanp RAxML_labelledTree.r_opsin 
+  843  nano RAxML_labelledTree.r_opsin 
+  844  module load java
+  845  ls
+  846  cd ..
+  847  ls
+  848  cd ..
+  849  ls
+  850  module load ncbi_blast
+  851  module load phyutility 
+  852  module load java
+  853  module load phyutility 
+  854  phyutility
+  855  nano pia.pl
+  856  ls
+  857  mv pia pia3_hema
+  858  ./run_pia.sh CLEAN_Hema2.fasta 
+  859  cd pia
+  860  ls
+  861  cd results_CLEAN_Hema2.fasta/
+  862  ls
+  863  cd ..
+  864  ls
+  865  cd ..
+  866  rm -r pia
+  867  srundev --time=60 --ntasks=1 --cpus-per-task=4 --mem=4gb
+  868  module load ufrc
+  869  module load ncbi_blast
+  870  module loaf mafft
+  871  module load usearch
+  872  module load raxml
+  873  ls
+  874  pwd
+  875  cd /ufrc/kawahara/yashsondhi/
+  876  ls
+  877  cd pia2/
+  878  ls
+  879  cd pia
+  880  ls
+  881  cd results_CLEAN_Hema2.fasta/
+  882  ls
+  883  nano aligned.fas 
+  884  cd ..
+  885  ls
+  886  cd pia2
+  887  mv pia3_hema/ pia
+  888  ls
+  889  cd pia
+  890  ls
+  891  rm pia
+  892  ls
+  893  cd ..
+  894  rm pia
+  895  rm -r pia
+  896  rm CLEAN_Hema2.fasta 
+  897  cp ../Transcriptomes/CLEAN_calo.fa
+  898  cp ../Transcriptomes/CLEAN_calo.fa ./
+  899  module load blast
+  900  module load mafft
+  901  module load python
+  902  module load r
+  903  module load R
+  904  module load perl
+  905  export PATH=$PATH:/ufrc/kawahara/yashsondhi/pia2
+  906  history>history.txt

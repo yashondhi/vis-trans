@@ -1,0 +1,109 @@
+<tool id="genetree_read_placement" name="genetree_read_placement" version="1.0.0">
+  <description>Places reads on a gene tree chosen from a menu.</description>
+  <requirements>
+    <requirement type="package">raxml</requirement>
+    <requirement type="package">muscle</requirement>
+    <requirement type="package">mafft</requirement>
+    <requirement type="package">prank</requirement>
+  </requirements>
+  <command interpreter="perl">
+    genetree_read_placement.pl $alignment $alignprog ${tree.fields.path} "${tree.fields.name}" > $stdout 2>&amp;1
+  </command>
+  <inputs>
+    <param format="fasta" name="alignment" type="data" label="Genes to place in tree (fasta)"/>
+    <param name="tree" type="select" label="Gene Tree">
+     <options from_file="genetrees.loc">
+      <column name="value" index="0"/>
+      <column name="name" index="1"/>
+      <column name="path" index="2"/>
+     </options>
+    </param>
+    <param name="alignprog" type="select" optional="false" label="Alignment Program" help="Must align reads to genes in tree. Specify which program to use. ">
+      <option value="MUSCLE">MUSCLE</option>
+      <option value="MAFFT">MAFFT with Auto option</option>
+      <option value="PRANK">PRANK with -F option</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="txt" name="RAxML_classification.EPA_TEST" label="${tool.name} on ${on_string}: RAxML_classification" from_work_dir="RAxML_classification.EPA_TEST" />
+    <data format="txt" name="RAxML_classificationLikelihoodWeights.EPA_TEST" label="${tool.name} on ${on_string}: RAxML_classificationLikelihoodWeights" from_work_dir="RAxML_classificationLikelihoodWeights.EPA_TEST" />
+    <data format="txt" name="RAxML_info.EPA_TEST" label="${tool.name} on ${on_string}: RAxML_info" from_work_dir="RAxML_info.EPA_TEST" />
+    <data format="txt" name="RAxML_labelledTree.EPA_TEST" label="${tool.name} on ${on_string}: RAxML_labelledTree" from_work_dir="RAxML_labelledTree.EPA_TEST" />
+    <data format="txt" name="RAxML_originalLabelledTree.EPA_TEST" label="${tool.name} on ${on_string}: RAxML_originalLabelledTree" from_work_dir="RAxML_originalLabelledTree.EPA_TEST" />
+    <data format="tabular" name="treeout.tab" label="PIA Result: ${tool.name} on ${on_string} name tab tree " from_work_dir="treeout.tab" />
+  </outputs>
+  <tests>
+  </tests>
+    <help>
+**What it does**
+
+This tool places unknown genes into a pre-calculated gene phylogeny. This can be used for annotating unknown genes.
+
+------
+
+**Inputs**
+
+1. Input file is a file of sequences.
+2. The user selects a program to perform multiple sequence alignment of the input genes plus a database.
+3. Second input is selected from a list of gene trees, that are specified in a .loc file (see additional information below).
+
+------
+
+**Outputs**
+
+RAxML writes the resulting tree file in newick text format, which can be viewed in Osiris with TreeVector (of the mothur package). In addition, if bootstrapping was selected, the individual bootstrap trees and the ML tree with support are written as separate newick files.
+
+-------    
+
+**Installation Information**
+
+1. The command this tool runs is:
+raxmlHPC-PTHREADS-SSE3 -f v -s $alignment -m PROTGAMMAWAG -t $tree -n EPA_TEST -T 8
+
+Which specifies 8 concurrent threads with -T 8. Change the xml if you want to call different numbers of threads.  If using pbs or other job runner, make sure universe.ini file is set to match the number of threads requested.
+
+2. Adding the trees that pop up on the menu and associated data used to build those trees requires 
+adding a genetrees.loc file in the tool-data directory of Galaxy. Each line of the loc file 
+specifies a data set, using three columns tab separated:
+
+  unique_id TAB caption for menu TAB /base_name_path/
+
+So, for example, if your gene family is named opsin and the path to data files is /home/galaxy/data/genetrees/.  The base name is used to specify two files basename.fas and basename.tre.  In this case the path directory would contain opsin.fas and opsin.tre
+
+opsin.tre is a newick phylogeny file and opsin.fas is a fasta file with the sequences (with the same names) used to make opsin.tre
+
+
+Example of .loc file line
+
+  opsin    Porter Opsin Tree       /home/galaxy/data/genetrees/opsin
+
+raxml Home Page:
+http://www.exelixis-lab.org/software.html
+   
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+S.A. Berger, D. Krompass. Stamatakis: "Performance, Accuracy and Web-Server for Evolutionary Placement of Short Sequence Reads under maximum-likelihood". In Systematic Biology 60(3):291-302, 2011.
+
+Stamatakis, A. (2006). RAxML-VI-HPC: maximum likelihood-based phylogenetic analyses with thousands of taxa and mixed models. Bioinformatics.
+http://bioinformatics.oxfordjournals.org/content/22/21/2688.short
+
+See also references for MAFFT, PRANK, and MUSCLE.
+
+    </help>
+</tool>
+
+
+
+
+

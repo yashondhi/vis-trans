@@ -1,0 +1,72 @@
+<tool id="phytab_gblocks" name="Phytab Gblocks">
+    <description>Adapter to allow phytab files to use Gblocks</description>
+    <command interpreter="python2.7">
+        phytab_gblocks.py -i $input -t $datatype -b5 $gaps -b4 $Block -b3 $maxpos -o $output1 --phyout $output2
+    </command>
+    <inputs>
+            <param name="input" type="data" format="txt" label="Input Phytab File" help="Phytab" />
+    <param name="datatype" type="select" label="Type of Sequence">
+      <option value="d">DNA</option>
+      <option value="p">Protein</option>
+    </param>
+    <param name="Block" type="integer" value="10" label="Minimum block size" help='10 is default. Smaller values less stringent.'/>
+    <param name="gaps" type="select" label="Gap Allowance">
+      <option value="n">None</option>
+      <option value="h">Half</option>
+      <option value="a">All</option>
+    </param>
+    <param name="maxpos" type="integer" value="1000" label="Maximum Number Of Contiguous Nonconserved Positions" />
+    </inputs>
+    <outputs>
+        <data format="zip" name="output1" label="${tool.name} on ${on_string}: Output Archive (of output files)"/>
+        <data format="tabular" name="output2" label="${tool.name} on ${on_string}: Phytab Output"/>
+    </outputs>
+    <help>
+**What it does**
+
+Gblocks removes ambiguously aligned regions of a multiple sequence alignment.
+
+------
+
+**Inputs**
+
+Aligned sequences in phytab format
+
+------
+
+**Outputs**
+
+tabular format with gene TAB consensus
+
+------
+
+**Additional information**
+
+For information on phytab format see: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at
+bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider
+citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Gblocks: Talavera, G., and Castresana, J. (2007). Improvement of phylogenies after removing 
+divergent and ambiguously aligned blocks from protein sequence alignments. Systematic 
+Biology 56, 564-577.
+
+Castresana, J. (2000). Selection of conserved blocks from multiple alignments for their 
+use in phylogenetic analysis. Molecular Biology and Evolution 17, 540-552.
+
+
+    </help>
+</tool>

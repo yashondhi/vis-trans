@@ -1,0 +1,40 @@
+<tool id="evolmap_output" name="EvolMAP Output Tool">
+	<description>Modifies EvolMAP output</description>
+	<command interpreter="perl">output.pl $file $numDiffGenes '$speciesList'  
+#for $file in $fileList
+	${file.treeFile}
+#end for</command>
+	
+	<inputs>
+		<repeat name="fileList" title="Species fasta files - must be same order as original tree">
+			<param name="treeFile" type="data" format="fasta" label="fasta file"/>
+		</repeat>
+		<param name="file" type="data" label="EvolMAP output file"/>
+		<param name="numDiffGenes" type="integer" value="1" label="Number of different species" />
+		<param name="speciesList" type="text" area="true" size="3x25" label="Species tree - Must be same format as original EvolMAP run." />
+	</inputs>
+
+	<outputs>
+		<data from_work_dir="result.dat" format="txt"/>
+	</outputs>
+
+	<help>
+	
+	http://labs.eemb.ucsb.edu/oakley/todd/
+	
+	Modifies EvolMAP output. Must provide the original EvolMAP output and files used.
+	
+	Input preconditions:
+		Species fasta files - must be inputted in the same order as the original tree from the EvolMAP run
+		EvolMAP output file - must be from an EvolMAP run
+		Number of different species - the number of different species you want searched and pulled to the output file
+		Species tree - must be the same tree you used to get the EvolMAP output file in the original EvolMAP run
+	
+	Input file format:
+		FASTA (.fasta/.fa)
+	
+	Output format:
+		Text (txt)
+	</help>
+
+</tool>

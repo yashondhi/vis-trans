@@ -1,0 +1,92 @@
+<tool id="get_sequences" name="Get_Sequences" version="1.0">
+<description>Create a file of selected sequences</description>
+<command interpreter="perl">get_seqs.pl
+$cosorted
+$paired
+$ignorecase
+-db $infile
+-table $input_table
+-col $id_column
+-selected $selected
+-unselected $unselected
+#for $i in $filters
+"${i.condition}:${i.column}:{i.value}"
+#end for
+</command>
+<inputs>
+    <param name="infile" type="data" format="fasta,fastq,fastqsanger,fastqillumina,fastqsolexa" label="Sequence Database"/>
+    <param name="input_table" type="data" format="tabular" label="File containing target IDs"/>
+    <param name='id_column' type='data_column' data_ref='input_table' label='Column containing sequence IDs'/>
+    <param name="cosorted" type="boolean" checked="true" truevalue='--cosorted' falsevalue='' label='Sequences appear in same order in both files' />
+    <param name="paired" type="boolean" checked="true" truevalue="--paired" falsevalue="" label="Select both paired reads if one read matches" help="Requires Illumina-style read IDs (e.g. */1, */2)" />
+    <param name='ignorecase' type='boolean' checked='false' truevalue='--ignorecase' falsevalue='' label='Ignore case differences between table and database IDs' />
+    <param name='outselect' type='select' display='radio'>
+        <option value='selected'>output selected sequences file only</option>
+        <option value='unselected'>output other sequences file only</option>
+        <option value='both'>generate both outfiles</option>
+    </param>
+    <repeat name='filters' title='Filter'>
+        <param name='condition' type='select' display='radio' label='Condition'>
+            <option value='s_eq'>text equals</option>
+            <option value='s_ne'>text not equals</option>
+            <option value='s_contains'>text contains</option>
+            <option value='s_notcontains'>text does not contain</option>
+            <option value='s_startswith'>text starts with</option>
+            <option value='s_notstartswith'>text does not start with</option>
+            <option value='s_endswith'>text ends with</option>
+            <option value='s_notendswith'>text does not end with</option>
+            <option value='n_eq'>number equals (==)</option>
+            <option value='n_ne'>number not equals (!=)</option>
+            <option value='n_gt'>number greater than (&gt;)</option>
+            <option value='n_lt'>number less than (&lt;)</option>
+        </param>
+        <param name='column' type='data_column' data_ref='input_table' label='On column'/>
+        <param name='value' type='text' label='Value'/>
+    </repeat>
+</inputs>
+<outputs>
+    <data name="selected" format="input" label="${tool.name} on $on_string: Selected sequences">
+        <filter>outselect == "selected" or outselect == "both"</filter>
+    </data>
+    <data name="unselected" format="input" label="${tool.name} on $on_string: Unselected sequences">
+        <filter>outselect == "unselected" or outselect == "both"</filter>
+    </data>
+</outputs>
+<help>
+**What it does**
+
+Produces a file of selected sequences.
+
+If the files are cosorted, a much faster algorithm is used.  If it fails, it assumes the files were not cosorted and automatically tries again using the slower algorithm which does not require cosorted files.
+
+One or more filters may be included to evaluate text or numeric data.
+
+------
+
+**Inputs**
+
+FASTA file of sequence database, text file of target IDs.
+
+------
+
+**Outputs**
+
+FASTA file. User may select to either output the selected sequences, the other sequences, or both files. 
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+</help>
+</tool>

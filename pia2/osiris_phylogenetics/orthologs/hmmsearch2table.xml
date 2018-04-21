@@ -1,0 +1,30 @@
+<tool id="hmmsearch2table" name="hmmsearch2table" version="1.0">
+  <description>hmmsearch :: search sequences with hmm. Write results to data table.</description>
+  <requirements>
+    <requirement type="package">hmmsearch</requirement>
+  </requirements>
+  <command interpreter="perl">
+    hmmsearch2table.pl $Table $database $hmm $hmmsearch_results $hmmsearch_names
+  </command>
+  <inputs>
+    <param format="txt" name="hmm" type="data" label="HMM profiles" help="This should be an HMM model from hmmbuild or the pfam database"/>
+    <param format="fasta" name="database" type="data" label="Sequence data" help="This should be a sequence database to be searched, in fasta format"/>
+    <param name="Table" type="select" label="Type of Table Output">
+      <option value="tblout">Table of per-sequence hit data</option>
+      <option value="domtblout">Table of per-domain hit data</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="hmmsearch_results" label="${tool.name} on ${on_string}: results" />
+    <data format="tabular" name="hmmsearch_names" label="${tool.name} on ${on_string}: results" />
+  </outputs>
+  <tests>
+  </tests>
+  <help>
+  **hmmsearch v3.0**
+  
+  Runs hmmsearch on HMM model data.
+
+  See hmmsearch help: ftp://selab.janelia.org/pub/software/hmmer3/3.0/Userguide.pdf
+  </help>
+</tool>

@@ -1,0 +1,17 @@
+<!--host shell must be Unicode enabled!-->
+<tool id="ses-mpd" name="Picante ses-mpd for Galaxy">
+    <description>Standardized effect size of mean pairwise distances in communities.</description>
+    <command interpreter="Rscript">ses-mpd-galaxy.r $samples $tree $output >/dev/null 2>&#038;1</command>
+    <inputs>
+      <param name="samples" type="data" format="txt" label="Phylocom sample formatted data text file" />
+      <param name="tree" type="data" format="txt" label="Phylogenetic tree related to samples" />
+    </inputs>
+    <outputs>
+      <data format="txt" name="output" label="ses.mpd output" />
+    </outputs>
+    <help>
+Inputs: Phylocom sample formatted data text file, phylogenetic tree file.
+
+Output: Output of ses.mpd in text file
+    </help>
+</tool>

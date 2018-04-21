@@ -1,0 +1,95 @@
+<tool id="evolmap" name="EvolMAP">
+	<description>Runs EvolMAP.</description>
+	<command interpreter="perl">evolmap.pl '$tree' $protein $database_name $read_database $Blastall $read_blast_scores $alignments $bit_scores $read_scores $read_ancestors $sfa $ortholog_threshold $diverged_threshold $diverged_std $avg_of_paralogs #for $file in $fileList
+	${file.tree_file}
+#end for</command>
+	
+	<inputs>		
+		<repeat name="fileList" title="Species files (fasta) - please input in the same order as species tree">
+			<param name="tree_file" type="data" format="fasta" label="fasta file"/>
+		</repeat>
+		
+		<param name="tree" type="text" area="true" size="3x25" label="tree (newick format)"/>
+		<param name="protein" type="boolean" truevalue="true" falsevalue="false" checked="true" label="protein" />
+		<param name="database_name" type="text" value="dataout" label="database_name" />
+		<param name="read_database" type="boolean" truevalue="true" falsevalue="false" checked="false" label="read_database" />
+		<param name="Blastall" type="boolean" truevalue="true" falsevalue="false" checked="true" label="Blastall" />
+		<param name="read_blast_scores" type="boolean" truevalue="true" falsevalue="false" checked="false" label="read_blast_scores" />
+		<param name="alignments" type="integer" value="0" label="alignments" /> 
+		<param name="bit_scores" type="boolean" truevalue="true" falsevalue="false" checked="false" label="bit_scores" />
+		<param name="read_scores" type="boolean" truevalue="true" falsevalue="false" checked="false" label="read_scores" />
+		<param name="read_ancestors" type="boolean" truevalue="true" falsevalue="false" checked="false" label="read_ancestors" />
+		<param name="sfa" type="boolean" truevalue="true" falsevalue="false" checked ="false"  label="sfa" />
+		<param name="ortholog_threshold" type="integer" value="250" label="ortholog_threshold" />
+		<param name="diverged_threshold" type="integer" value="250" label="diverged_threshold" />
+		<param name="diverged_std" type="integer" value="3" label="diverged_std" /> 
+		<param name="avg_of_paralogs" type="boolean" truevalue="true" falsevalue="false" checked="true" label="avg_of_paralogs" />
+	</inputs>
+
+	<outputs>
+		<data from_work_dir="dataout.ancestors_pass2.rn"/>
+	</outputs>
+	
+	<help>
+	EvolMAP is an algorithm and software for estimating the composition of ancestral genomes and the timing of gene duplication and loss events. 
+	The input is a species-tree and genes from its modern species. 
+	The output is the inferred ancestral genes of the speciation nodes of the tree and the inferred gene duplication and loss events specific to each branch. 
+	
+	EvolMAP features include:
+		* Detection of orthologous groups from an ancestral gene perspective (i.e. descendants of an ancestral gene)
+		* Scalable and fast genome-level comparisons laying out timings of gene duplications and losses
+		* Generating gene expansion (GE) tree which is useful to track evolution of a specific domain on the species tree
+		* Generating average ortholog divergence (AOD) tree which is a measure of the molecular clock
+		* Categorizing divergence of gene duplications into in-paralogs, diverged in-paralogs and ambiguous gains
+		
+	Onur Sakarya, Kenneth S. Kosik and Todd H. Oakley. Reconstructing ancestral genome content based on symmetrical best alignments and Dollo parsimony. Bioinformatics 2008 24(5):606-612.
+	
+	http://kosik-web.mcdb.ucsb.edu/evolmap/index.htm
+	
+	Options overview
+
+		tree: input newick format species tree
+				Example input: (((human,chimp),(mouse,rat)),dog)
+				
+		protein: amino-acid or nucleotide file
+				Check if true, else false
+				
+		database_name: analysis name
+				Example input: mammal_genomes
+				Output database name would be: mammal_genomes.gd.fa
+				
+		read_database: if true, reads already created fasta from disk
+				Check if true, else false
+				
+		blastall: runs blastall first -- if false, it generates all-to-all Needleman-wunsch scores which is slow for large datasets.
+				Check if true, else false
+				
+		read_blast_scores: if true, reads already calculated blast scores
+				Check if true, else false
+				
+		alignments: Number of top alignments for each gene to be calculated by blastall (if used)
+				Example input: 300
+				
+		bit_scores: if false, calculate needleman-wusch alignment scores for the blast hits, if true, uses blast bit scores.
+				Check if true, else false
+				
+		read_scores: if true, reads scores from already calculated score file
+				Check if true, else false
+				
+		read_ancestors: reads already calculated ancestor from file and re-runs Dollo parsimony
+				Check if true, else false
+				
+		ortholog_threshold: minimum similarity threshold for orthologs
+				Example input: 250
+				
+		diverged_threshold: minimum similarity threshold for diverged paralogs
+				Example input: 250
+				
+		diverged_std: diverged paralogs are allowed to be at most this many ortholog divergence standard deviations from the ancestor node's average sym-bet score.
+				Example input: 3
+				
+		avg_of_paralogs: if true, while calculating similarity between two ancestral genes, avg. score of all its members to members of the other gene are considered if false only best score between the members is considered
+				Check if true, else false
+	</help>
+	
+</tool>

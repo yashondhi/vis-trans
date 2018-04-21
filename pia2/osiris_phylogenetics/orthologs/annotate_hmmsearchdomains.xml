@@ -1,0 +1,49 @@
+<tool id="annotate_hmmsearchdomains" name="annotate_hmmsearchdomains" version="1.0">
+    <description>Uses pulldomain2fasta output and annotates numbers of domains per gene</description>
+    <command interpreter="perl">
+		annotate_hmmsearchdomains.pl $infile $outfile $delnon $outfile2
+    </command>
+    <inputs>
+	    <param name="infile" type="data" format="fasta" label="Input File" help="fasta file to convert" />
+	    <param name='delnon' type='boolean' checked='no' truevalue='1' falsevalue='0' label='Remove isoforms' help='Remove any gene that does not contain seq1| in the name. Trinity labels isoforms as seq1 seq2, etc.'/>
+    </inputs>
+    <outputs>
+	<data format="fasta" name="outfile2" label="${tool.name} on ${on_string}: Deleted isoform file" />
+	<data format="fasta" name="outfile" label="${tool.name} on ${on_string}: Annotated file" />
+    </outputs>
+    <help>**What it does**
+
+Input a fasta file with domains from pulldomain2fasta. This will compare positions of multiple domains within each gene, and label the domains as 1 of 2, 2 of 2, etc.
+
+------
+
+**Inputs**
+
+FASTA file from pulldomain2fasta.
+
+------
+
+**Outputs**
+
+fasta file with annotated domains. Plus fasta file with removed isoforms (those that do not contain 'seq1' in the name)
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please 
+consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>

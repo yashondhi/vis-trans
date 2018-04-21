@@ -1,0 +1,78 @@
+Dependancies that must be installed and available in path:
+blastall
+formatdb
+
+Dependancies distributed with hamster and galaxy hamster
+BioPerl
+genewise
+rungenewise.pm
+wisecfg -- directory of configuration files for genewise
+
+
+
+QUICKSTART
+
+1. Copy galaxy_hamster files into the directory where you want to
+install the program.
+
+2. execute the install.pl script to configure required directories.
+Type:
+
+./install.pl
+
+3. Make sure blastall and formatdb are installed on your system,
+   and have been configured on your PATH.
+
+4. add ucsb_hamster.xml to Galaxy's tool_conf.xml file.
+
+5. Restart Galaxy
+
+
+Now, ucsb hamster can be used using HMM's constructed in a Galaxy
+history using phytab_hmmbuild.
+
+
+
+
+
+
+DETAILED INSTALLATION PROCEDURES:
+
+If for some reason install.pl does not work, first make sure that
+you have deleted the PATH variable pointing to any existing galaxy_hamster
+installation on your system in the .bashrc file.
+
+If you have deleted this variable and still cannot execute the install script,
+you may follow the detailed installation procedure below.
+
+1. Copy galaxy_hamster files into the directory where you want to install
+the program.
+
+2. Directory that contains the following scripts must be in the overall
+path:
+translate.pl
+emap2fasta.pl
+unbuild.py
+
+You may add the directory into your .bashrc file located in your HOME directory.
+
+For example:
+export PATH="/home/galaxy/galaxy-dist/tools/galaxy_hamster:$PATH";
+
+3. Type: source .bashrc to reload your environment variables.
+
+4. In the file run_genewise.pm located in the lib direcotry, you must set the full 
+path of the genewise configuration directory. The configurat iondirectory is 
+called wisecfg and it is distributed with galaxy_hamster.
+
+5. From here, ensure that blastall and formatdb are installed on your system and
+have been configured on your PATH.
+
+6. Add ucsb_hamster.xml to Galaxy's tool_conf.xml file.
+
+7. When installing on an Ubuntu system, the ucsb_hamster.sh script was not finding
+translate.pl even though it was in the path. To fix this I (THO) added translate.pl and 
+the main hamster script to /usr/local/bin/ with a symbolic link, which seemed to fix 
+this problem.
+
+8. Restart Galaxy.

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<toolbox>
+  <section name="Upload Data" id="getext">
+    <tool file="data_source/upload.xml"/>
+    <tool file="osiris/getdata/get_seqs.xml" />
+    <tool file="osiris/getdata/get_gb.xml"/>
+  </section>
+  <section name="Analyze Data" id="PIA_tools">
+    <tool file="pia/get_orfs_or_cdss.xml"/>
+    <tool file="pia/pia.xml"/>
+    <tool file="osiris/phylographics/tab2trees.xml"/>
+  </section>
+  <section id="textutil" name="Text Manipulation">
+    <tool file="filters/catWrapper.xml" />
+    <tool file="filters/find_and_replace.xml"/>
+    <tool file="fasta_tools/tabular_to_fasta.xml" />
+    <tool file="osiris_phylogenetics/phyloconversion/beautify_fasta.xml" />
+  </section>
+<!-- 	TREE BUILDING TEMPORARILY REMOVED. IT'S PRESENT IN OSIRIS DEMO
+ALSO STUDENT DIDN'T LINK TO OSIRIS, JUST COPIED OVER OLD LOCATIONS FROM FIRST GALAXY INSTANCE
+  <section id="treebuild" name="Tree Building">
+    <tool file="ncbi_blast_plus/ncbi_blastp_wrapper.xml" />
+    <tool file="oakley_dev/checkempty.xml" />
+    <tool file="jgi_seq_tools/msp_get_seqs.xml" />
+    <tool file="osiris/text-manipulation/edit_headers.xml" />
+    <tool file="SSR/phytab_ssr.xml" />
+    <tool file="ucsb_phylogenetics/mafft.xml" />
+    <tool file="oakley_dev/fasta2phylipE.xml" />
+    <tool file="ucsb_phylogenetics/mview.xml" />
+    <tool file="osiris_phylogenetics/phylogenies/raxml_pars.xml" />
+    <tool file="osiris_phylogenetics/phylographics/TreeVector.xml" />
+  </section>
+-->
+</toolbox>

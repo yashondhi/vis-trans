@@ -1,0 +1,48 @@
+<tool id="phylip2fasta" name="phylip2fasta" version="1.0">
+    <description>Converts phylip file to fasta format</description>
+    <command interpreter="perl">
+		phylip2fasta.pl $infile $interlv $idlen > $outfile
+    </command>
+    <inputs>
+	    <param name="infile" type="data" format="phylip" label="Input File" help="file to convert" />
+        <param name='interlv' type='boolean' checked='false' truevalue='1' falsevalue='0' label='Interleaved' help='Check if input file is interleaved'/>
+	<param name="idlen" type="integer" value="10" label="Specify Number characters in sequence IDs" />
+    </inputs>
+    <outputs>
+	<data format="fasta" name="outfile" label="${tool.name} on ${on_string}: FASTA file" />
+    </outputs>
+    <help> **What it does**
+
+phylip2fasta takes an input phylip file and converts it to a fasta file
+
+------
+
+**Inputs**
+
+A phylip file with sequences from the same species and gene family. The user must choose if the file 
+is interleaved, and specifiy the number of characters in the ID's of the sequences (default phylip 
+format is 10). ------
+
+**Outputs**
+
+FASTA file
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or preferably, if you 
+can, enter them on the osiris_phylogenetics repository site at bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of 
+this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+    </help> </tool>
+

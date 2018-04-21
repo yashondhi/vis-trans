@@ -1,0 +1,20 @@
+<section name="Osiris: phyloconversion" id="phyloconv">
+    <label text="phytab" id="phytabconversion" />
+	<tool file="osiris/phyloconversion/prune_phytab_using_list.xml" />
+	<tool file="osiris/phyloconversion/remove_phytab_dupes.xml" />
+    <label text="fasta" id="fastaconversion" />
+	<tool file="osiris/phyloconversion/fasta2phylip-e.xml" />
+	<tool file="osiris/phyloconversion/fasta2phytab.xml" />
+	<tool file="osiris/phyloconversion/uniprotfasta2phytab.xml" />
+	<tool file="osiris/phyloconversion/addstring2fashead.xml" />
+	<tool file="osiris/phyloconversion/beautify_fasta.xml" />
+	<tool file="osiris/phyloconversion/raxify_fasta.xml" />
+	<tool file="osiris/phyloconversion/length_outliers.xml" />
+    <label text="GenBank" id="gbconversion" />
+	<tool file="osiris/phyloconversion/gb2phytab.xml" />
+	<tool file="osiris/phyloconversion/remove_gbs_dupes.xml" />
+    <label text="phylip" id="phylipconversion" />
+	<tool file="osiris/phyloconversion/phylip2fasta.xml" />
+    <label text="tnt" id="tntconversion" />
+	<tool file="osiris/phyloconversion/tnt2phytab.xml" />
+</section>

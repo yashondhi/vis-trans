@@ -1,0 +1,86 @@
+<tool id="get_gb" name="Get_GB" version="1.0">
+    <description> Grab GenBank Data from a text list of accession numbers </description>
+    <requirements>
+         <requirement type="perl-module">Bio</requirement>
+    </requirements>
+    <command interpreter="perl">
+	#if $outtypeconditional.outtype == "phytab":
+	        get_gb.pl $data_file $database $outtypeconditional.outtype $outfile '$manual' '$mannames' '$outtypeconditional.genenames'
+	#else:
+	        get_gb.pl $data_file $database $outtypeconditional.outtype $outfile '$manual' '$mannames' None
+	#end if
+    </command>
+    <inputs>
+        <param format="txt" name="data_file" type="data" optional="true" label="Text list of accession numbers" help="One Accession number per line"/>
+	<param name="manual" type="text" label="Paste in accession numbers (optional)" help="You can optionally list the Accession numbers here (spaces between) The name of one, which will ignore the text list above"/>
+	<param name="mannames" type="text" label="Paste in new names for sequences (optional)" help="You can optionally list Custom Names (with spaces between) for the sequences in the same order as the Accession Numbers"/>
+
+        <param name="database" type="select" label="Protein or Nucleotide Data">
+                <option value="nucleotide">Nucleotide</option>
+                <option value="protein">Protein</option>
+        </param>
+
+        <conditional name="outtypeconditional">
+            <param name="outtype" type="select" label="Output File Format">
+                <option value="fasta">Fasta</option>
+                <option value="genbank">GenBank</option>
+                <option value="phytab">phytab</option>
+            </param>
+            <when value="phytab">
+                <param name="genenames" type="text" label="Gene Names (C3) for phytab format" />
+            </when>
+        </conditional>
+
+
+    </inputs>
+    <outputs>
+        <data format="txt" name="outfile" label="Sequence Data from ${tool.name} with ${on_string}" />
+    </outputs>
+    <help>
+**What it does**
+
+Downloads data from GenBank based on Accession numbers.
+
+------
+
+**Inputs**
+
+There are two alternative ways to input information.
+1. A list of Accession numbers in a text file that is uploaded to the Galaxy history.
+2. Optionally, the user can paste in a list of accession numbers separated by spaces.
+
+------
+
+**Outputs**
+
+The user selects which output format to use for data downloaded from GenBank. Options Include::
+  1. GenBank format
+  2. Fasta format
+  3. phytab format 
+
+phytab format includes a gene name, which is not standardized in GenBank format, so the user must add manually the gene 
+family names for all entries. If adding only one gene name, that will be used for all entries. When saving as phytab format
+the script will try to guess if the sequence should be complemented, using the GenBank strand feature. In that case it will 
+add REVCOMP to the end of the accession number. This is not implemented when saving in fasta format.
+
+-------    
+
+**Additional Information**
+
+phytab format is described here:
+http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+   
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>

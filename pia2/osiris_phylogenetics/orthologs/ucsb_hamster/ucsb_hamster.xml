@@ -1,0 +1,69 @@
+<tool id="ucsb_hamster" name="UCSB Hamster">
+	<description>UCSB Hamster is a Galaxy port for the Hamster script which finds orthologs based on HMM's.</description>
+	<command interpreter="bash">
+			#if $db_opts.db_opts_selector == "local":
+				ucsb_hamster.sh $infile $proteins $cds $log $species $estflag
+				${db_opts.database.fields.value}
+				${db_opts.database.fields.corepath} 
+				${db_opts.database.fields.blastpath}
+				${db_opts.database.fields.refsp}
+			#elif $db_opts.db_opts_selector == "hist":
+				ucsb_galaxy_hamster.sh $infile $proteins $cds $log $species $estflag
+				${db_opts.hmm_input}
+				${db_opts.muscle_data}
+				${db_opts.refspgalaxyhist}
+				${db_opts.refspgalaxyname}
+			#else:
+			#end if#
+	</command>
+	
+	<inputs>
+		<param name="estflag" type="select" label="Type of Input Data" >
+			<option value="D" selected="true">DNA -- invokes -est flag in hmmster call. </option>
+			<option value="P">Protein</option>
+		</param>
+		<param name="infile" type="data" format="fasta" label="input fasta"/>
+		<param name="species" type="text" label="Species name" help="Name of species to be written into output file, which is in phytab format.  Do not use spaces, e.g. Homo_sapiens"/>
+		
+        <conditional name="db_opts">
+			<param name="db_opts_selector" type="select" label="Databases" >
+				<option value="local" selected="true">Locally installed core</option>
+				<option value="hist">Core from Galaxy history</option>
+			</param>
+			
+			<when value="local">
+				<param name="database" type="select" label="Locally Installed Core Ortholog Sets">
+                    <options from_file="hamster.loc">
+                      <column name="value" index="0"/>
+                      <column name="name" index="1"/>
+                      <column name="corepath" index="2"/>
+                      <column name="blastpath" index="3"/>
+                      <column name="refsp" index="4"/>
+                    </options>
+                </param>
+								
+			</when>
+			
+			<when value="hist">
+				<param name="hmm_input" type="data" format="txt" label="Data from PHYTAB HMMBUILD" />
+				<param name="muscle_data" type="data" format="tabular" label="Data from PHYTAB MUSCLE" />
+				<param name="refspgalaxyhist" type="data" format="fasta" label="Genome file from Galaxy history" />
+				<param name="refspgalaxyname" type="text" label="Reference species genome name" />
+			</when>
+			
+		</conditional>
+		
+	</inputs>
+	<outputs>
+			<data format="txt" name="log" label="${tool.name} Screen Output on ${on_string}" />
+	        <data format="tabular" name="proteins" label="${tool.name} Protein Results ${on_string}" />
+	        <data format="tabular" name="cds" label="${tool.name} CDS Results ${on_string}" />
+	</outputs>
+
+	<help>
+	
+HaMster finds orthologs in a fasta file. Orthologs are found by searching an input fasta file using HMM models.  The HMM models come from aligning "core orthologs" from whole genomes. The best hit is then checked against a reference genome using BLAST.
+  http://www.biomedcentral.com/1471-2148/9/157
+	</help>
+
+</tool>

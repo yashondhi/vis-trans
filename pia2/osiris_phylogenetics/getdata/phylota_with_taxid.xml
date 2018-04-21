@@ -1,0 +1,61 @@
+<tool id="phylota_with_taxid" name="PhyLoTA_with_taxID" version="1.0">
+    <description>Pull all genetic data from phylota using a GenBank Taxonomy ID</description>
+    <requirements>
+	<requirement type="perl-module">Bio</requirement>
+	<requirement type="perl-module">LWP</requirement>
+    </requirements>		
+    <command interpreter="perl">
+		phylota_with_taxid.pl $input $outfile $phytabfile
+    </command>
+    <inputs>
+	    <param name="input" type="integer" value="0" label="Taxon ID" help="GenBank TaxonID" />
+    </inputs>
+    <outputs>
+	<data format="fasta" name="outfile" label="fasta file from ${tool.name} on ${on_string}: Out file" />
+	<data format="tabular" name="phytabfile" label="phytab from ${tool.name} on ${on_string}: Out file" />
+    </outputs>
+    <help>
+**What it does**
+
+PhyLoTA_with_taxID pulls pre-calculated trees and corresponding raw data from the PhyLoTA browser. The PhyLoTA browser groups GenBank 
+data into gene clusters by similarity, and uses those clusters for phylogenetic analysis.
+
+------
+
+**Inputs**
+
+1. A GenBank Taxon ID.
+Search Here for ID of a taxon
+http://www.ncbi.nlm.nih.gov/Taxonomy/taxonomyhome.html/
+
+------
+
+**Outputs**
+
+1. All raw sequence data in fasta format for the trees in #2.
+2. All raw sequence data in PHYTAB format. http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+-------    
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Sanderson, M. J., D. Boss, D. Chen, K. A. Cranston, and A. Wehe. 2008. The PhyLoTA Browser: processing GenBank for molecular phylogenetics research. Syst. Biol. 57:335-346. 
+
+    </help>
+</tool>
+
+

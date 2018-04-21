@@ -1,0 +1,68 @@
+<tool id="prank" name="PRANK" version="1.0" force_history_refresh='True'>
+    <description> Phylogeny Aware Multiple Sequence Alignment </description>
+    <requirements>
+        <requirement type="package">prank</requirement>
+    </requirements>
+    <command interpreter="perl">
+        prank.pl $input1 $format $missing
+    </command>
+    <inputs>
+        <param format="fasta" name="input1" type="data" label="Sequences in FASTA format" help=""/>
+    <param name="format" type="select" label="Output format">
+      <option value="fasta">fasta</option>
+    </param>
+    <param name='missing' type='boolean' checked='false' truevalue='yes' falsevalue='no' label='-F 
+option when sequences have terminal missing data'/>
+    </inputs>
+    <outputs>
+	<data from_work_dir="output.1.fas" format="fasta" name="seqs_aligned" label="${tool.name} on ${on_string}: Alignment" />
+	<data from_work_dir="output.2.fas" format="fasta" name="seqs_aligned2" label="${tool.name} on ${on_string}: Alignment" />
+    </outputs>
+    <tests>
+    </tests>
+    <help>
+**What it does**
+
+"PRANK is a probabilistic multiple alignment program for DNA, codon and amino-acid sequences. It's based on a novel
+algorithm that treats insertions correctly and avoids over-estimation of the number of deletion events. In addition,
+PRANK borrows ideas from maximum likelihood methods used in phylogenetics and correctly takes into account the
+evolutionary distances between sequences. Lastly, PRANK allows for defining a potential structure for sequences to be
+aligned and then, simultaneously with the alignment, predicts the locations of structural units in the sequences."
+From the PRANK website: http://code.google.com/p/prank-msa/wiki/PRANK?tm=6
+
+------
+
+**Inputs**
+
+FASTA
+
+------
+
+**Outputs**
+
+FASTA
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+PRANK was developed by Ari Löytynoja and Nick Goldman and is maintained at http://code.google.com/p/prank-msa/
+
+The WebCite online citation for PRANK is available here:
+http://www.webcitation.org/query.php?url=http://tinyurl.com/prank-msa&refdoi=10.1186/1471-2105-11-579
+    </help>
+</tool>

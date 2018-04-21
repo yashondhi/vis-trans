@@ -1,0 +1,57 @@
+<tool id="tab2trees" name="tab2trees" version="1.0.0">
+  <description>Create PDF file of phylogeny graphics from table of tree names and Newick trees</description>
+  <command interpreter="bash">tab2trees.sh $input $output $treetype $extips $labeltax $Rfile $query $midpoint</command>
+  <inputs>
+    <param name="input" type="data" format="tabular" label="Dataset" help="First column=Tree Name. Second column=Newick phylogeny"/>
+    <param name="treetype" type="select" label="Tree Plotting Style">
+      <option value="phylogram">phylogram</option>
+      <option value="cladogram">cladogram</option>
+      <option value="fan">fan</option>
+      <option value="unrooted">unrooted</option>
+      <option value="radial">radial</option>
+    </param>
+    <param name='extips' type='boolean' checked='false' truevalue='yes' falsevalue='no' label='Exclude Tip Labels'/>
+    <param name='query' type='boolean' checked='false' truevalue='yes' falsevalue='no' label='Highlight genes with QUERY and LANDMARK1 in name using Tip Label'/>
+    <param format="tabular" name="labeltax" type="data" optional="true" label="Species to Mark File" help="Tab delimited file with 2 columns, gene, species. These will be marked on the trees." /> 
+    <param name='midpoint' type='boolean' checked='true' truevalue='yes' falsevalue='no' label='Midpoint Root all Trees'/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="Rfile" />
+    <data format="pdf" name="output" />
+  </outputs>
+
+  <help>
+**What it does**
+
+Creates a "book" of multiple phylogenetic tree graphics, one per page, in pdf format.
+
+------
+
+**Inputs**
+
+tab delimited file. Column 1 is tree name column 2 is newick tree string.
+
+------
+
+**Outputs**
+
+PDF file of phylogeny graphics.
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+</help>
+</tool>

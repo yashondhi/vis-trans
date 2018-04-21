@@ -1,0 +1,14 @@
+<section name="Osiris: Phylostatistics" id="phylostatistics">
+    <label text = "Long Branch Identification" id="lbid" />
+       <tool file="osiris/phylostatistics/phytab_LB_pruner.xml" />
+    <label text = "Bootstrap and MCMC support" id="bootmcmc" />
+       <tool file="osiris/phylostatistics/tree_support_raxml.xml" />
+       <tool file="osiris/phylostatistics/tree_support_phyutility.xml" />
+       <tool file="osiris/phylostatistics/treeannotator.xml" />
+    <label text = "Community Ecology Phylogenetics" id="comphylo" />
+       <tool file="osiris/phylostatistics/PDpairs.xml" />
+       <tool file="osiris/phylostatistics/phylomatic.xml" />
+       <tool file="osiris/phylostatistics/tree_species.xml" />
+    <label text = "Toplology Tests" id="topotests" />
+       <tool file="osiris/phylostatistics/SHtest.xml" />
+</section>

@@ -1,0 +1,130 @@
+<tool id="phylocatenator" name="Phylocatenator" version="2.0.0">
+  <description>Produces concatenated sequence file from phytab file of aligned sequences</description>
+    <command interpreter="perl">
+	phylocatenator.pl $input1 $genes $species $mingene $species_file $models_file $out_file1 $partition_file $html_file $html_file2 > $phylocat_log
+    </command>
+  <inputs>
+<!--    <display> $input1 with $genes and $species</display> -->
+    <param name="input1" type="data" format="tabular" label="Table containing aligned genes"/>
+    <param name="genes" type="integer" value="0" label="Genes" help="Minimum genes required per species. 0 retains all species. " />
+    <param name="mingene" type="integer" value="35" label="Min" help="Minimum length of an aligned gene family to be included " />
+    <param name="species" type="integer" value="4" label="Species" help="Minimum species per gene. 0 retains all genes." />
+    <param name="species_file" type="data" format="txt" optional="true" label="Text list of species" help="Only species in the last can be retained in concatenated file" />
+    <param name="models_file" type="data" format="tabular" optional="true" label="Table of: Models LUT" help="To partition data by model (protein, dna, binary, etc) according to a LUT (lookup table)" />
+    <param name="outtype" type="select" label="Write as">
+      <option value="R">RAxML_phylip</option>
+    </param>
+  </inputs>
+  <outputs>
+    <data format="txt" name="phylocat_log" label="${tool.name} on ${on_string}: Log File" />
+    <data format="html" name="html_file" label="${tool.name} on ${on_string}: html Table" />
+    <data format="html" name="html_file2" label="${tool.name} on ${on_string}: html Accession Table" />
+    <data format="txt" name="partition_file" label="${tool.name} PARTITION FILE on ${on_string}" />
+    <data format="txt" name="out_file1" label="${tool.name} DATAFILE on ${on_string}" metadata_source="input1" />
+  </outputs>
+  <help>
+**What it does**
+
+This tool produces a concatenated data set for phylogenetics when not all genes are sampled for all species.
+
+------
+
+**Basic Example**
+
+The input data must be in phytab column format.  Column 1 is species name, C2 is genefamily, C3 individual gene name, C4 is sequence. 
+Sequences of each gene family must be aligned::
+
+  species1	gene1	genenameA	acgttagcgcgctatagc
+  species2	gene1	genenameB	acgttag--cgctataaa
+  species3	gene1	genenameC	acgttagcgcgctatagc
+  species4	gene1	genenameD	acgttagcgcgctatagc
+  species1	gene2	genenameE	--gttagtttgcta
+  species3	gene2	genenameF	gtgttagtttgcta
+
+Two variables are $gene and $species.  These set thresholds for 
+inclusion of data.  $species is the minimum number of species that 
+contain a particular gene.  $gene sets a minimum number of gene families 
+that a species must have to be included in the dataset.
+
+Running phylocatenator on the above data with 0 for genes and 0 for species yields::
+
+  4 32
+  species1	acgttagcgcgctatagc--gttagtttgcta
+  species2	acgttag--cgctataaa??????????????
+  species3	acgttagcgcgctatagcgtgttagtttgcta
+  species4	acgttagcgcgctatagc??????????????
+
+**Optional Functionality**
+
+I. You may enter a list of species.  
+Species not in this list will not be written to the output file. 
+For example, a species list of::
+
+  species1
+  species2
+
+
+Would change the above output to::
+
+  species1      acgttagcgcgctatagc--gttagtttgcta
+  species2      acgttag--cgctataaa??????????????
+
+II. Table of partition models
+
+You may enter a table of models for each gene family/partition. Phylocatenator will then sort all the data to put all data 
+for the same models together. It will then create the appropriate partition file, which will specify each model in raxml.
+Currently, it is only possible to partiion data into valid raxml models.
+
+The format is a tab-delimited file as follows::
+
+  gene1	WAG
+  gene2	JTT
+  gene3	DNA
+  gene4	WAG
+
+Valid models include the following::
+
+  BIN = binary morphological data
+  MULTI = multistate morphological data
+  DNA = DNA data
+  WAG = one of several protein models listed in raxml help documents
+
+III. Attribute
+
+You may enter a table with an attribute/value for each gene family/partition. Phylocatenator will then select the data based 
+on that value.
+
+The format is a tab-delimited file as follows::
+
+  gene1 3.1
+  gene2 2.2
+  gene3 0.9
+  gene4 6.5
+
+You can choose gene partitions based on the attribute value.  
+For example, if the numbers above represent rate of evolution, you could 
+choose to include 'slow' genes with a rate less than 2.5
+
+------
+
+**Additional Information**
+
+http://osiris-phylogenetics.blogspot.com/2012/10/phylocatenator.html
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citation**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+First used in this paper
+
+Oakley, Todd H, Joanna M Wolfe, Annie R Lindgren, and Alexander K Zaharoff. 2012. Phylotranscriptomics to Bring the Understudied into the Fold: Monophyletic Ostracoda, Fossil Placement, and Pancrustacean Phylogeny. lecular Biology and Evolution. doi:10.1093/molbev/mss216. 
+
+</help>
+</tool>

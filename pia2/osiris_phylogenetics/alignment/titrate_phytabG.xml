@@ -1,0 +1,65 @@
+<tool id="titrateG_phytab" name="titrateG_phytab" version="1.0">
+  <description>Remove genes from phytab format file not present in X species</description>
+    <command interpreter="perl">
+	titrate_phytabG.pl $input1 $genes $mingene $out_file1 $log_file  
+    </command>
+  <inputs>
+<!--    <display> $input1 with $genes and $species</display> -->
+    <param name="input1" type="data" format="tabular" label="Table containing aligned genes"/>
+    <param name="genes" type="integer" value="0" label="Genes" help="Minimum genes required across species. 0 retains all genes. " />
+    <param name="mingene" type="integer" value="35" label="Min" help="Minimum length of gene sequence to count as present" />
+  </inputs>
+  <outputs>
+    <data format="txt" name="log_file" metadata_source="input1" />
+    <data format="tabular" name="out_file1" metadata_source="input1" />
+  </outputs>
+  <help>
+**What it does**
+
+This tool removes genes from a phytab file when genes are missing from too many species.
+
+------
+
+**Basic Example**
+
+The input data must be in phytab column format.  Column 1 is species name, C2 is genefamily, C3 individual gene name, C4 is sequence. 
+Sequences of each gene family must be aligned::
+
+  species1	gene1	genenameA	acgttagcgcgctatagc
+  species2	gene1	genenameB	acgttag--cgctataaa
+  species3	gene1	genenameC	acgttagcgcgctatagc
+  species4	gene1	genenameD	acgttagcgcgctatagc
+  species1	gene2	genenameE	--gttagtttgcta
+  species3	gene2	genenameF	gtgttagtttgcta
+
+The variable $gene sets a threshold for 
+inclusion of data. 
+
+Running the tool on the above data with 3 for genes yields::
+
+  species1	gene1	genenameA	acgttagcgcgctatagc
+  species2	gene1	genenameB	acgttag--cgctataaa
+  species3	gene1	genenameC	acgttagcgcgctatagc
+  species4	gene1	genenameD	acgttagcgcgctatagc
+
+You can specify a minimum sequence length for the gene to count as present
+
+------
+
+**Additional Information**
+
+http://osiris-phylogenetics.blogspot.com/2012/10/phylocatenator.html
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citation**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+</help>
+</tool>

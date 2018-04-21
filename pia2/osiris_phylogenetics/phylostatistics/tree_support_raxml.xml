@@ -1,0 +1,67 @@
+<tool id="tree_support_raxml" name="tree_support_RAxML">
+	<description>Calculates support for nodes of a single tree (bootstrap) using a file of multiple trees</description>
+	<requirements>
+		<requirement type="package">raxml</requirement>
+	</requirements>
+	<command>
+		raxmlHPC-PTHREADS-SSE3 -T 2 -f b -t $besttree -z $treesfile -m GTRCAT -n galaxy -o $Out 
+	</command>
+	<inputs>
+		<param format="txt" name="treesfile" type="data" label="Input trees file" help="A file of multiple trees in newick format"/>
+		<param format="txt" name="besttree" type="data" label="Target tree" help="Tree to find support for"/>
+		<param name="Out" type="text" label="Outgroup (optional)" help="The name of one or more (comma-separated) outgroup(s) can be specified"/>
+	</inputs>
+	<outputs>
+        <data format="txt" name="boot_tree" label="${tool.name} Bootstrap Trees on ${on_string}" from_work_dir="RAxML_bipartitions.galaxy" />
+        <data format="txt" name="branchlabelboots" label="${tool.name} Branchlabel bootstrap bipartitions on ${on_string}" from_work_dir="RAxML_bipartitionsBranchLabels.galaxy" />
+        <data format="txt" name="raxml_info" label="${tool.name} Log File on ${on_string}" from_work_dir="RAxML_info.galaxy" />
+	</outputs>
+    <help>
+**What it does**
+
+Tree support RAxML calculates support values for a given tree using a set of input trees. For example, it can calculate bootstrap support for the ML tree based on a set of trees from a bootstrap analysis.
+This is valuable when separating bootstrap analysis from ML analysis, and when separating bootstrap replicates in different runs, which can be concatenated and used as input for this tool.
+
+------
+
+**Inputs**
+
+1. Newick format target tree, branch lengths are optional.
+
+2. Set of Newick format phylogenies, branch lengths are ignored.
+
+3. Optional outgroup specification. There can be no spaces in this entry.
+
+------
+
+**Outputs**
+
+The focal tree is output with support values in Newick tree format.
+
+-------    
+
+**Additional Information**
+
+1. This tool Calls RAxML with -f b option with -t and -z options
+
+2. A similar tool is tree_support_phyutility, which works best with nexus format trees.
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Stamatakis, A. (2006). RAxML-VI-HPC: maximum likelihood-based phylogenetic analyses with thousands of taxa and mixed models. Bioinformatics.
+http://bioinformatics.oxfordjournals.org/content/22/21/2688.short
+
+    </help>
+
+
+</tool>

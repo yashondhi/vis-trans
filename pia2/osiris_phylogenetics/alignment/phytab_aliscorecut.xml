@@ -1,0 +1,60 @@
+<tool id="phytab_aliscorecut" name="phytab AliscoreCut" version="1.0">
+  <description>Runs Aliscore then Alicut on an aligned sequence in phytab format.</description>
+  <requirements>
+    <requirement type="package">aliscore and alicut</requirement>
+  </requirements>
+  <command interpreter="python">
+    phytab_aliscorecut.py -i $sequence > $aliscorecut_stdout 2>&amp;1
+  </command>
+  <inputs>
+    <param format="txt" name="sequence" type="data" label="Aligned sequence" help="This should be an aligned sqeuence from UCSB Muscle."/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="aliscorecut_stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="tabular" name="aliscorecut_results" label="${tool.name} on ${on_string}: results" from_work_dir="data/results.data" />
+  </outputs>
+  <tests>
+  </tests>
+  <help>
+**What it does**
+
+Aliscore identifies ambiguously aligned regions of a multiple sequence alignment. Alicut deletes sites marked by aliscore. This tool combines both into one tool.
+
+------
+
+**Inputs**
+
+Aligned sequences in phytab format
+
+------
+
+**Outputs**
+
+phytab format
+
+------
+
+**Additional information**
+
+For information on phytab format see: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at
+bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider
+citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Aliscore: Kuck P, Meusemann K, Dambach J, Thormann B, von Reumont BM, et al. (2010) Parametric and non-parametric masking of randomness in sequence alignments can be improved and leads to better 
+resolved trees. Front Zool 7: 10.
+  </help>
+</tool>

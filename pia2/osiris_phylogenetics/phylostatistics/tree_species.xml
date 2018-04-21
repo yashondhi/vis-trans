@@ -1,0 +1,49 @@
+<tool id="tree_species" name="tree_species" version="1.0">
+  <description>Writes species not in a phylogeny to a text list.</description>
+  <command interpreter="perl">
+   tree_species.pl $infile $treefile > $outfile
+  </command>
+  <inputs>
+    <param format="txt" name="infile" type="data" label="Full text list of species."/>
+    <param format="txt" name="treefile" type="data" label="Tree to search. Newick format."/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="outfile" label="${tool.name} on ${on_string}: stdout" />
+  </outputs>
+    <help>
+**What it does**
+
+This tool can be used to determine which species from a list are not present in a tree.
+Searches, one at a time, for species (OTUs) that are present in a tree file. If not found, the species is written to the output file.
+
+------
+
+**Inputs**
+
+1. A text list of species to use to search.
+2. A phylogeny file.
+
+------
+
+**Outputs**
+
+A text list of species (OTU) names.
+
+-------    
+
+**Additional Information**
+
+This is a very simple perl script that just searches a text file for the presence of each line in the other file.
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>

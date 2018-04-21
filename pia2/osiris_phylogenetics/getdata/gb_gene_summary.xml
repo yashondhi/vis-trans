@@ -1,0 +1,57 @@
+<tool id="gb_gene_summary" name="GB_gene_summary" version="1.0.0">
+    <description>Summarizes gene names in a GenBank flatfile</description>
+    <command interpreter="perl">
+	genbankstrip.pl "-f"$data_file "-l"$length "-ts"$species $sp > $logfile
+    </command>
+    <inputs>
+        <param format="txt" name="data_file" type="data" optional="false" label="GenBank flat file"/>
+	<param name="length" type="integer" value="75" label="Minimum gene length" help="Does not retain short genes." />
+	<param name="species" type="integer" value="5" label="Minimum" help="Only shows genes present in >x species." />
+	<param name='sp' type='boolean' checked='true' truevalue='-s' falsevalue='' label='Ignore undefined species' help='For example Vargula sp. would be ignored' />
+    </inputs>
+    <outputs>
+        <data format="txt" name="logfile" label="Screen output from ${tool.name} with ${on_string}" />
+        <data format="tabular" name="stripfile" label="Summary ${tool.name} with ${on_string}" from_work_dir="striplist.txt"/>
+    </outputs>
+    <help>
+**What it does**
+
+Summarizes gene names in a genbank flatfile.
+
+------
+
+**Inputs**
+
+A genbank flatfile.
+
+------
+
+**Outputs**
+
+A summary of gene names, and how many species are have data available for each gene.
+
+-------    
+
+**Additional Information**
+
+The gene names can be used to pull genes using genbankstrip.
+Often, the same gene will have many names in genbank. These names can be synonymized by altering the genbankstrip.pl script.
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>
+
+
+
+

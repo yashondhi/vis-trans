@@ -1,0 +1,61 @@
+<tool id="profilemafft" name="profilemafft" version="1.0" force_history_refresh='True'>
+    <description> Add Sequence(s) to existing Multiple Sequence Alignment </description>
+    <requirements>
+        <requirement type="package">mafft</requirement>
+    </requirements>
+    <command interpreter="perl">
+        profilemafft.pl $new_sequences $existing_alignment
+    </command>
+    <inputs>
+        <param format="fasta" name="new_sequences" type="data" label="Sequence(s) in fasta format" help=""/>
+        <param format="fasta" name="existing_alignment" type="data" label="Aligned sequences in fasta format" help=""/>
+    </inputs>
+    <outputs>
+        <data from_work_dir="log.txt" format="txt" name="screen" label="${tool.name} on ${on_string}: Screen Output" />
+        <data from_work_dir="seqs_aligned.fasta" format="fasta" name="seqs_aligned" label="${tool.name} on ${on_string}: Full Alignment" />
+    </outputs>
+    <tests>
+    </tests>
+    <help>
+**What it does**
+
+This tool runs MAFFT profile alignment to add new sequences to an existing alignment
+
+------
+
+**Inputs**
+
+FASTA -- aligned sequences
+FASTA -- new sequences to add to alignment
+
+------
+
+**Outputs**
+
+aligns new sequences into existing alignment outputting fasta
+
+------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+MAFFT: MAFFT: Katoh, Toh 2008 (Briefings in Bioinformatics 9:286-298)
+Recent developments in the MAFFT multiple sequence alignment program.
+
+MAFFT website: http://mafft.cbrc.jp/alignment/server/index.html
+
+    </help>
+</tool>

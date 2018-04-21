@@ -1,0 +1,64 @@
+<tool id="phytab_prank" name="phytab PRANK" version="1.0">
+  <description>PRANK: Probabilistic Alignment Kit. Input can be FASTA or phytab format.</description>
+  <requirements>
+    <requirement type="package">prank</requirement>
+  </requirements>
+  <command interpreter="python">
+    phytab_prank.py -i $data > $prank_stdout 2>&amp;1
+  </command>
+  <inputs>
+    <param format="txt" name="data" type="data" label="Sequence data" help="This should be sequence data in phytab or FASTA"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="prank_stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="tabular" name="prank_results" label="${tool.name} on ${on_string}: results" from_work_dir="data/results.data" />
+  </outputs>
+  <tests>
+  </tests>
+    <help>
+**What it does**
+
+PRANK is a probabilistic multiple alignment program for DNA, codon and amino-acid sequences. It's based on a novel algorithm that treats insertions correctly and avoids over-estimation of the number of deletion events. In addition, PRANK borrows ideas from maximum likelihood methods used in phylogenetics and correctly takes into account the evolutionary distances between sequences. Lastly, PRANK allows for defining a potential structure for sequences to be aligned and then, simultaneously with the alignment, predicts the locations of structural units in the sequences. From the PRANK website: http://code.google.com/p/prank-msa/wiki/PRANK?tm=6
+
+------
+
+**Inputs**
+
+FASTA or phytab file format. 
+
+------
+
+**Outputs**
+
+phytab file format. Introduction to phytab: 
+http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a 
+publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+PRANK was developed by Ari Löytynoja and Nick Goldman and is maintained at http://code.google.com/p/prank-msa/
+
+A citation for PRANK is:
+Phylogeny-Aware Gap Placement Prevents Errors in Sequence Alignment and Evolutionary Analysis. Science 320:1632-1635.
+ 
+
+    </help>
+
+</tool>

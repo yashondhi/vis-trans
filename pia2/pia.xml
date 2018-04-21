@@ -1,0 +1,105 @@
+<tool id="pia" name="pia" version="1.0">
+    <description> Perform Phylogenetically Informed Annotation </description>
+    <requirements>
+         <requirement type="perl-module">Bio</requirement>
+    </requirements>
+    <command interpreter="perl">
+	#if $analysisconditional.scope == "all":
+		pia.pl $data_file 'all' 'NULL' $alignment $evalue $maxkeep > $stdout 2>&amp;1
+	#elif $analysisconditional.scope == "functional" :
+		pia.pl $data_file 'functional' '$analysisconditional.set' $alignment $evalue $maxkeep > $stdout 2>&amp;1
+	#elif $analysisconditional.scope == "single" :
+		pia.pl $data_file 'single' '$analysisconditional.family' $alignment $evalue $maxkeep > $stdout 2>&amp;1
+	#end if#
+    </command>
+    <inputs>
+        <param format="fasta" name="data_file" type="data" optional="false" label="Input Data" help="Transcriptome or Genome Data (Proteins) in fasta format"/>
+        <conditional name="analysisconditional">
+        <param name="scope" type="select" label="Genes to Annotate">
+                <option value="functional">Functional Gene Set</option>
+                <option value="single">Single Gene</option>
+        </param>
+            <when value="functional">
+                <param name="set" type="select" label="Functional Gene Set">
+	                <option value="rdn">Retinal Determination Network</option>
+	                <option value="prc">Photoreceptor Specification</option>
+	                <option value="rtrans">Phototransduction, Rhabdomeric</option>
+	                <option value="ctrans">Phototransduction, Ciliary</option>
+	                <option value="retv">Retinoid Pathway, Vertebrate</option>
+	                <option value="reti">Retinoid Pathway, Invertebrate</option>
+	                <option value="mel">Melanin Synthesis</option>
+	                <option value="pter">Pterin Synthesis</option>
+	                <option value="ommo">Ommochrome Synthesis</option>
+	                <option value="heme">Heme Synthesis</option>
+	                <option value="crys">Crystallins</option>
+	                <option value="clock">Diurnal Clock</option>
+	                <option value="opsin">Opsin Datasets</option>
+		</param>
+            </when>
+            <when value="single">
+                <param name="family" type="select" label="Gene Family">
+	                <options from_file="pia.loc">
+				<column name="value" index="0"/>
+				<column name="name" index="1"/>
+			</options>
+		</param>
+            </when>
+        </conditional>
+	<param name="evalue" type="float" value="0.0001" label="evalue for BLAST search(es)" help='Higher numbers retain more hits.'/>
+	<param name="maxkeep" type="integer" value="10" label="Maximum Hits" help='The maximum number of BLAST hits to retain for analysis'/>
+        <param name="alignment" type="select" label="Alignment program to use">
+                <option value="mafftprofile">MAFFT Profile</option>
+                <option value="mafft">MAFFT</option>
+                <option value="muscle">MUSCLE</option>
+        </param>
+    </inputs>
+    <outputs>
+	<data format="txt" name="stdout" label="${tool.name} on ${on_string}: stdout" />
+    	<data format="fasta" name="allhits.fas" label="PIA Result: ${tool.name} on ${on_string} all genes hit " from_work_dir="allhits.fas" />
+    	<data format="tabular" name="allhits.tab" label="PIA Result: ${tool.name} on ${on_string} hits tab " from_work_dir="allhits.tab" />
+    	<data format="tabular" name="treeout.tab" label="PIA Result: ${tool.name} on ${on_string} name tab tree " from_work_dir="treeout.tab" />
+    </outputs>
+    <help>
+**What it does**
+
+We developed a new method for rapidly identifying light-interacting genes in transcriptomes. These genes include those involved in phototransduction, eye development, pigment synthesis, circadian cycles, and other light-interacting pathways. Our methods are optimized for detecting genes in metazoans, but could be adapted for annotating transcriptomes from non-metazoans. For annotation, we use BLAST to search transcriptomes or gene models from full genomes for 109 separate genes known to be involved with light interactions in metazoans. We then use a likelihood algorithm to place the BLAST hits for each gene on to a corresponding, pre-calculated gene tree (we have separate trees for each of our 109 genes). As a method for assigning identities to transcripts, we find that PIA is more objective than methods based on similarity alone (e.g. Blast2Go) and more efficient than past methods based on constructing gene trees. 
+
+------
+
+**Inputs**
+
+PIA searches protein sequences. If you have DNA sequences, you can first use the tool predictORFs
+
+------
+
+**Outputs**
+
+The "pia" tool will give several different output files in your history. The "all genes hit" file contains the sequences of all genes recovered by the initial BLAST searches. The "name tab tree" file has all of your hits placed on to their corresponding gene trees. You can view these trees as a PDF by running the "tab2trees" tool under Analyze Data and selecting "name tab tree" as the input.
+
+-------    
+
+**Additional Information**
+
+1) To upload a transcriptome, go to the "Tools" toolbar on the left side of the window. Select "Get Data" and then "Upload File". You will then have the option of uploading a data set from either a file on your computer or from a specific URL.
+
+2) PIA does not annotate transcriptomes directly, but instead annotates protein sequences predicted from transcriptomes. To generate predicted protein sequences from your transcriptome, run the "Get open reading frames (ORFs)" under the Analyze Data option in the Tools menu.
+
+3) To search for genes to annotate within your data set, select the "pia" tool under Analyze data. You have the option of searching transcriptomes for single genes (e.g. opsins) or functional gene sets (e.g. a dozen genes involved in rhabdomeric-type phototransduction).You can also adjust the e-value cut-off for the BLAST search that will return hits from your transcriptome. Lower e-values will return fewer possible genes than higher ones. Finally, you can adjust the maximum number of hits returned by each BLAST search. Generally, I start with an evalue cut-off of 1e-20 and retain the top 3 hits. These parameters return quite similar genes and I encourage users to try out a variety of search settings to see how this affects results.
+
+4) The "pia" tool will give several different output files in your history. The "all genes hit" file contains the sequences of all genes recovered by the initial BLAST searches. The "name tab tree" file has all of your hits placed on to their corresponding gene trees. You can view these trees as a PDF by running the "tab2trees" tool under Analyze Data and selecting "name tab tree" as the input.
+
+5) You also have the option of running workflows. Shared workflows may be found at the bottom of the "Tools" menu. If you have not used Galaxy before, I suggest starting with these workflows. The "PIA All genes" options will search your transcriptome for all 109 of our light-interacting genes. A nice thing about these workflows is that they will return hits from the searches in both amino acid and nucleotide formats. 
+
+Interpreting results
+
+The output of PIA is a PDF document in which hits for a selected set of light-interacting genes have been placed on to pre-calculated gene trees using a likelihood-based algorithm. The sequences that comprise each pre-calculated tree come from predicted protein databases associated with the complete genomes of about 30 different taxa. The trees also include "Landmarks", which are genes that have been well-characterized functionally. Sequences marked "LANDMARK1" -- highlighted with red squares -- represent the genes whose orthologs we are seeking. The genes marked "LANDMARK2" are also well-characterized, but are not orthologous to the ones we're interested in. The trees also include "Queries" -- marked by yellow circles -- which are the BLAST hits pulled from your input data set. 
+
+A promising hit from your BLAST search is one that represents an ortholog of a light-interacting gene whose function has been established previously (see sequences labeled “LANDMARK1”). Promising hits tend to fall on short branches in phylogenetic positions that make sense given established relationships between species. It is important to remember that PIA will give you hits that represent genes that are not orthologs of those for which you are searching. PIA works well as a filter, but there is some subjectivity in deciding which BLAST hits are orthologs of particular genes of interest. As noted above, branch length and phylogenetic placement are important considerations. I also suggest BLASTing all promising hits back to GenBank and other analyses -- contamination is always a possibility.   
+
+-------    
+
+**Citations**   
+
+
+    </help>
+</tool>

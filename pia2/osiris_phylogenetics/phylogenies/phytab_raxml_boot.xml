@@ -1,0 +1,56 @@
+<tool id="phytab_raxml_boot" name="Phytab RAxML Boot to run rapid bootstrap analysis">
+  <description> for phytab input</description>
+  <requirements>
+    <requirement type="package">raxml</requirement>
+  </requirements>
+  <command interpreter="python">phytab_raxml_boot.py -i $sequence -e $evo -f $efile -T 4 > $stdout 2>&amp;1 </command>
+  <!-- if using a queuing system, make sure number of ppn in jobrunner matches threads as set above -->
+  <inputs>
+    <param format="tabular" name="sequence" type="data" label="PHYTAB sequence file"/>
+    <param name="evo" type="select" format="txt">
+      <label>Model of evolution to apply to all data partitions (-m)</label>
+      <option value="GTRGAMMA">GTRGAMMA</option> <option value="PROTGAMMADAYHOFF">PROTGAMMADAYHOFF</option> <option value="PROTGAMMADCMUT">PROTGAMMADCMUT</option> <option value="PROTGAMMAJTT">PROTGAMMAJTT</option> <option value="PROTGAMMAMTREV">PROTGAMMAMTREV</option> <option value="PROTGAMMAWAG">PROTGAMMAWAG</option> <option value="PROTGAMMARTREV">PROTGAMMARTREV</option> <option value="PROTGAMMACPREV">PROTGAMMACPREV</option> <option value="PROTGAMMAVT">PROTGAMMAVT</option> <option value="PROTGAMMABLOSUM62">PROTGAMMABLOSUM62</option> <option value="PROTGAMMAMTMAM">PROTGAMMAMTMAM</option> <option value="PROTGAMMALG">PROTGAMMALG</option> <option value="PROTGAMMAMTART">PROTGAMMAMTART</option> <option value="PROTGAMMAMTZOA">PROTGAMMAMTZOA</option> <option value="PROTGAMMAPMB">PROTGAMMAPMB</option> <option value="PROTGAMMAHIVB">PROTGAMMAHIVB</option> <option value="PROTGAMMAHIVW">PROTGAMMAHIVW</option> <option value="PROTGAMMAJTTDCMUT">PROTGAMMAJTTDCMUT</option> <option value="PROTGAMMAFLU">PROTGAMMAFLU</option> <option value="PROTGAMMAGTR">PROTGAMMAGTR</option>
+     </param>
+     <param format="txt" name="efile" type="data" optional="true" value="n" label="Tab-delimited file with partition name in first column, evolutionary model in the second column. Must be RAxML valid model names. (optional)"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="tabular" name="results.phy" label="${tool.name} on ${on_string}: results" from_work_dir="results/results.phy" />
+  </outputs>
+  <tests>
+  </tests>
+  <help>
+    **What it does**
+Accepts Phytab input file (one or multiple gene partitions).  Runs RAxML using specified model or model file for each partition, producing likelyhood values (using RAxML -f a option) for each branch of the tree.  
+
+This variation uses "raxmlHPC-PTHREADS-SSE3", the threaded serialized version of RAxML that uses SSE3 extensions. Consult source code for more details.
+
+The main difference between this and non-SSE3 version (other than requiring raxmlHPC-PTHREADS-SSE3) is its use case; this tool is designed to generated RAxML trees for use with phytab_raxml_boot. It maybe used for other purposes as well, but it is recommended that you consult the source code before deciding whether this is suitable for your specific use case.
+
+In this variation of Phytab RAxML, RAxML is made to run a rapid bootstrap analysis to produce likelihood values (using RAxML "-f a" and "-x" flags, as mentioned above). The "-N" flag is set to 100. This tool uses the MK multi-state substitution model (using "-K" flag).
+
+Consult the RAxML documentation for information regarding the meaning of each option flag.
+
+For phytab format description, see: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+See RAxML for additional information: https://github.com/stamatak/standard-RAxML
+
+-------
+**Performance**
+The extent to which runs are parallelized may be altered through the Galaxy jobrunner (command-line). The number of threads is set in this tool's XML command section.
+
+-------
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+  </help>
+  </tool>

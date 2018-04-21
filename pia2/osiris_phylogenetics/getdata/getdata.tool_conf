@@ -1,0 +1,11 @@
+<section name="Osiris: Get Data" id="getdata">
+    <tool file="osiris/getdata/upload.xml" />
+    <tool file="osiris/getdata/get_seqs.xml" />
+    <tool file="osiris/getdata/get_1_gb.xml" />
+    <tool file="osiris/getdata/get_gb.xml" />
+    <tool file="osiris/getdata/get_gb_sp.xml" />
+    <tool file="osiris/getdata/genbankstrip.xml" />
+    <tool file="osiris/getdata/gb_gene_summary.xml" />
+    <tool file="osiris/getdata/generate_from_phylota.xml" />
+    <tool file="osiris/getdata/phylota_with_taxid.xml" />
+  </section>

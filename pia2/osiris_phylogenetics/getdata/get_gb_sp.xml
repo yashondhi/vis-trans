@@ -1,0 +1,64 @@
+<tool id="get_gb_sp" name="Get_GB_sp" version="1.0">
+    <description> Grab All GenBank Data from a text list of species </description>
+    <requirements>
+         <requirement type="perl-module">Bio</requirement>
+    </requirements>
+    <command interpreter="perl">
+	        get_gb_sp.pl $data_file $database $outtype $outfile $nffile 2> error.log
+    </command>
+    <inputs>
+        <param format="txt" name="data_file" type="data" optional="false" label="Text list of species" help="One species per line"/>
+
+        <param name="database" type="select" label="Protein or Nucleotide Data">
+                <option value="nucleotide">Nucleotide</option>
+                <option value="protein">Protein</option>
+        </param>
+
+            <param name="outtype" type="select" label="Output File Format">
+                <option value="fasta">Fasta</option>
+                <option value="genbank">GenBank</option>
+            </param>
+    </inputs>
+    <outputs>
+        <data format="txt" name="nffile" label="No genbank data ${tool.name} with ${on_string}" />
+        <data format="txt" name="outfile" label="Sequence Data from ${tool.name} with ${on_string}" />
+    </outputs>
+    <help>
+**What it does**
+
+Downloads ALL data from GenBank based on species names.
+
+------
+
+**Inputs**
+
+A text list of species names (or genus names will retrieve all data for a genus.)
+
+------
+
+**Outputs**
+
+The user selects which output format to use for data downloaded from GenBank. Options Include::
+  1. GenBank format
+  2. FASTA format
+
+-------    
+
+**Additional Information**
+
+GenBank format can be converted to phytab or other formats using GenBankstrip.
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+   
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>

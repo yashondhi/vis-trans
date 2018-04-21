@@ -1,0 +1,77 @@
+#!/bin/bash 
+#---Number of cores 
+#BSUB -n 16
+
+#---Run the job in one node
+#BSUB -R "span[hosts=1]"
+
+#---Job's name in LSF system
+#BSUB -J PIA
+
+#---Error file
+#BSUB -eo PIA.err
+
+#---Output file 
+#BSUB -oo PIA.out
+
+
+#---LSF Queue name
+#BSUB -q PQ_bracken
+
+################################################################
+# Setup envrionmental variable, load modules, specify arguments
+################################################################
+export NPROCS=`echo $LSB_HOSTS | wc -w`
+. $MODULESHOME/../global/profile.modules
+export PATH=${PATH}:/data/bracken/pia/
+export PATH=${PATH}:/data/bracken/pia/phyutility/
+
+module load blast/2.2.29+ 
+module load mafft/7.015 
+module load muscle/3.8.31 
+module load R
+module load perl/5.20.1 
+module load java/jdk1.7.0_75 
+module load raxml
+
+
+ASSEMBLY="trinity_out.Trinity.fasta"
+
+SCOPE="set" #[all|single|set]
+
+GENES="rtrans"  #see options below
+
+# "rdn" Retinal Determination Network
+# "prc" Photoreceptor Specification
+# "rtrans" Phototransduction, Rhabdomeric
+# "ctrans" Phototransduction, Ciliary
+# "retv" Retinoid Pathway, Vertebrate
+# "reti" Retinoid Pathway, Invertebrate
+# "mel" Melanin Synthesis
+# "pter" Pterin Synthesis
+# "ommo" Ommochrome Synthesis
+# "heme" Heme Synthesis
+# "crys" Crystallins
+# "clock" Diurnal Clock
+# "opsin" Opsin Datasets
+
+ALIGNMENT="mafft"  #[mafft|muscle]
+
+EVALUE="0.0000000001" #e-value threshold for blast
+
+BLASTHITS="1000" #blast hits to keep for analysis
+
+##########################################################
+##########################################################
+
+#extract ORFs from transcriptome assembly
+python /data/bracken/pia/get_orfs_or_cdss.py $ASSEMBLY fasta 1 ORF open top 30 both ORF_nuc.fasta ORF_prot.fasta > stdout 2>&1
+
+#run the PIA job
+perl /data/bracken/pia/pia.pl ORF_prot.fasta $SCOPE $GENES $ALIGNMENT $EVALUE $BLASTHITS
+
+
+#plot the PIA trees
+perl /data/bracken/pia/phylographics/makeRtrees.pl treeout.tab trees.pdf phylogram no None Rfile yes no >tree.R
+
+R --vanilla < tree.R 2>log.txt

@@ -1,0 +1,67 @@
+<tool id="phylomatic" name="Phylomatic" version="1.0.1">
+	<description>Run Phylomatic</description>
+	<requirements>
+		<requirement type="binary">Phylocom Phylomatic</requirement>
+	</requirements>
+	<command interpreter="perl">./phylomatic.pl $input1 $input2</command>
+	<inputs>
+		<param name="input1" type="data" format="txt" label="Phylogenetic Tree" />
+		<param name="input2" type="data" format="txt" label="Taxonomy File" />
+	</inputs>
+
+	<outputs>
+		<data from_work_dir="output.txt"/>
+	</outputs>
+	
+	<help>
+**What it does**
+
+Phylomatic (Webb & Donoghue, 2005) is part of the Phylocom software package (Webb et al., 2008).
+Phylomatic takes your list of taxa, and first tries to match them by genus name to the megatree. Failing that, they are attached by family name. 
+If all the genera appear in the megatree, then that family appears resolved. If even one genus is missing from the megatree, the returned phylogeny portrays a polytomy of genera. 
+Currently, species are not included in the megatree, and species within a genus are always returned as polytomies.
+
+------
+
+**Inputs**
+
+Input 1: Phylogeny in Newick format.
+Input 2: List of taxa in delimited text file. 
+
+------
+
+**Outputs**
+
+Phylomatic matches input taxa to the most resolved possible position in any of a set of master 
+trees in the database (the 'megatrees') and returns the phylogeny in one of a variety of formats: 
+graphical, Newick, NEXUS, or tabular.
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use 
+of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Phylomatic (Part of Phylocom software package)
+
+http://phylodiversity.net/phylomatic/html/pm2_form.html
+
+If you use results derived from Phylocom analyses in your publications, please cite:
+
+Webb, C. O., Ackerly, D. D. & Kembel, S. W. 2008. Phylocom: software for the analyses of phylogenetic community structure and trait evolution. Bioinformatics, 24: 2089-2100. 
+doi: 10.1093/bioinformatics/btn358
+
+Original Phylomatic citation:
+
+Webb, C. O. & Donoghue, M. J. 2005. Phylomatic: tree assembly for applied phylogenetics. Molecular 
+Ecology Resources, 5: 181-183. doi: 10.1111/j.1471-8286.2004.00829.x
+	</help>
+</tool>
+

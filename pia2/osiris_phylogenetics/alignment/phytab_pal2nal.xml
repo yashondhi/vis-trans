@@ -1,0 +1,96 @@
+<tool id="phytab_pal2nal_Chen" name="Phytab PAL2NAL v.14 Chen" version="1.0">
+	<description>Convert tab-delimited multiple sequence alignment of proteins and nucleotides into codon alignments</description>
+	<command interpreter="python">phytab_pal2nal.py $alnfile $nucfile fasta $blockonly $nogap $nomismatch $codontable $format $output1</command>
+	<inputs>
+		<param name="alnfile" type="data" label="Tab-delimited multiple sequence alignments of proteins in Phytab" />
+		<param name="nucfile" type="data" label="Tab-delimited DNA (or mRNA) sequences in Phytab format" />
+		<param name="blockonly" type="select" label="Use only selected positions ('#' under the input alignment)" default="0">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                </param>
+                <param name="nogap" type="select" label="Remove gaps, inframe stop codons" default="0">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                </param>
+                <param name="nomismatch" type="select" label="Remove mismatches (mismatched codons between protein and DNA)" default="0">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                </param>
+		<param name="codontable" type="select" label="Codon table" default="1">
+			<option value="1">Universal code (NCBI: transl_table=1)</option>
+			<option value="2">Vertebrate mitochondrial code (NCBI: transl_table=2)</option>
+			<option value="3">Yeast mitochondrial code (NCBI: transl_table=3)</option>
+			<option value="4">Mold, Protozoan, and Coelenterate Mitochondrial code and Mycoplasma/Spiroplasma code (NCBI: transl_table=4)</option>
+			<option value="5">Invertebrate mitochondrial code (NCBI: transl_table=5)</option>
+			<option value="6">Ciliate, Dasycladacean and Hexamita nuclear code (NCBI: transl_table=6)</option>
+			<option value="9">Echinoderm and Flatworm mitochondrial code (NCBI: transl_table=9)</option>
+			<option value="10">Euplotid nuclear code (NCBI: transl_table=10)</option>
+			<option value="11">Bacterial, archaeal and plant plastid code (NCBI: transl_table=11)</option>
+			<option value="12">Alternative yeast nuclear code (NCBI: transl_table=12)</option>
+			<option value="13">Ascidian mitochondrial code (NCBI: transl_table=13)</option>
+			<option value="14">Alternative flatworm mitochondrial code (NCBI: transl_table=14)</option>
+			<option value="15">Blepharisma nuclear code</option>
+			<option value="16">Chlorophycean mitochondrial code</option>
+			<option value="21">Trematode mitochondrial code</option>
+			<option value="22">Scenedesmus obliquus mitochondrial code</option>
+			<option value="23">Thraustochytrium mitochondrial code</option>
+		</param>
+		<param name="format" type="select" label="Select output format">
+			<option value="fasta">FASTA</option>
+			<option value="clustal">Clustal</option>
+			<option value="paml">PAML</option>
+			<option value="codon">Codon</option>
+		</param>
+	</inputs> 
+	<outputs>
+		<data format="zip" name="output1" label="zip containg fasta output"/>
+	</outputs>
+	<tests>
+	</tests>
+        <help>
+**What it does**
+
+"PAL2NAL is a program that converts a multiple sequence alignment of proteins and the corresponding DNA (or mRNA) sequences into a codon alignment. The program automatically assigns the corresponding codon sequence even if the input DNA sequence has mismatches with the input protein sequence, or contains UTRs, polyA tails. It can also deal with frame shifts in the input alignment, which is suitable for the analysis of pseudogenes. The resulting codon alignment can further be subjected to the calculation of synonymous (dS) and non-synonymous (dN) substitution rates." (PAL2NAL web server; http://www.bork.embl.de/pal2nal)
+
+Phytab PAL2NAL v. 14 generates codon alignments for phytab input files (phytab protein alignment and corresponding phytab DNA or mRNA alignment).
+
+------
+
+**Inputs**
+
+Input file 1: An alignment of protein sequences in phytab format. 
+Input file 2: An alignment of corresponding (to Input file 1) DNA or mRNA sequences in phytab format.
+
+Introduction to phytab format: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+------
+
+**Outputs**
+
+The output is a zipped file of individual codon alignments for each protein in FASTA format. 
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing t$
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Mikita Suyama, David Torrents, and Peer Bork (2006)
+PAL2NAL: robust conversion of protein sequence alignments into the corresponding codon alignments.
+Nucleic Acids Res. 34, W609-W612.
+
+</help>
+
+</tool>		

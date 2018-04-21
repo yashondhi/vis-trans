@@ -1,0 +1,26 @@
+<tool id="pulldomain2fasta" name="pulldomain2fasta" version="1.0">
+  <description>hmmsearch :: search sequences with hmm. Write sequences to fasta file.</description>
+  <requirements>
+    <requirement type="package">hmmsearch</requirement>
+    <requirement type="package">esl-reformat</requirement>
+  </requirements>
+  <command interpreter="bash">
+    pulldomain2fasta.sh $hmm $database $hmmsearch_results
+  </command>
+  <inputs>
+    <param format="txt" name="hmm" type="data" label="HMM profiles" help="This should be an HMM model from hmmbuild or the pfam database"/>
+    <param format="fasta" name="database" type="data" label="Sequence data" help="This should be a sequence database to be searched, in fasta format"/>
+  </inputs>
+  <outputs>
+    <data format="fasta" name="hmmsearch_results" label="${tool.name} on ${on_string}: results" />
+  </outputs>
+  <tests>
+  </tests>
+  <help>
+  **hmmsearch v3.0**
+  
+  Runs hmmsearch on HMM model data.
+
+  See hmmsearch help: ftp://selab.janelia.org/pub/software/hmmer3/3.0/Userguide.pdf
+  </help>
+</tool>

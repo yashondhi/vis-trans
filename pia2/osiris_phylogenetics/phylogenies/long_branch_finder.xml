@@ -1,0 +1,58 @@
+<tool id="long_branch_finder" name="Long Branch Finder" version="1.0">
+  <description>Identifies long tips in newick trees</description>
+  <command interpreter="python">long_branch_finder.py $tabulartreelist $cutoffvalue > $output</command>
+  <inputs>
+    <param name="tabulartreelist" format="tabular" type="data" label="Tabulated list of newick trees with branch lengths" help="See format requirements and restrictions below. This input will be list of trees output from Phytab RAxML-Parsimony"/>
+    <param name="cutoffvalue" size="4" type="integer" value="1" label="Identify tips longer than ___ standard deviations of the tree's median branch length" help="Enter an integer as the cut-off."/>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="output" label="${tool.name} on ${on_string}: Long-tips list" />
+  </outputs>
+  <help>
+
+**What it does**
+
+Use this tool to create a list of terminal branches from one or more trees that exceed a length cut-off.  
+
+This tool calculates the statistics for the branch-length distribution in each newick tree.  A terminal branch whose length falls past a specified number of standard deviations is reported in 
+the output.
+The list output from this tool may be used to filter/prune the original PHYTAB sequence file using the tool "Prune phytab using list".
+
+-----
+
+**Example**
+
+Input File (2 tab-delimited columns)::
+
+  GeneA   (((Felis_catus:0.234,Canis_familiaris:0.345):0.567,Equus_monoclonius:3.98):0.564,Mus_musculus:0.456):0.0;
+  GeneB   (((Felis_catus:4.123,Canis_familiaris:0.035):0.234,Equus_monoclonius:1.12):0.345,Mus_musculus:0.234):0.0;
+
+Currently, taxon names must only include only alphanumeric characters in two fields delimted by one underscore, for example: 
+
+  Genus_species
+  GENUSspecies_sample2010
+
+If 3 standard deviations are selected as the cut-off, then the output from the example above will yield::
+
+  Equus_monoclonius  geneA
+  Felis_catus  geneB
+
+Only terminal branches will be identified.  (To remove entire clades subtended by long internal branches, see the tool "phytab_LB_pruner".)
+
+-------    
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+   
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+  </help>
+</tool>

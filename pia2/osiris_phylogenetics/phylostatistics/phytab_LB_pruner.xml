@@ -1,0 +1,59 @@
+<tool id="phytab_LB_pruner" name="Phytab_LB_Pruner" version="1.0">
+  <description>LB_pruner: Identify genes on very long branches.</description>
+  <requirements>
+    <requirement type="package">LB_prunerG.pl</requirement>
+  </requirements>
+  <command interpreter="python">
+    phytab_LB_pruner.py -i $data -m $multiplier
+  </command>
+  <inputs>
+    <param format="txt" name="data" type="data" label="Sequence data" help="This should be sequence data in phytab or FASTA"/>
+    <param name="multiplier" type="float" value="4" label="Multiplier" help="Value of Multiplier, M. Branches longer than M times average are written to 
+file" >
+    </param>
+  </inputs>
+  <outputs>
+    <data format="tabular" name="LB pruner results" label="${tool.name} on ${on_string}: results" from_work_dir="data/results.data" />
+  </outputs>
+  <tests>
+  </tests>
+  <help>
+**What it does**
+
+LB pruner will find the average of all branch lengths in each Newick tree. Given the user-input multiplier value (M), if any branch is longer than Mx 
+the average branch length, that gene will be written to the tab-delimited output file. See outputs section for more information.
+
+------
+
+**Inputs**
+
+Sequence data file in phytab or FASTA. 
+
+Phytab description: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+Input a table as follows:::
+    name        newick_tree;
+    name2	newick_tree;
+    name3	newick_tree;
+
+Enter a value for M, the multiplier.
+
+------
+
+**Outputs**
+
+Tab delimited file listing any genes longer than Mx the average branch length for each Newick tree. If an internal branch is longer than M times the 
+average then all members of that clade are written to the out file, with 999 as the length of each branch. The third column is branch length, fourth 
+column is average branch length for each tree.
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+  </help>
+</tool>

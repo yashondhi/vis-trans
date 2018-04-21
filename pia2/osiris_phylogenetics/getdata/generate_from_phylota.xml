@@ -1,0 +1,65 @@
+<tool id="generate_from_phylota" name="Generate_from_PhyLoTA" version="1.0">
+    <description>Pull phylogenies and genetic data from phylota with species list input</description>
+    <requirements>
+	<requirement type="perl-module">Bio</requirement>
+	<requirement type="perl-module">LWP</requirement>
+    </requirements>		
+    <command interpreter="perl">
+		generate_from_phylota.pl $infile $database $outfile $treefile $phytabfile
+    </command>
+    <inputs>
+	    <param name="infile" type="data" format="txt" label="Input File" help="text list of species to download data from" />
+	    <param name="database" type="data" format="txt" label="Phylota tree list" help="List available here: http://phylota.net/pb/Download/pb.dmp.maximalnr.trees.184.gz" />
+    </inputs>
+    <outputs>
+	<data format="fasta" name="outfile" label="fasta file from ${tool.name} on ${on_string}: Out file" />
+	<data format="newick" name="treefile" label="Trees from ${tool.name} on ${on_string}: Out file" />
+	<data format="tabular" name="phytabfile" label="phytab from ${tool.name} on ${on_string}: Out file" />
+    </outputs>
+    <help>
+**What it does**
+
+Generate_from_PhyLoTA pulls pre-calculated trees and corresponding raw data from the PhyLoTA browser. The PhyLoTA browser groups 
+GenBank data into gene clusters by similarity, and uses those clusters for phylogenetic analysis.
+
+------
+
+**Inputs**
+
+1. A target list of species.
+2. The pre-calculated set of phylota trees available from the phylota web page. Available here: http://phylota.net/pb/Download/pb.dmp.maximalnr.trees.184.gz 
+
+------
+
+**Outputs**
+
+1. All raw sequence data in fasta format for the trees in #2.
+2. All trees in newick format. Trees will contain more species than the species list, and all species are retained.
+3. All raw sequence data in PHYTAB format. http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+-------    
+
+**Additional Information**
+
+http://osiris-phylogenetics.blogspot.com/2012/09/generatefromphylota.html
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+   
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Sanderson, M. J., D. Boss, D. Chen, K. A. Cranston, and A. Wehe. 2008. The PhyLoTA Browser: processing GenBank for molecular phylogenetics research. Syst. Biol. 57:335-346. 
+
+    </help>
+</tool>
+
+

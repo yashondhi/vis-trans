@@ -1,0 +1,44 @@
+<tool id="remove_gbs_dupes" name="remove_gbs_dupes" version="1.0">
+    <description> Finds duplicates in genbankstrip output files </description>
+    <command interpreter="perl">
+        remove_gbs_dupes.pl $infile $okfile $dupefile $subsp $var
+    </command>
+    <inputs>
+        <param format="tabular" name="infile" type="data" label="Phytab Input file" help="Output of genbankstrip"/>
+        <param format="tabular" name="infile" type="data" label="Phytab Input file" help="Output of genbankstrip"/>
+        <param name='subsp' type='boolean' checked='false' truevalue='1' falsevalue='0' label='Remove lines containing subsp'/>
+        <param name='var' type='boolean' checked='false' truevalue='1' falsevalue='0' label='Remove lines containing _var_'/>
+    </inputs>
+    <outputs>
+	<data format="tabular" name="okfile" label="Unique phytab lines from ${on_string}" />
+	<data format="tabular" name="dupefile" label="Duplicated phytab lines from ${on_string}" />
+    </outputs>
+    <help>
+**What it does**
+
+Finds species names that end in _2 or _3 or ... _N which are duplicate genes in a species in genbankstrip, and it writes those lines to another file.
+
+------
+
+**Inputs**
+
+1. PHYTAB format input file.
+
+------
+
+**Outputs**
+
+Two PHYTAB format files. One contains only unique species. The other contains duplicates. 
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>

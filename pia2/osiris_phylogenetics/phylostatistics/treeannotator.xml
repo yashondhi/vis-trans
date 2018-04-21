@@ -1,0 +1,39 @@
+<tool id="beast_tree_annotator172" name="Tree Annotator (BEAST 1.7.2)" version="1.0.1">
+	<description>Runs BEAST 1.7.2 Tree Annotator</description>
+	<command interpreter="perl">treeannotator.pl $input $burnin $node_heights</command>
+	<inputs>
+		<param name="input" type="data" format="trees" label="Input file" />
+		<param name="burnin" value="0" type="integer" label="Burnin" />
+		<param name="node_heights" type="select" label="Node heights" >
+			<option value="0">Keep</option>
+			<option value="1">Median</option>
+			<option value="2">Mean</option>
+		</param>
+	</inputs>
+	<outputs>
+		<data from_work_dir="out.tre" />
+	</outputs>
+
+	<help>
+		TreeAnnotator is a part of BEAST 1.7.2.
+		
+		http://beast.bio.ed.ac.uk/Main_Page
+		
+		This program assists in summarizing the information from a sample of trees produced by BEAST onto a single “target” tree. 
+		The summary information includes the posterior probabilities of the nodes in the target tree, the posterior estimates and HPD limits of the node heights and (in the case of a relaxed molecular clock model) the rates.
+		
+		Burnin: This option allows you to select the amount of burn-in, i.e., the number of samples that will be discarded at the start of the run, so that you are only analysing the part of the trace that is in equilibrium.
+		
+		Node heights: This option allows you select how the node heights are summarised on the target tree. You can choose to keep the heights that the target tree has, or rescale it to reflect the posterior mean/median node heights for the clades contained in the target tree.
+		
+		http://beast.bio.ed.ac.uk/TreeAnnotator
+		
+		Citations:
+		
+		http://mbe.oxfordjournals.org/content/early/2012/02/25/molbev.mss075.abstract
+		Drummond AJ, Suchard MA, Xie D and Rambaut A "Bayesian phylogenetics with BEAUti and the BEAST 1.7" "Molecular Biology And Evolution" "in press"
+		
+		
+		
+	</help>
+</tool>

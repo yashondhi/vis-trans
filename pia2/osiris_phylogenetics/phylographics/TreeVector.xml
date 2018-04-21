@@ -1,0 +1,63 @@
+<tool id="tree_vector" name="TreeVector" version="1.0">
+ <description>Convert Newick tree topologies to SVG trees</description>
+ <command interpreter="python">TreeVector.py
+  --jarBin='~/bin/'
+  --jarFile='TreeVector.jar'
+  --jvmArgs='-Xmx250m'
+  --input=$tree
+  --svg=$output
+  --shape=$shape
+  --length=$length
+ </command>
+ <inputs>
+  <param name="tree" type="data" format="tre" label="Newick tree topology"/>
+  <param name="shape" type="select" label="Branch Shape">
+   <option value="square">Square branches</option>
+   <option value="triangle">Triangle branches</option>
+  </param>  
+  <param name="length" type="select" label="Branch Length">
+   <option value="phylo" selected="true">Use Newick branch lengths</option>
+   <option value="clad">Line up labels</option>
+   <option value="simpleclad">Branch lengths all same length</option>
+  </param>  
+ </inputs>
+ <outputs>
+    <data format="svg" name="output"> </data>
+ </outputs>
+ <tests>
+ </tests>
+ <help>
+**What it does**
+
+TreeVector (Pethica et al., 2010) converts Newick format tree topologies to SVG trees.
+
+------
+
+**Inputs**
+
+Newick tree topology.
+
+------
+
+**Outputs**
+
+Scalable Vector Graphic (SVG) tree.
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider 
+citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+TreeVector Citation
+
+Pethica, R., Barker, G., Kovacs, T. and Gough, J. 2010. TreeVector: Scalable, Interactive, 
+Phylogenetic Trees for the Web. PLoS ONE 5(1), e8934. doi: 10.1371/journal.pone.0008934
+ </help>
+</tool>
+

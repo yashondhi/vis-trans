@@ -1,0 +1,86 @@
+<tool id="sate" name="sate" version="1.0" force_history_refresh='True'>
+    <description> Simultaneous Alignment and Tree Estimation </description>
+    <requirements>
+        <requirement type="package">SATe</requirement>
+    </requirements>
+    <command interpreter="bash">
+	sate.sh $data_file $type $sate_log $runtype.AUTO 2>&amp;1
+    </command>
+    <inputs>
+	<param name="Run" type="text" label="Run Name" help="Used for files"/>
+        <param format="fasta" name="data_file" type="data" label="Unaligned FASTA File" help=""/>
+
+    <param name="type" type="select" label="Type of data in FASTA file">
+      <option value="dna">DNA</option>
+      <option value="protein">Protein</option>
+    </param>
+
+    <conditional name="runtype">
+    <param name="AUTO" type="select" label="Run Type">
+      <option value="AUTO">Automatic</option>
+      <option value="CONFIG">Config_file</option>
+    </param>
+    <when value="CONFIG">
+        <param format="txt" name="config_file" type="data" optional="false" label="Configuration file" help="To obtain, first run with auto then modify customizable inputs"/>
+    </when>
+
+    </conditional>
+
+    </inputs>
+    <outputs>
+	<data format="txt" name="sate_log" label="$Run: ${tool.name} Screen Output" />
+	<data format="txt" name="config" label="$Run: ${tool.name} Config File" from_work_dir="satejob_temp_sate_config.txt" />
+	<data format="fasta" name="align" label="$Run: ${tool.name} Aligned fasta File" from_work_dir="satejob.aln" />
+	<data format="txt" name="tree" label="$Run: ${tool.name} Tree File" from_work_dir="satejob.tre" />
+    </outputs>
+    <tests>
+    </tests>
+    <help>
+**What it does**
+
+SATe performs alignment and estimates a phylogenetic tree iteratively in one package.
+
+------
+
+**Inputs**
+
+Input is a FASTA file of sequences to be aligned for phylogenetic analysis. Optional is a Configuration file. To get an inital Configuration file that can be modified in a text editor, run the tool once with the "AUTO" setting.
+
+------
+
+**Outputs**
+
+SATe writes the resulting tree file in newick, the aligned sequences in FASTA, and a config file in text.
+
+-------    
+
+**Versioning**
+
+Osiris tool sate 1.0 uses SATe 2.27
+
+-------    
+
+**Additional Information**
+
+sate Home Page.
+http://phylo.bio.ku.edu/software/sate/sate.html
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Liu K., Warnow T.J., Holder M.T., Nelesen S.M., Yu J., Stamatakis A.P., Linder C.R. 2012. SATe-II: very fast and accurate simultaneous estimation of multiple sequence alignments and phylogenetic trees. Syst. Biol. 61:90.106.Liu K., Warnow T.J., Holder M.T., Nelesen S.M., Yu J., Stamatakis A.P., Linder C.R. 2012. SATe-II: very fast and accurate simultaneous estimation of multiple sequence alignments and phylogenetic trees. Syst. Biol. 61:90.106.
+
+Plese see SATe users manual for other citations, including alignment program, ML program, etc, depending on options.
+
+    </help>
+</tool>
+

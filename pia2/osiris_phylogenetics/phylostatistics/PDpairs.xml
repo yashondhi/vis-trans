@@ -1,0 +1,59 @@
+<tool id="PDpairs" name="PDpairs">
+    <description>Pairwise distance between taxa in a phylogenetic tree</description>
+    <requirements>
+	<requirement type="perl-module">Bio</requirement>
+    </requirements>
+    <command interpreter="perl">
+		PD.pl $intable $intree $outtable $half
+    </command>
+    <inputs>
+	    <param name="intree" type="data" format="txt" label="Input Tree File" help="newick" />
+	    <param name="intable" type="data" format="tabular" label="Table of species pairs" help="species tab species" />
+       	    <param name='half' type='boolean' checked='false' truevalue='yes' falsevalue='no' label='Calculate Divergence times (divides pairwise distances in half)' />
+    </inputs>
+    <outputs>
+	<data format="tabular" name="outtable" label="${tool.name} on ${on_string}: Out file" />
+    </outputs>
+    <help>
+**What it does**
+
+PDpairs generates Phylogenetic Distances (PD) for pairs of species in a phylogenetic tree.
+
+------
+
+**Input formats**
+
+Input a table of species pairs::
+
+  species1	species2
+  species2	species4
+
+And a Newick format phylogeny with branch lengths
+
+------
+
+**Outputs**
+
+Output is a table of the species pairs followed by a column of pairwise distance for each tree in the file::
+
+  species1	species2	1.104
+  species2	species4	2.119
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Stajich, J., Block, D., Boulez, K., Brenner, S., Chervitz, S., Dagdigian, C., Fuellen, G., Gilbert, J., Korf, I., Lapp, H. et al. (2002). The Bioperl toolkit: perl modules for the life sciences. Genome Res. 12,1611 -1618.
+
+Faith DP (1992) Conservation evaluation and phylogenetic diversity. Biological Conservation 61:1-10.
+
+    </help>
+</tool>

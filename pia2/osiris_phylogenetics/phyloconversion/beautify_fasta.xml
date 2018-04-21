@@ -1,0 +1,61 @@
+<tool id="beautify_fasta" name="Beautify_FASTA" version="1.0">
+    <description>Converts interleaved FASTA to non-interleaved</description>
+    <command interpreter="perl">
+		beautify_fasta.pl $infile $outfile $delpipes $convgi $delslash $renumber $space $truncate $suffix
+    </command>
+    <inputs>
+	    <param name="infile" type="data" format="fasta" label="Input File" help="fasta file to convert" />
+	    <param name='delpipes' type='boolean' checked='no' truevalue='yes' falsevalue='no' label='Convert Pipes' help='Convert pipe symbols in fasta sequence id to space.'/>
+	    <param name='convgi' type='boolean' checked='no' truevalue='yes' falsevalue='no' label='Convert gi|' help='Converts instances of gi| to gi_.'/>
+	    <param name='delslash' type='boolean' checked='no' truevalue='yes' falsevalue='no' label='Convert slash \ ' help='Converts instances of \ to _.'/>
+	    <param name='renumber' type='boolean' checked='no' truevalue='yes' falsevalue='no' label='Add a unique number' help='Sequentially add a unique number to beginning of each sequence.'/>
+	    <param name='space' type='boolean' checked='no' truevalue='yes' falsevalue='no' label='Add a unique number' help='Add a space after the unique number.'/>
+	    <param name='truncate' type='boolean' checked='no' truevalue='yes' falsevalue='no' label='Truncate' help='Truncate name and only keep up to first space.'/>
+	    <param name='suffix' type='select' label='Suffix' help='Add a suffix to the description to denote forward (.1) or reverse (.2) of paired reads'>
+		<option value="none">none</option>
+		<option value=".1">.1</option>
+		<option value=".2">.2</option>
+	    </param>
+    </inputs>
+    <outputs>
+	<data format="fasta" name="outfile" label="${tool.name} on ${on_string}: Out file" />
+    </outputs>
+    <help>**What it do**
+
+Input an interleaved FASTA file. Beautify_FASTA converts interleaved FASTA to
+non-interleaved (full sequence on one line). In addition, you can choose to
+convert symbols from the FASTA ID. The FASTA ID is the descriptor from the >
+to the first space. The FASTA description (first line after any space) is not changed.
+
+------
+
+**Inputs**
+
+Interleaved FASTA file.
+
+------
+
+**Outputs**
+
+Non-interleaved FASTA file with optional modifications to the FASTA ID.
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please 
+consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>

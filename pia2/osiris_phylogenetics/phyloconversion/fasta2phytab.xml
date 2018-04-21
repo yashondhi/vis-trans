@@ -1,0 +1,66 @@
+<tool id="fasta2phytab" name="FASTA2PHYTAB" version="1.1">
+    <description>Converts FASTA file with sequences from same gene family to PHYTAB format</description>
+    <command interpreter="perl">
+	#if $sp_opts.sp_opts_selector=="fasta"
+		fasta2phytab.pl $infile 'from fasta' $partition $convert > $outfile
+	#else
+		fasta2phytab.pl $infile $sp_opts.species $partition $convert > $outfile
+	#end if
+    </command>
+    <inputs>
+	    <param name="infile" type="data" format="fasta" label="Input File" help="fasta file to convert" />
+        <conditional name="sp_opts">
+            <param name="sp_opts_selector" type="select" label="Species Name Source">
+              <option value="fasta" selected="True">Take from fasta header</option>
+              <option value="user">user input</option>
+            </param>
+            <when value="fasta">
+	    <param name="species" type="hidden" value="from fasta" label="Species" help="" />
+            </when>
+            <when value="user">
+		<param name="species" type="text" format="tabular" label="Input name of species" help="" />
+            </when>
+        </conditional>
+	    <param name="partition" type="text" format="tabular" label="Name of partition" help="" />
+       	    <param name="convert" type='boolean' checked='false' truevalue='yes' falsevalue='no' label='Replace pipes with underscores' />
+    </inputs>
+    <outputs>
+	<data format="tabular" name="outfile" label="${tool.name} on ${on_string}: Out file" />
+    </outputs>
+    <help>
+**What it does**
+
+FASTA2PHYTAB takes an input FASTA file with sequences from the same gene family, and adds species name - either from the fasta header or from a single text entry - and 
+partition (gene family) name that will apply for all sequences. The output is a PHYTAB tabular format file.
+
+------
+
+**Inputs**
+
+A FASTA file with all sequences from the same gene family.
+
+------
+
+**Outputs**
+
+PHYTAB file format: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+-------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a 
+publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+    </help>
+</tool>

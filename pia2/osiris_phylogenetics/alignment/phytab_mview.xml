@@ -1,0 +1,69 @@
+<tool id="mview_phytab_python" name="phytab_MView" version="1.0">
+	<description>View multiple phytab sequence alignments in HTML</description>
+	<requirements><requirement type="package">mview</requirement></requirements>
+	<command interpreter="python">phytab_mview.py $phytabinput $dna $output "$output.extra_files_path"
+</command>
+
+	<inputs>
+		<param format="tabular" name="phytabinput" type="data" label="Phytab file of aligned genes to visualize" />
+    		<param name="dna" type="select" label="Data type">
+      			<option value="dna">DNA</option>
+      			<option value="protein">Protein</option>
+		</param>
+	</inputs>
+
+	<outputs>
+		<data format="html" name="output" label="${tool.name} on ${on_string}: Alignment"/>
+	</outputs>
+<help>
+**What it does**
+
+This tool uses the MVIEW package to convert an aligned sequences file in phytab format (ie, phytab_PRANK or phytab_MUSCLE output) to HTML for visualizing each gene's alignment directly in Galaxy.  
+
+------
+
+**Input**
+
+ALIGNED phytab example input (fields are tab-delimited)::
+
+  Species_1   GeneA   UniqueID   AAAATGCCTA-GTC
+  Species_2   GeneA   UniqueID   AAATTGCCTA-GTG
+  Species_3   GeneA   UniqueID   AAAATGGCTAGGAC
+  Species_1   GeneB   UniqueID   TACGTAG-CTTGATCCTATAA
+  Species_2   GeneB   UniqueID   TACGTAGTCTAGATCCTATAA
+  Species_3   GeneB   UniqueID   TACGTAGTCTTGATGGTATAA
+
+------
+
+**Output**
+
+links to html files for viewing multiple sequence alignments
+
+------
+
+**Additional Information**
+
+For large datasets, this tool can be slow, as this version runs serially. For a 
+parallel version that sends different genes to different processors, contact 
+ucsb_phylogenetics@lifesci.ucsb.edu
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at
+bitbucket.org
+
+------
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Citation for MView: 
+Brown, N.P., Leroy C., Sander C. (1998). MView: A Web compatible database search or multiple alignment viewer. Bioinformatics. 14(4):380-381.
+
+</help>
+</tool>

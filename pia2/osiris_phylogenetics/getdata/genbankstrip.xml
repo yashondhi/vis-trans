@@ -1,0 +1,65 @@
+<tool id="genbankstrip" name="GenBank_strip" version="1.0.0">
+    <description> Extracts sequences from GenBank files by gene name </description>
+    <command interpreter="perl">
+	genbankstrip.pl "-f"$data_file "-g"$gene "-l"$length $sp -op 
+    </command>
+    <inputs>
+        <param format="txt" name="data_file" type="data" optional="false" label="GenBank flat file"/>
+	<param name="gene" type="text" label="Gene to extract" help="Name must match the GenBank files or be synonymized" />
+	<param name="length" type="integer" value="75" label="Minimum gene length" help="Does not retain short genes." />
+	<param name='sp' type='boolean' checked='true' truevalue='-s' falsevalue='' label='Ignore undefined species' help='For example Vargula sp. would be ignored' />
+    </inputs>
+    <outputs>
+        <data format="tabular" name="stripfile" label="Summary ${tool.name} with ${on_string}" from_work_dir="striplist.txt"/>
+        <data format="tabular" name="phytabfile" label="Phytab Data ${tool.name} with ${on_string}" from_work_dir="osiris_gbs.phytab"/>
+    </outputs>
+    <help>
+**What it does**
+
+Extracts sequences from GenBank flat file based on gene name.
+
+------
+
+**Inputs**
+
+There are two alternative ways to input information.
+1. A list of Accession numbers in a text file that is uploaded to the Galaxy history.
+2. Optionally, the user can paste in a list of accession numbers separated by spaces.
+
+------
+
+**Outputs**
+
+The user selects which output format to use for data downloaded from GenBank. Options Include::
+  1. GenBank format
+  2. FASTA format
+  3. phytab format 
+
+phytab format includes a gene name, which is not standardized in GenBank format, so the user must add manually the gene 
+family names for all entries. If adding only one gene name, that will be used for all entries.
+
+-------    
+
+**Additional Information**
+
+phytab format is described here:
+http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+   
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+    </help>
+</tool>
+
+
+
+

@@ -1,0 +1,40 @@
+<tool id="NJst" name="NJst">
+  <description>Estimate species tree with NJst from table of tree names and newick trees</description>
+  <command interpreter="bash">NJst.sh $input $output </command>
+  <inputs>
+    <param name="input" type="data" format="tabular" label="Dataset" help="First column=Tree Name. Second Column=newick phylogeny"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="output" />
+  </outputs>
+
+  <help>
+
+.. class:: infomark
+
+**TIP:** If your data is not TAB delimited, use *Text Manipulation-&gt;Convert*
+
+**What it does**
+From the abstract: NJst is a "distance method for inferring unrooted species trees from a collection of unrooted gene trees. The species tree is estimated by the neighbor joining (NJ) tree built 
+from a distance matrix in which the distance between two species is defined as the average number of internodes between two species across gene trees, that is, average gene-tree internode 
+distance. The distance method is named NJst to distinguish it from the original NJ method. Under the coalescent model, we show that if gene trees are known or estimated correctly, the NJst 
+method is statistically consistent in estimating unrooted species trees. The simulation results suggest that NJst and STAR (another coalescence-based method for inferring species trees) perform 
+almost equally well in estimating topologies of species trees, whereas the Bayesian coalescence-based method, BEST, outperforms both NJst and STAR. Unlike BEST and STAR, the NJst method can take 
+unrooted gene trees to infer species trees without using an outgroup. In addition, the NJst method can handle missing data and is thus useful in phylogenomic studies in which data sets often 
+contain missing loci for some individuals."
+
+-------    
+
+**Citations**   
+Liang Liu and Lili Yu. Estimating Species Trees from Unrooted Gene Trees. Syst Biol (2011) 60(5): 661-667 first published online March 28, 2011 doi:10.1093/sysbio/syr027
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+Please direct questions or comments regarding tool functionality to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+
+</help>
+</tool>

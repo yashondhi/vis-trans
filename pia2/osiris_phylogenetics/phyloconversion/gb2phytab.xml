@@ -1,0 +1,51 @@
+<tool id="gb2phytab" name="GB2PHYTAB" version="1.0">
+    <description> Convert GenBank format flat file to PHYTAB tabular file </description>
+    <requirements>
+        <requirement type="package">raxml</requirement>
+    </requirements>
+    <command interpreter="perl">
+        gb2phytab.pl $data_file $outfile 2>&amp;1
+    </command>
+    <inputs>
+        <param format="txt" name="data_file" type="data" label="Genbank format infile." help="Can download from GenBank with get_gb and get_1_gb"/>
+    </inputs>
+    <outputs>
+        <data format="tabular" name="outfile" label="Phytab file from ${on_string}" />
+    </outputs>
+    <help>
+**What it does**
+
+This tool converts a file in the GenBank (NCBI) flat file format to the PHYTAB tabular format.
+
+------
+
+**Inputs**
+
+GenBank flat file format. Description: http://www.ncbi.nlm.nih.gov/Sitemap/samplerecord
+
+------
+
+**Outputs**
+
+PHYTAB tabular file format. Description:: 
+http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html 
+
+------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a 
+publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+	</help>
+</tool>

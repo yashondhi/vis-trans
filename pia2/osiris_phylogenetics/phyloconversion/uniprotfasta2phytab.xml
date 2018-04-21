@@ -1,0 +1,51 @@
+<tool id="uniprotfasta2phytab" name="UNIPROTPHYTAB2FASTA" version="1.0">
+    <description>Converts FASTA file downloaded from uniprot with sequences from same species and gene family to PHYTAB 
+format</description>
+    <command interpreter="perl">
+		uniprotfasta2phytab.pl $infile $gene > $outfile
+    </command>
+    <inputs>
+	    <param name="infile" type="data" format="fasta" label="Input File" help="fasta file to convert" />
+	    <param name="gene" type="text" format="tabular" label="Name of gene family" help="" />
+    </inputs>
+    <outputs>
+	<data format="tabular" name="outfile" label="${tool.name} on ${on_string}: Out file" />
+    </outputs>
+    <help>
+**What it does**
+
+FASTA2PHYTAB takes an input FASTA file with sequences from the gene family, and extracts species name and 
+partition (gene family) name that will apply for all sequences. The output is a PHYTAB tabular format file.
+
+------
+
+**Inputs**
+
+A FASTA file downloaded from uniprot. This should have a header something like 
+    >tr|B9UM22|B9UM22_MOUSE G protein-coupled receptor 81 OS=Mus musculus GN=Gpr81 PE=2 SV=1
+
+------
+
+**Outputs**
+
+PHYTAB file format: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+------
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the 
+osiris_phylogenetics site at bitbucket.org
+
+------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a 
+publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+    </help>
+</tool>

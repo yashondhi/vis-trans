@@ -1,0 +1,60 @@
+<tool id="phytab_muscle" name="phytab MUSCLE" version="1.0">
+  <description>MUSCLE: Multiple sequence alignment. Input can be FASTA or phytab format.</description>
+  <requirements>
+    <requirement type="package">muscle</requirement>
+  </requirements>
+  <command interpreter="python">
+    phytab_muscle.py -i $data > $muscle_stdout 2>&amp;1
+  </command>
+  <inputs>
+    <param format="txt" name="data" type="data" label="Sequence data" help="This should be sequence data in fasta or phytab format"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="muscle_stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="tabular" name="muscle_results" label="${tool.name} on ${on_string}: results" from_work_dir="data/results.data" />
+  </outputs>
+  <tests>
+  </tests>
+    <help>
+**What it does**
+
+Uses MUSCLE to perform multiple sequence alignment on multiple gene families in parallel.
+
+------
+
+**Inputs**
+
+Can take as input fasta or phytab format. Phytab allows alignment in parallel of multiple separate gene families/paralogs. See: 
+http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+
+------
+
+**Outputs**
+
+Either a fasta file or phytab file of aligned sequences
+
+-------    
+
+**Additional Information**
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+   
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Runs MUSCLE 3.8 Multiple Sequence Alignment
+See MUSCLE help: http://www.drive5.com/muscle/muscle_userguide3.8.html
+
+    </help>
+</tool>
+
+

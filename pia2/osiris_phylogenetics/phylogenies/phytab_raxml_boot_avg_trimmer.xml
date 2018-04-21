@@ -1,0 +1,53 @@
+<tool id="prune_phytab_boot" name="Prune Phytab Boot">
+    <description>Removes bootstrap probabilities (support values) below user-defined threshold</description>
+    <command interpreter="python">phytab_raxml_boot_avg_trimmer.py -i $input -o $output -p $prob</command>
+        <inputs>             
+            <param name="input" type="data" format="txt" label="Tabular file with bootstrap probabilities in the last column" />
+            <param name="prob" type="text" label="Remove trees with bootstrap probabilities below this value (from 0 to 100)" />
+        </inputs>
+        <outputs>
+            <data format="txt" name="output" label="tabular file output with bootstrap probabilities above or equal to threshold" />
+        </outputs>
+    <help>
+**What it does**
+
+Takes tabular file with bootstrap probabilities in the last column and outputs the same tabular file, but without the lines containing bootstrap
+probabilities below user-defined value.
+
+Designed to be used in conjunction with phytab_raxml_boot_avg, which calculates mean probabilities per RAxML tree.
+
+------
+
+**Inputs**
+
+Tabular file; with each line formatted as follows (not including quotes): "[name of tree] [bootstrap probability]".
+
+------
+
+**Outputs**
+
+Tabular file; each line is formatted as follows (not including quotes): "[name of tree] [bootstrap probability]". Does not contain line with
+bootstrap probabilities below user-defind threshold.
+
+-------
+
+**Additional Information**
+
+Requires Python 2.
+
+Please direct questions or comments to ucsb_phylogenetics@lifesci.ucsb.edu or, if you can, enter them on the osiris_phylogenetics site at bitbucket.org
+
+-------
+
+**Citations**
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing it.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+
+    </help>
+</tool>
+

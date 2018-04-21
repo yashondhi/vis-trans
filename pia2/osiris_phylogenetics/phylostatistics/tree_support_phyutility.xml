@@ -1,0 +1,59 @@
+<tool id="tree_support_phyutility" name="tree_support_phyutility">
+	<description>Calculates support for nodes of a single tree (bootstrap) using a file of multiple trees</description>
+	<requirements>
+		<requirement type="package">phyutility</requirement>
+	</requirements>
+	<command>
+                java -jar ${GALAXY_DATA_INDEX_DIR}/shared/jars/phyutility.jar -ts -in $treesfile -tree $besttree -out $outtree
+	</command>
+	<inputs>
+		<param format="txt" name="treesfile" type="data" label="Input trees file" help="A file of multiple trees in newick format"/>
+		<param format="txt" name="besttree" type="data" label="Target tree" help="Tree to find support for"/>
+	</inputs>
+	<outputs>
+		<data format="txt" name="outtree" label="Support by ${tool.name}" />
+	</outputs>
+    <help>
+**What it does**
+
+Tree support RAxML calculates support values for a given tree using a set of input trees. For example, it can calculate bootstrap support for the ML tree based on a set of trees from a bootstrap analysis.
+This is valuable when separating bootstrap analysis from ML analysis, and when separating bootstrap replicates in different runs, which can be concatenated and used as input for this tool.
+
+------
+
+**Inputs**
+
+1. Tree file with target tree.
+
+2. Set of phylogenies, branch lengths are ignored.
+
+------
+
+**Outputs**
+
+The focal tree is output with support values in Newick tree format.
+
+-------    
+
+**Additional Information**
+
+1. This tool Calls phyutility
+
+2. A similar tool is tree_support_RAxML, which works best with RAxML output
+
+-------    
+
+**Citations**   
+
+This tool is part of the Osiris Phylogenetics Tool Package for Galaxy. If you make extensive use of this tool in a publication, please consider citing the following.
+
+Current Osiris Citation is here
+
+http://osiris-phylogenetics.blogspot.com/2012/10/citation.html
+
+Additional Citations for this tool
+
+Smith, S. A. and Dunn, C. W. (2008) Phyutility: a phyloinformatics tool for trees, alignments, and molecular data. Bioinformatics. 24: 715-716
+
+    </help>
+</tool>

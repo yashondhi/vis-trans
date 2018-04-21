@@ -1,0 +1,29 @@
+<tool id="phytab_raxml_small" name="Phytab RAxML SMALL" version="1.0">
+  <description>Phytab RAxML SMALL - RAxML for phytab format. Calls only 1 node for 3 hours</description>
+  <requirements>
+    <requirement type="package">raxml</requirement>
+  </requirements>
+  <command interpreter="python">
+    phytab_raxml.py -i $sequence -e $evo -f $efile -T 4> $stdout 2>&amp;1
+  </command>
+  <inputs>
+    <param format="tabular" name="sequence" type="data" label="PHYTAB sequence file"/>
+    <param name="evo" type="select" format="text">
+      <label>Model of evolution to apply to all data partitions (-m)</label>
+      <option value="GTRGAMMA">GTRGAMMA</option> <option value="PROTGAMMADAYHOFF">PROTGAMMADAYHOFF</option> <option value="PROTGAMMADCMUT">PROTGAMMADCMUT</option> <option value="PROTGAMMAJTT">PROTGAMMAJTT</option> <option value="PROTGAMMAMTREV">PROTGAMMAMTREV</option> <option value="PROTGAMMAWAG">PROTGAMMAWAG</option> <option value="PROTGAMMARTREV">PROTGAMMARTREV</option> <option value="PROTGAMMACPREV">PROTGAMMACPREV</option> <option value="PROTGAMMAVT">PROTGAMMAVT</option> <option value="PROTGAMMABLOSUM62">PROTGAMMABLOSUM62</option> <option value="PROTGAMMAMTMAM">PROTGAMMAMTMAM</option> <option value="PROTGAMMALG">PROTGAMMALG</option> <option value="PROTGAMMAMTART">PROTGAMMAMTART</option> <option value="PROTGAMMAMTZOA">PROTGAMMAMTZOA</option> <option value="PROTGAMMAPMB">PROTGAMMAPMB</option> <option value="PROTGAMMAHIVB">PROTGAMMAHIVB</option> <option value="PROTGAMMAHIVW">PROTGAMMAHIVW</option> <option value="PROTGAMMAJTTDCMUT">PROTGAMMAJTTDCMUT</option> <option value="PROTGAMMAFLU">PROTGAMMAFLU</option> <option value="PROTGAMMAGTR">PROTGAMMAGTR</option>
+    </param>
+    <param format="txt" name="efile" type="data" optional="true" value="n" label="Tab-delimited file with partition name in first column, evolutionary model in the second column. Must be RAxML 
+valid model names. (optional)"/>
+  </inputs>
+  <outputs>
+    <data format="txt" name="stdout" label="${tool.name} on ${on_string}: stdout" />
+    <data format="tabular" name="results.phy" label="${tool.name} on ${on_string}: results" from_work_dir="results/results.phy" />
+  </outputs>
+  <tests>
+  </tests>
+  <help>
+  **Parallel RaXML**
+See phytab description here: http://osiris-phylogenetics.blogspot.com/2012/09/introduction-to-phytab-format.html
+  </help>
+</tool>
+

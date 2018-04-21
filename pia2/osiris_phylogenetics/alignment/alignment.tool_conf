@@ -1,0 +1,24 @@
+<<<<<<< /home/galaxy/galaxy-dist/tools/osiris/alignment/alignment.tool_conf
+<section name="Osiris:Alignment" id="alignment">
+=======
+<section name="Osiris: Alignment" id="alignment">
+>>>>>>> /tmp/alignment.tool_conf~other.3Q5xSY
+  <label text="Alignment" id="phyloalign" />
+        <tool file="osiris/alignment/phytab_muscle.xml" />
+        <tool file="osiris/alignment/phytab_aliscorecut.xml"/>
+        <tool file="osiris/alignment/phytab_mafft.xml" />
+        <tool file="osiris/alignment/phytab_mview.xml" />
+        <tool file="osiris/alignment/phytab_prank.xml" />
+        <tool file="osiris/alignment/mview.xml" />
+        <tool file="osiris/alignment/gblocks.xml" />
+        <tool file="osiris/alignment/phytab_ssr.xml" />
+        <tool file="osiris/alignment/gap-rem.xml" />
+  <label text="Concatenation" id="concat" />
+        <tool file="osiris/alignment/fasconcat.xml" />
+        <tool file="osiris/alignment/phylocatenator.xml" />
+        <tool file="osiris/alignment/fasta_concatenate_by_species.xml" />
+  <label text="ModelTest" id="modeltest" />
+        <tool file="osiris/alignment/jmodeltest.xml"/>
+        <tool file="osiris/alignment/prottest.xml" />
+ </section>
+
